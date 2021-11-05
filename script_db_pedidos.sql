@@ -58,35 +58,38 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   INDEX `fk_pedido_cliente1_idx` (`cliente_id` ASC) VISIBLE,
   CONSTRAINT `fk_pedido_cliente1`
     FOREIGN KEY (`cliente_id`)
-    REFERENCES `mydb`.`cliente` (`id`)
+    REFERENCES `cliente` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+DROP TABLE pedido;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`itens_pedido`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `itens_pedido` (
-  `id` INT NOT NULL,
+  `id` INT NOT null AUTO_INCREMENT,
   `pedido_idpedido` INT NOT NULL,
   `produto_id` INT NOT NULL,
   `quantidade` INT NOT NULL,
-  `valor_total` DOUBLE NOT NULL,
+  `valor_total` DOUBLE(5,2) NOT NULL,
   PRIMARY KEY (`id`, `pedido_idpedido`, `produto_id`),
   INDEX `fk_itens_pedido_pedido_idx` (`pedido_idpedido` ASC) VISIBLE,
   INDEX `fk__produto1_idx` (`produto_id` ASC) VISIBLE,
   CONSTRAINT `fk_itens_pedido_pedido`
     FOREIGN KEY (`pedido_idpedido`)
-    REFERENCES `mydb`.`pedido` (`idpedido`)
+    REFERENCES `pedido` (`idpedido`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk__produto1`
     FOREIGN KEY (`produto_id`)
-    REFERENCES `mydb`.`produto` (`id`)
+    REFERENCES `produto` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+DROP TABLE itens_pedido;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
