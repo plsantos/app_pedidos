@@ -35,7 +35,7 @@ public class ClienteController {
         Cliente clientePesquisado = repository.getOne(id);
         if(clientePesquisado != null){
             clientePesquisado.setNome(cliente.getNome());
-            repository.save(cliente);
+            repository.save(clientePesquisado);
         }
     }
 }
