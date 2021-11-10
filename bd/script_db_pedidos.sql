@@ -24,12 +24,12 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(45) NOT NULL,
   `unidade_medida` VARCHAR(45) NOT NULL,
-  `valor_unitario` VARCHAR(45) NOT NULL,
+  `valor_unitario` DOUBLE(5,2) NOT NULL,
   `status` TINYBLOB NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-
+drop table produto;
 -- -----------------------------------------------------
 -- Table `mydb`.`cliente`
 -- -----------------------------------------------------
@@ -38,21 +38,21 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `tipo` VARCHAR(15) NOT NULL,
   `documento` VARCHAR(20) NOT NULL,
   `nome` VARCHAR(80) NOT NULL,
+  `rua` VARCHAR(45) NOT NULL,
+  `numero` VARCHAR(45) NOT NULL,
+  `bairro` VARCHAR(45) NOT NULL,
+  `cidade` INT NOT NULL,
+  `cep` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-
+drop table cliente; 
 -- -----------------------------------------------------
 -- Table `mydb`.`pedido`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pedido` (
   `idpedido` INT NOT NULL AUTO_INCREMENT,
   `data` DATETIME NOT NULL,
-  `rua` VARCHAR(45) NOT NULL,
-  `numero` VARCHAR(45) NOT NULL,
-  `bairro` VARCHAR(45) NOT NULL,
-  `cidade` INT NOT NULL,
-  `cep` VARCHAR(45) NOT NULL,
   `cliente_id` INT NOT NULL,
   PRIMARY KEY (`idpedido`, `cliente_id`),
   INDEX `fk_pedido_cliente1_idx` (`cliente_id` ASC) VISIBLE,
