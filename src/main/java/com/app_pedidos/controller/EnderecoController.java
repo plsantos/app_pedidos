@@ -26,12 +26,12 @@ public class EnderecoController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id){
+    public void delete(@PathVariable Long id){
         repository.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable Integer id, @RequestBody Endereco endereco){
+    public void update(@PathVariable Long id, @RequestBody Endereco endereco){
         Endereco enderecoPesquisado = repository.getOne(id);
         if(enderecoPesquisado != null){
             enderecoPesquisado.setCidade(endereco.getCidade());
