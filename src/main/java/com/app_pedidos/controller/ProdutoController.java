@@ -26,12 +26,12 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id){
+    public void delete(@PathVariable Long id){
         repository.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable Integer id, @RequestBody Produto produto){
+    public void update(@PathVariable Long id, @RequestBody Produto produto){
         Produto produtoPesquisado = repository.getOne(id);
         if (produtoPesquisado != null){
             produtoPesquisado.setDescricao(produto.getDescricao());

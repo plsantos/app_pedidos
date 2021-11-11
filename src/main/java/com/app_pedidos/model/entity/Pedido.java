@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     LocalDate data = LocalDate.now();
     @ManyToOne
     @JoinColumn(name = "cliente_id")

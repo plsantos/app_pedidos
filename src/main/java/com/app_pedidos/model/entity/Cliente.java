@@ -18,7 +18,7 @@ import javax.persistence.Id;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String tipo;
     private String documento;
     private String nome;

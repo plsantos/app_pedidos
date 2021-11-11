@@ -18,7 +18,7 @@ import javax.persistence.Id;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String descricao;
     private String unidade_medida;
     private Double valor_unitario;
