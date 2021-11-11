@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class EnderecoDTO {
     private String rua;
     private String numero;
+    private String bairro;
     private String cidade;
     private String cep;
     private Cliente cliente;
@@ -19,6 +20,7 @@ public class EnderecoDTO {
     public EnderecoDTO(Endereco endereco) {
         this.rua = endereco.getRua();
         this.numero = endereco.getNumero();
+        this.bairro = endereco.getBairro();
         this.cidade = endereco.getCidade();
         this.cep = endereco.getCep();
         this.cliente = endereco.getCliente();
