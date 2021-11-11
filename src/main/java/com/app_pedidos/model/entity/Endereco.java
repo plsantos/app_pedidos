@@ -25,5 +25,4 @@ public class Endereco {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    private boolean situacao;
 }

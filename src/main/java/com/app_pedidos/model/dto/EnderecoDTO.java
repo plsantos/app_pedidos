@@ -15,7 +15,6 @@ public class EnderecoDTO {
     private String cidade;
     private String cep;
     private Cliente cliente;
-    private boolean situacao;
 
     public EnderecoDTO(Endereco endereco) {
         this.rua = endereco.getRua();
@@ -24,7 +23,6 @@ public class EnderecoDTO {
         this.cidade = endereco.getCidade();
         this.cep = endereco.getCep();
         this.cliente = endereco.getCliente();
-        this.situacao = endereco.isSituacao();
     }
 
     public static List<EnderecoDTO> converter(List<Endereco> enderecos){
