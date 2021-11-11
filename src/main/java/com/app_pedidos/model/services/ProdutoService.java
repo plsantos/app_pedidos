@@ -12,7 +12,7 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository repository;
 
-    public void inativar(int id) {
+    public void inativar(Long id) {
         Produto produtoExcluir = repository.getById(id);
         produtoExcluir.setStatus(false);
         repository.save(produtoExcluir);
