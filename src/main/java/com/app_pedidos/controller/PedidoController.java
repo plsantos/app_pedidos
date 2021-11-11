@@ -25,12 +25,12 @@ public class PedidoController {
         repository.save(pedido);
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         repository.deleteById(id);
     }
 
-    @PutMapping("{/id}")
+    @PutMapping("/{id}")
     public void update(@PathVariable Integer id, @RequestBody Pedido pedido) {
         Pedido pedidoPesquisado = repository.getOne(id);
         if (pedidoPesquisado != null) {
