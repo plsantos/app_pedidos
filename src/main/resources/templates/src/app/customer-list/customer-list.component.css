@@ -1,0 +1,17 @@
+table {
+  width: 80%;
+  margin-left: 125px;
+}
+
+mat-toolbar{
+  width: 80%;
+  margin-left: 125px;
+  background-color:#70587C;
+  color:white;
+}
+
+.title-customer-list{
+  margin-left: 400px;
+}
+
+

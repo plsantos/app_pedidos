@@ -1,0 +1,55 @@
+<mat-card>
+
+  <mat-toolbar>
+    <span class='title-customer-list'>Lista de Clientes</span>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="customer$" id="head" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+      The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- id Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let customer"> {{ customer.id }} </td>
+  </ng-container>
+
+  <!-- nome Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let customer"> {{ customer.nome }} </td>
+  </ng-container>
+
+   <!-- tipo Column -->
+   <ng-container matColumnDef="tipo">
+    <th mat-header-cell *matHeaderCellDef> Tipo </th>
+    <td mat-cell *matCellDef="let customer"> {{ customer.tipo }} </td>
+  </ng-container>
+
+   <!-- documento Column -->
+   <ng-container matColumnDef="documento">
+    <th mat-header-cell *matHeaderCellDef> Documento </th>
+    <td mat-cell *matCellDef="let customer"> {{ customer.documento }} </td>
+  </ng-container>
+
+   <!-- endereco Column -->
+   <ng-container matColumnDef="endereco">
+    <th mat-header-cell *matHeaderCellDef> Endereço </th>
+    <td mat-cell *matCellDef="let customer"> {{ customer.endereco }} </td>
+  </ng-container>
+
+  <!-- acoes Column -->
+  <ng-container matColumnDef="acoes">
+    <th mat-header-cell *matHeaderCellDef> Ações </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button >Editar</button>
+      <button mat-raised-button >Deletar</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</mat-card>
+
