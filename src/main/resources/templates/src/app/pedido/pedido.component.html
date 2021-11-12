@@ -1,12 +1,30 @@
 <p>
-  <mat-toolbar>
-
+  <mat-toolbar color="primary">
+    <span>Home</span>
+    <span class="example-spacer"></span>
+    <span>Produtos</span>
     <span>Pedidos</span>
-
   </mat-toolbar>
 </p>
-<nav>
-    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon><a routerLink="/home" routerLinkActive="active">Home</a>
-</nav>
-<!-- The routed views render in the <router-outlet>-->
+<p>
+  <mat-card>Pedido / Finalizar Compra</mat-card>
+</p>
+<p>
+  <table mat-table [dataSource]="myDataArray">
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef> Cliente </th>
+      <td mat-cell *matCellDef="let user"> {{user.cliente}} </td>
+    </ng-container>
+  </table>
+</p>
+
+
+
+
+
+
+
+
+
+
 <router-outlet></router-outlet>
