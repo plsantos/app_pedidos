@@ -14,6 +14,9 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import {MatButtonModule} from '@angular/material/button';
+import { OrderListComponent } from './order-list/order-list.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 
@@ -23,7 +26,8 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     HomeComponent,
     CustomerListComponent,
-    ProductListComponent
+    ProductListComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatCardModule,
     MatToolbarModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
