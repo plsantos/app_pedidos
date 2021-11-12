@@ -1,19 +1,35 @@
-import { Customer } from './../model/customer';
 import { HttpClient } from '@angular/common/http';
-import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Cliente } from '../model/cliente';
+
 
 @Injectable({ //necessário para utlização da injeção de dependência
   providedIn: 'root'
 })
 export class CustomerService {
+  constructor(private http:HttpClient) {}
 
-  private readonly API = '/assets/customer.json'; //endpoint do servidor depois apontar para o spring aqui
+  Url='http://localhost:8080/cliente';
 
+  getClientes(): Observable<any>{
+    return this.http.get<Cliente[]>(this.Url);
+  }
 
-  constructor(public httpClient: HttpClient) { } //injeção dependência instância do httpClient
+  getCliente(id: string): Observable<any>{
+    return this.http.get<Cliente>(this.Url + id);
+  }
 
-  findAll(){
-    return this.httpClient.get<Customer[]>(this.API); //retorna um observable de objeto
-}
+  saveCliente(cliente: Cliente): Observable<any>{
+    return this.http.post<Cliente>(this.Url, cliente);
+  }
+
+  editCliente(id: String, cliente: Cliente): Observable<any>{
+    return this.http.put(this.Url + id, cliente);
+  }
+
+  deleteCliente(id: String): Observable<any>{
+    return this.http.delete(this.Url + id);
+  }
+
 }

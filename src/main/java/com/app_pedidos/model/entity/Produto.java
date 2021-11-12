@@ -21,5 +21,5 @@ public class Produto {
     private Long id;
     private String descricao;
     private Double valor;
-    private boolean status;
+    private boolean status = true;
 }

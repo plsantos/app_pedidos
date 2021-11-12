@@ -9,11 +9,13 @@ import java.util.stream.Collectors;
 @Getter
 public class ProdutoDTO {
     private String descricao;
-    private double valor_unitario;
+    private double valor;
+    private boolean status;
 
     public ProdutoDTO(Produto produto){
         this.descricao = produto.getDescricao();
-        this.valor_unitario = produto.getValor();
+        this.valor = produto.getValor();
+        this.status = produto.isStatus();
     }
 
     public static List<ProdutoDTO> converter(List<Produto> produtos){

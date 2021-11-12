@@ -3,7 +3,7 @@
   <mat-toolbar>
     <span class='title-product-list'>Lista de Produtos</span>
   </mat-toolbar>
-<table mat-table [dataSource]="product$" class="mat-elevation-z8">
+<table mat-table [dataSource]="produto$" class="mat-elevation-z8">
 
   <!-- ID Column -->
   <ng-container matColumnDef="id">
@@ -18,9 +18,9 @@
   </ng-container>
 
   <!-- valor unitário Column -->
-  <ng-container matColumnDef="valorUnitario">
+  <ng-container matColumnDef="valor">
     <th mat-header-cell *matHeaderCellDef> Valor Unitário </th>
-    <td mat-cell *matCellDef="let product"> {{product.valorUnitario}} </td>
+    <td mat-cell *matCellDef="let product"> {{product.valor}} </td>
   </ng-container>
 
   <!-- status Column -->
