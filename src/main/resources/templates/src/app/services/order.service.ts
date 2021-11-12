@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Order } from '../model/order';
+import { Pedido } from '../model/pedido';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -14,6 +14,6 @@ export class OrderService {
   constructor(public httpClient: HttpClient) { }
 
   findAll(){
-    return this.httpClient.get<Order[]>(this.API);
+    return this.httpClient.get<Pedido[]>(this.API);
   }
 }
