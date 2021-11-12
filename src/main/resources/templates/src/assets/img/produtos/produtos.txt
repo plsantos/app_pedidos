@@ -11,10 +11,12 @@ Descrição: Orgulho e preconceito, Autor: Jane Austen;
 Valor unitário: R$ 45,13;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição: A batalha do apocalipse: Da queda dos anjos ao crepúsculo do mundo, Autor: Eduardo Spohr;
 Valor unitário: R$ 32,90;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição:Ruínas de Minaster, Autor: Raianne Viana;
 Valor unitário: R$ 49,90;
 Status: ativo;
