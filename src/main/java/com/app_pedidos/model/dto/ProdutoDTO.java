@@ -13,7 +13,7 @@ public class ProdutoDTO {
 
     public ProdutoDTO(Produto produto){
         this.descricao = produto.getDescricao();
-        this.valor_unitario = produto.getValor_unitario();
+        this.valor_unitario = produto.getValor();
     }
 
     public static List<ProdutoDTO> converter(List<Produto> produtos){
