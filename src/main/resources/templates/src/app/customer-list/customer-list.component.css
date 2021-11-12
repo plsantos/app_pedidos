@@ -14,4 +14,10 @@ mat-toolbar{
   margin-left: 400px;
 }
 
+td{
+  text-align: center;
+}
 
+th{
+  text-align:center;
+}
