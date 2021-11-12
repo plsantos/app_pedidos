@@ -6,20 +6,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Pedido {
+public class ItensPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    LocalDate data = LocalDate.now();
+    private int quantidadeProduto;
     @ManyToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
-    private boolean situacao;
+    @JoinColumn(name = "pedido_id")
+    private Pedido pedido;
+    @ManyToOne
+    @JoinColumn(name = "produto_id")
+    private Produto produto;
+
+
+
+
+
 }

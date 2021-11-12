@@ -17,8 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { OrderListComponent } from './order-list/order-list.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
-
-
+import { PedidoComponent } from './pedido/pedido.component';
 
 
 @NgModule({
@@ -27,7 +26,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     HomeComponent,
     CustomerListComponent,
     ProductListComponent,
-    OrderListComponent
+    OrderListComponent,
+    PedidoComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatToolbarModule,
     HttpClientModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

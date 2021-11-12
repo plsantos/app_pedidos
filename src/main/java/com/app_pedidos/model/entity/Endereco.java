@@ -6,20 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Pedido {
+public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    LocalDate data = LocalDate.now();
-    @ManyToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
-    private boolean situacao;
+    private String rua;
+    private String numero;
+    private String bairro;
+    private String cidade;
+    private String cep;
 }

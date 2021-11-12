@@ -26,12 +26,12 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id){
+    public void delete(@PathVariable Long id){
         repository.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable Integer id, @RequestBody Cliente cliente){
+    public void update(@PathVariable Long id, @RequestBody Cliente cliente){
         Cliente clientePesquisado = repository.getOne(id);
         if(clientePesquisado != null){
             clientePesquisado.setNome(cliente.getNome());
