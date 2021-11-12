@@ -20,6 +20,7 @@ import { OrderListComponent } from './order-list/order-list.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { PedidoComponent } from './pedido/pedido.component';
+import { EnderecoComponent } from './endereco/endereco.component';
 
 
 
@@ -31,7 +32,8 @@ import { PedidoComponent } from './pedido/pedido.component';
     CustomerListComponent,
     ProductListComponent,
     OrderListComponent,
-    PedidoComponent
+    PedidoComponent,
+    EnderecoComponent
   ],
   imports: [
     BrowserModule,
