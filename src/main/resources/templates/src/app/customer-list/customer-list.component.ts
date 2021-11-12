@@ -21,7 +21,6 @@ export class CustomerListComponent implements OnInit {
   }
 
 
-
    ngOnInit(): void {
     this.customerService.getClientes()
      .subscribe(data => {
@@ -30,5 +29,4 @@ export class CustomerListComponent implements OnInit {
 
    })
    }
-
 }
