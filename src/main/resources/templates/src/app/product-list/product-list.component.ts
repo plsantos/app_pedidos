@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './../model/product';
+import { Produto } from '../model/produto';
 import { ProductService } from './../services/product.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,17 +12,22 @@ import { Observable } from 'rxjs';
 })
 export class ProductListComponent implements OnInit {
 
-  product$: Observable<Product[]>;
-  displayedColumns = ['id', 'descricao', 'valorUnitario', 'status', 'acoes'];
+  produto$: Produto[] = [];
+  // Observable<Product[]>;
+  displayedColumns = ['id', 'descricao', 'valor', 'status', 'acoes'];
 
- constructor(private productService: ProductService) {
-   this.product$ = this.productService.findAll();
+ constructor(private productService: ProductService, private router: Router) {
+  // this.product$ = this.productService.findAll();
 
  }
+
 
  ngOnInit(): void {
+  this.productService.getProdutos()
+   .subscribe(data => {
+    this.produto$ = data;
+    console.log(data);
 
+ })
  }
-
-
 }
