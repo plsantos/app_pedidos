@@ -1,0 +1,35 @@
+table {
+  width: 80%;
+  margin-left: 125px;
+
+}
+
+mat-toolbar{
+  width: 80%;
+  margin-left: 125px;
+  background-color:#70587C;
+  color:white;
+}
+
+.title-customer-list{
+  margin-left: 400px;
+}
+
+
+th.mat-header-cell {
+  text-align: left;
+  color:#502F4c;
+  font-size: medium;
+  background-color:#C8B8DB;
+  text-align: center;
+}
+
+td.mat-cell{
+  text-align: center;
+}
+
+.mat-raised-button{
+  background-color: #C8B8DB;
+  margin: 10px;
+  padding: 1px;
+  }

@@ -1,0 +1,44 @@
+<mat-card>
+
+  <mat-toolbar>
+    <span class='title-customer-list'>Lista de Produtos</span>
+  </mat-toolbar>
+<table mat-table [dataSource]="product$" class="mat-elevation-z8">
+
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID</th>
+    <td mat-cell *matCellDef="let product"> {{product.id}} </td>
+  </ng-container>
+
+  <!-- descrição Column -->
+  <ng-container matColumnDef="descricao">
+    <th mat-header-cell *matHeaderCellDef> Descrição </th>
+    <td mat-cell *matCellDef="let product"> {{product.descricao}} </td>
+  </ng-container>
+
+  <!-- valor unitário Column -->
+  <ng-container matColumnDef="valorUnitario">
+    <th mat-header-cell *matHeaderCellDef> Valor Unitário </th>
+    <td mat-cell *matCellDef="let product"> {{product.valorUnitario}} </td>
+  </ng-container>
+
+  <!-- status Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let product"> {{product.status}} </td>
+  </ng-container>
+
+   <!-- acoes Column -->
+   <ng-container matColumnDef="acoes">
+    <th mat-header-cell *matHeaderCellDef> Ações </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button >Editar</button>
+      <button mat-raised-button >Excluir</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</mat-card>

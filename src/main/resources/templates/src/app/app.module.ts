@@ -12,6 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { HomeComponent } from './home/home.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 
@@ -19,7 +22,8 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import { HomeComponent } from './home/home.component';
     MatIconModule,
     MatCardModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
