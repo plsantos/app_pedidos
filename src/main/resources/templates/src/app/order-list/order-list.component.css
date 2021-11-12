@@ -37,14 +37,9 @@ td.mat-cell{
   margin: 25px;
 }
 
-/* edição botão finalizar compra e adicionar itens */
-.button{
-  margin-left: 850px;
-}
-
+/* edição button */
 .mat-raised-button{
   background-color: #C8B8DB;
   margin: 10px;
-  padding: 1px  5px;
+  padding: 1px;
   }
-

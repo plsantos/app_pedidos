@@ -2,6 +2,12 @@
   { "id": "2", "descricao": "Livro Harry Potter", "valorUnitario": "R$65,10", "status": "ativo"},
   { "id": "3", "descricao": "Livro 3 Porquinhos", "valorUnitario": "R$10,05","status": "ativo"},
   { "id": "4", "descricao": "Livro Direito Familiar", "valorUnitario": "R$999,99","status": "ativo"},
+  { "id": "2", "descricao": "Livro Harry Potter", "valorUnitario": "R$65,10", "status": "ativo"},
+  { "id": "3", "descricao": "Livro 3 Porquinhos", "valorUnitario": "R$10,05","status": "ativo"},
+  { "id": "4", "descricao": "Livro Direito Familiar", "valorUnitario": "R$999,99","status": "ativo"},
+  { "id": "2", "descricao": "Livro Harry Potter", "valorUnitario": "R$65,10", "status": "ativo"},
+  { "id": "3", "descricao": "Livro 3 Porquinhos", "valorUnitario": "R$10,05","status": "ativo"},
+  { "id": "4", "descricao": "Livro Direito Familiar", "valorUnitario": "R$999,99","status": "ativo"},
   { "id": "10", "descricao": "Livro Java", "valorUnitario": "R$555,21", "status": "ativo"}
 
 ]

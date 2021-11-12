@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class OrderListComponent implements OnInit {
 
   order$: Observable<Order[]>;
-  displayedColumns = ['id', 'cliente', 'dataPedido', 'valorTotal', 'situacao'];
+  displayedColumns = ['id', 'cliente', 'dataPedido', 'valorTotal', 'situacao', 'acoes'];
 
  constructor(private orderService: OrderService) {
    this.order$ = this.orderService.findAll();
