@@ -21,3 +21,21 @@ td{
 th{
   text-align:center;
 }
+
+th.mat-header-cell {
+  text-align: left;
+  color:#502F4c;
+  font-size: medium;
+  background-color:#C8B8DB;
+  text-align: center;
+}
+
+td.mat-cell{
+  text-align: center;
+}
+
+.mat-raised-button{
+  background-color: #C8B8DB;
+  margin: 10px;
+  padding: 1px;
+  }
