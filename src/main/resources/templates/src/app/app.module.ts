@@ -21,6 +21,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { PedidoComponent } from './pedido/pedido.component';
 import { EnderecoComponent } from './endereco/endereco.component';
+import { CustomerFormComponent } from './customer-form/customer-form.component';
 
 
 
@@ -33,7 +34,8 @@ import { EnderecoComponent } from './endereco/endereco.component';
     ProductListComponent,
     OrderListComponent,
     PedidoComponent,
-    EnderecoComponent
+    EnderecoComponent,
+    CustomerFormComponent
   ],
   imports: [
     BrowserModule,
