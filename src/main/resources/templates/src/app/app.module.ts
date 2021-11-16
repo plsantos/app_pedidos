@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { EnderecoComponent } from './endereco/endereco.component';
 
 
 
@@ -27,7 +28,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     CustomerListComponent,
     ProductListComponent,
     OrderListComponent,
-    PedidoComponent
+    PedidoComponent,
+    EnderecoComponent
   ],
   imports: [
     BrowserModule,

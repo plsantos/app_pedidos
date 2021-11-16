@@ -20,7 +20,6 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
-    private String unidade_medida;
-    private Double valor_unitario;
-    private boolean status;
+    private Double valor;
+    private boolean status = true;
 }

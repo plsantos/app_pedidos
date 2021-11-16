@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from './../model/order';
+import { Pedido } from '../model/pedido';
 import { OrderService } from './../services/order.service';
 import { Observable } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class OrderListComponent implements OnInit {
 
-  order$: Observable<Order[]>;
+  order$: Observable<Pedido[]>;
   displayedColumns = ['id', 'cliente', 'dataPedido', 'valorTotal', 'situacao', 'acoes'];
 
  constructor(private orderService: OrderService) {

@@ -1,4 +1,4 @@
-export interface Order {
+export interface Pedido {
   id:number;
   cliente: String;
   dataPedido: Date;

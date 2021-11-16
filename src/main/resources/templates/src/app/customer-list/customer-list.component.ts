@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from './../model/customer';
+import { Cliente } from '../model/cliente';
 import { CustomerService } from './../services/customer.service';
 import { Observable } from 'rxjs';
 
@@ -12,16 +12,21 @@ import { Observable } from 'rxjs';
 
 export class CustomerListComponent implements OnInit {
 
-  customer$: Observable<Customer[]>;
+  cliente$:  Cliente[] = [];
    displayedColumns = ['id', 'nome', 'tipo', 'documento', 'endereco', 'acoes'];
 
   constructor(private customerService: CustomerService) {
-    this.customer$ = this.customerService.findAll();
+    //this.customer$ = this.customerService.findAll();
 
   }
 
-  ngOnInit(): void { /**caso precise que algo seja iniciado apenas na hora q o componente é inicializado no HTML*/
 
-  }
+   ngOnInit(): void {
+    this.customerService.getClientes()
+     .subscribe(data => {
+      this.cliente$ = data;
+      console.log(data);
 
+   })
+   }
 }
