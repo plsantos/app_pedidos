@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-pedido',
@@ -12,4 +11,3 @@ export class PedidoComponent implements OnInit {
   ngOnInit(): void {
   }
 }
-
