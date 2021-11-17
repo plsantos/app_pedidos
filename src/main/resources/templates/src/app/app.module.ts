@@ -17,6 +17,11 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { EnderecoComponent } from './endereco/endereco.component';
+import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -29,7 +34,8 @@ import { EnderecoComponent } from './endereco/endereco.component';
     ProductListComponent,
     OrderListComponent,
     PedidoComponent,
-    EnderecoComponent
+    EnderecoComponent,
+    CadastroProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -43,12 +49,10 @@ import { EnderecoComponent } from './endereco/endereco.component';
     HttpClientModule,
     MatButtonModule,
     MatCheckboxModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatTableModule
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDividerModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
