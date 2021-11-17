@@ -10,11 +10,13 @@ import java.util.stream.Collectors;
 
 @Getter
 public class PedidoDTO {
+    private long id;
     private LocalDate data;
     private Cliente cliente;
     private boolean situacao;
 
     public PedidoDTO(Pedido pedido){
+        this.id = pedido.getId();
         this.data = pedido.getData();
         this.cliente = pedido.getCliente();
         this.situacao = pedido.isSituacao();
