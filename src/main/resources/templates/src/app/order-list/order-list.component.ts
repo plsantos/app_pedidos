@@ -26,4 +26,9 @@ export class OrderListComponent implements OnInit {
    })
    }
 
+   deletePedido(id: number): void {
+    this.orderService.deletePedido(id).subscribe();
+    this.order$ = this.order$.filter((p) => p.id != id);
+  }
+
   }

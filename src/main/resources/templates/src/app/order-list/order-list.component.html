@@ -39,9 +39,10 @@
    <!-- acoes Column -->
    <ng-container matColumnDef="acoes">
     <th mat-header-cell *matHeaderCellDef> Ações </th>
-    <td mat-cell *matCellDef="let element">
+    <td mat-cell *matCellDef="let order">
       <button mat-raised-button [routerLink]="['/routePath']" routerLinkActive="router-link-active" >Editar</button>
-      <button mat-raised-button >Excluir</button>
+      <button mat-raised-button       (click)="deletePedido(order.id)"
+      >Excluir</button>
     </td>
   </ng-container>
 
