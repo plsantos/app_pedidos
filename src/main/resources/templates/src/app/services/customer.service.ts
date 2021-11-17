@@ -16,7 +16,7 @@ export class CustomerService {
     return this.http.get<Cliente[]>(this.Url);
   }
 
-  getCliente(id: string): Observable<any>{
+  getCliente(id: number): Observable<any>{
     return this.http.get<Cliente>(this.Url + id);
   }
 
@@ -24,12 +24,12 @@ export class CustomerService {
     return this.http.post<Cliente>(this.Url, cliente);
   }
 
-  editCliente(id: String, cliente: Cliente): Observable<any>{
+  editCliente(id: number, cliente: Cliente): Observable<any>{
     return this.http.put(this.Url + id, cliente);
   }
 
-  deleteCliente(id: String): Observable<any>{
-    return this.http.delete(this.Url + id);
+  deleteCliente(id: number): Observable<any>{
+    return this.http.delete<Cliente>(`${this.Url}/${id}`);
   }
 
 }

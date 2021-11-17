@@ -22,4 +22,9 @@ export class CustomerListComponent implements OnInit {
       console.log(data);
     });
   }
+
+  deleteCliente(id: number): void {
+    this.customerService.deleteCliente(id).subscribe();
+    this.cliente$ = this.cliente$.filter((p) => p.id != id);
+  }
 }
