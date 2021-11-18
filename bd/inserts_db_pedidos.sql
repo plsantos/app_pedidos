@@ -1,35 +1,34 @@
 use pedidos;
 
-
-insert into produto (descricao, unidade_medida, valor_unitario, status) values('Livro Harry Potter', 'Box 5 unds',250.99, true);
-insert into produto (descricao, unidade_medida, valor_unitario, status) values('Livro de Odontologia', '255 p·ginas',80.05, true);
-insert into produto (descricao, unidade_medida, valor_unitario, status) values('Livro de Java', '489 p·ginas',520.88, true);
-insert into produto (descricao, unidade_medida, valor_unitario, status) values('Livro matem·tica 1', '121 p·ginas',100.07, false);
-insert into produto (descricao, unidade_medida, valor_unitario, status) values('Livro histÛria 3 porquinhos', '40 p·ginas',25.15, true);
-insert into produto (descricao, unidade_medida, valor_unitario, status) values('Livro culin·ria', '91 p·ginas',83.51, true);
-
-desc produto;
-select * from produto;
-
-insert into cliente (tipo, documento, nome, rua, numero, bairro, cidade, cep) values('PF', '03773748908','Carlos Alberto', 'Rua Amarela', 12, 'Azul', 'Arco-Ìris', '20000-230' );
-insert into cliente (tipo, documento, nome, rua, numero, bairro, cidade, cep) values('PF', '03773748908','Carlos Alberto', 'Rua Verde', 18, 'Caramelo', 'CÈu', '50333-580');
-
-select * from cliente;
+INSERT INTO ENDERECO(BAIRRO, CEP,CIDADE ,NUMERO,RUA)VALUES('teste','123','teste','teste','12345-000');
+INSERT INTO ENDERECO(BAIRRO, CEP,CIDADE ,NUMERO,RUA)VALUES('Federa√ß√£o','40230109','Salvador','168','Mata Maroto');
+INSERT INTO ENDERECO(BAIRRO, CEP,CIDADE ,NUMERO,RUA)VALUES('Alto das Pombas','40230109','Salvador','16','Sobradinho');
+INSERT INTO ENDERECO(BAIRRO, CEP,CIDADE ,NUMERO,RUA)VALUES('Cabula','40230111','Salvador','160','Sergio de Carvalho');
 
 
-insert into pedido (data, cliente_id, situacao) values('2021-11-04', 1, false);
-insert into pedido (data, cliente_id, situacao) values('2021-12-14',2, true);
+INSERT INTO CLIENTE(TIPO,DOCUMENTO,NOME,ENDERECO_ID)VALUES('pf','123456','natasha',1);
+INSERT INTO CLIENTE(TIPO,DOCUMENTO,NOME,ENDERECO_ID)VALUES('pf','123562','Carol',2);
+INSERT INTO CLIENTE(TIPO,DOCUMENTO,NOME,ENDERECO_ID)VALUES('pj','123455556','Paula',3);
+INSERT INTO CLIENTE(TIPO,DOCUMENTO,NOME,ENDERECO_ID)VALUES('pf','562486','Giovanna',4);
 
-select * from pedido;
+INSERT INTO PEDIDO(DATA,CLIENTE_ID,SITUACAO)VALUES('2021-01-01',1,TRUE);
+INSERT INTO PEDIDO(DATA,CLIENTE_ID,SITUACAO)VALUES('2022-01-01',2,FALSE);
+INSERT INTO PEDIDO(DATA,CLIENTE_ID,SITUACAO)VALUES('2021-04-01',3,TRUE);
+INSERT INTO PEDIDO(DATA,CLIENTE_ID,SITUACAO)VALUES('2019-01-21',4,FALSE);
 
-insert into itens_pedido (pedido_idpedido, produto_id, quantidade, valor_total) values(1,1,2, 500.01);
-select * from itens_pedido;
+INSERT INTO PRODUTO(DESCRICAO,VALOR,STATUS)VALUES('livro44444',30.50,TRUE);
+INSERT INTO PRODUTO(DESCRICAO,VALOR,STATUS)VALUES('Um Dia',50.00,FALSE);
+INSERT INTO PRODUTO(DESCRICAO,VALOR,STATUS)VALUES('Gabriela',20.00,TRUE);
+INSERT INTO PRODUTO(DESCRICAO,VALOR,STATUS)VALUES('Cerim√¥nia Mortal',30.50,FALSE);
 
-alter table cliente modify column cidade varchar(40) not null;
-alter table cliente modify column numero int not null;
+INSERT INTO ITENS_PEDIDO(QUANTIDADE_PRODUTO,PEDIDO_ID,PRODUTO_ID)VALUES(1,1,1);
+INSERT INTO ITENS_PEDIDO(QUANTIDADE_PRODUTO,PEDIDO_ID,PRODUTO_ID)VALUES(4,2,2);
+INSERT INTO ITENS_PEDIDO(QUANTIDADE_PRODUTO,PEDIDO_ID,PRODUTO_ID)VALUES(3,3,3);
+INSERT INTO ITENS_PEDIDO(QUANTIDADE_PRODUTO,PEDIDO_ID,PRODUTO_ID)VALUES(2,4,4);
 
-alter table pedido add column situacao boolean not null;
 
-
-
-desc ;
+select * from endereco e ;
+select * from CLIENTE e ;
+select * from PEDIDO e ;
+select * from PRODUTO e ;
+select * from ITENS_PEDIDO e ;
