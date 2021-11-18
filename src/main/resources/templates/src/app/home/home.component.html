@@ -1,25 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
 
-    <title>Genius</title>
-</head>
-<body>
-    <h2>Byanca é incrivel</h2>
-    <h1>Angular Router App</h1>
-<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav>
-  <ul>
-    <li><a routerLink="/itens" routerLinkActive="active">First Component</a></li>
-  </ul>
-</nav>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      
+      <p class="text-start text-break">Genius Livraria delivery é uma livraria online que busca facilitar a compra e entrega de livros de forma simples e fácil, com o melhor custo-benefício. <br>Nosso catálogo possui os mais diversos gêneros literários para agradar todos os públicos e idades, confira mais!</p>
 
+    </div>
+    <div class="col">
+      <div class="ms-auto p-2 bd-highlight">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/img/logo.png" width=600px height=300px >
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/img/banner1.png" width=600px height=300px >
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/img/banner2.png" width=600px height=300px >
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/img/banner3.png" width=600px height=300px >
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
 
-<!-- The routed views render in the <router-outlet>-->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-primary" href="#" role="button">Link</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-primary" href="#" role="button">Link</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-primary" href="#" role="button">Link</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
-</body>
-</html>
+
