@@ -7,6 +7,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { PedidoComponent} from './pedido/pedido.component';
 import {CadastroProdutoComponent} from './cadastro-produto/cadastro-produto.component';
+import { ItemOrderComponent } from './item-order/item-order.component';
 
 
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'orderList', component: OrderListComponent},
   { path: 'pedido', component: PedidoComponent},
   { path: 'cadastroProduto', component: CadastroProdutoComponent},
+  { path: 'itemOrder', component: ItemOrderComponent},
 ];
 
 @NgModule({
