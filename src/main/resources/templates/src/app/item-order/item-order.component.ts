@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItensPedido } from '../model/itensPedido';
-import { Router } from '@angular/router';
-import { OrderService } from '../services/order.service';
+import { ItemOrderService } from '../services/item-order.service';
 
 @Component({
   selector: 'app-item-order',
@@ -10,17 +9,17 @@ import { OrderService } from '../services/order.service';
 })
 export class ItemOrderComponent implements OnInit {
 
-  itens_pedido$: ItensPedido[] = [];
-  displayedColumns = ['id', 'idPedido', 'idProduto', 'quantidade', 'valorTotal'];
-
- constructor(private orderService: OrderService, private router: Router) {
-  this.order$ = this.orderService.findAll();
- }
+  listaItensPedido: ItensPedido[] = [];
+  displayedColumns = ['id', 'idPedido', 'idProduto', 'quantidade'];
+  constructor(private itemOrder: ItemOrderService) { }
 
 
 
-  ngOnInit(): void {
-   
+  ngOnInit() {
+   this.itemOrder.getItensPedido()
+   .subscribe(data => {
+     this.listaItensPedido = data
+   })
   }
 
 }
