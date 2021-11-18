@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'orderList', component: OrderListComponent},
   { path: 'pedido', component: PedidoComponent},
   { path: 'cadastroProduto', component: CadastroProdutoComponent},
-  { path: 'itensPedidos', component: ItemOrderComponent},
+  { path: 'itensPedido', component: ItemOrderComponent},
 ];
 
 @NgModule({

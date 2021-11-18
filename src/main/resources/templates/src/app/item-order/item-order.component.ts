@@ -10,7 +10,7 @@ import { ItemOrderService } from '../services/item-order.service';
 export class ItemOrderComponent implements OnInit {
 
   listaItensPedido: ItensPedido[] = [];
-  displayedColumns = ['id', 'idPedido', 'idProduto', 'quantidade'];
+  displayedColumns = ['id', 'idPedido', 'idProduto', 'quantidade', 'acoes' ];
   constructor(private itemOrder: ItemOrderService) { }
 
 
