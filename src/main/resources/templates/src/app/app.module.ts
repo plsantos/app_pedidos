@@ -19,11 +19,11 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { EnderecoComponent } from './endereco/endereco.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatRadioModule} from '@angular/material/radio';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule }   from '@angular/forms';
 
 
 
@@ -37,7 +37,7 @@ import {MatRadioModule} from '@angular/material/radio';
     PedidoComponent,
     EnderecoComponent,
     CustomerFormComponent,
-    CadastroProdutoComponent
+    CadastroProdutoComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,9 +54,10 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     MatSelectModule,
     MatDividerModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,1 +1,39 @@
-<p>customer-form works!</p>
+<form>
+
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" class="form-control" name="nome" id="nome">
+  </div>
+
+  <div class="form-group">
+    <label for="tipo">Tipo</label>
+    <select class="form-control" name="tipo" id="tipo">
+      <option value="1">Pessoa física</option>
+      <option value="2">Pessoa jurídica</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="documento">Documento</label>
+    <input type="text" class="form-control" name="documento" id="documento">
+  </div>
+
+  <div class="form-group">
+    <label for="endereco">Endereço</label>
+    <input type="text" class="form-control" name="endereco" id="endereco">
+  </div>
+
+  <button
+  mat-raised-button
+  [routerLink]="['/routePath']"
+  routerLinkActive="router-link-active"
+>
+  Editar
+</button>
+<button
+  mat-raised-button
+
+>
+  Excluir
+</button>
+
