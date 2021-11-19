@@ -10,7 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { ItemOrderComponent } from './item-order/item-order.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
+import { PaginationComponent } from './shared/pagination/pagination.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     HomeComponent,
     ItemOrderComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PaginationComponent
     
   ],
   imports: [
@@ -28,7 +30,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
