@@ -6,7 +6,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
-import {CadastroProdutoComponent} from './cadastro-produto/cadastro-produto.component';
+import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
+import { EnderecoComponent } from './endereco/endereco.component';
+
 
 
 const routes: Routes = [
@@ -16,7 +18,8 @@ const routes: Routes = [
   { path: 'orderList', component: OrderListComponent },
   { path: 'pedido', component: PedidoComponent },
   { path: 'customerForm', component: CustomerFormComponent },
-  { path: 'cadastroProduto', component: CadastroProdutoComponent},
+  { path: 'enderecoForm', component: EnderecoComponent },
+  { path: 'cadastroProduto', component: CadastroProdutoComponent}
 ];
 
 @NgModule({

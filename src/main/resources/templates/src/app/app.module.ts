@@ -24,6 +24,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule }   from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 
 
@@ -55,7 +57,8 @@ import { FormsModule }   from '@angular/forms';
     MatSelectModule,
     MatDividerModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
