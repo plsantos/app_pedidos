@@ -17,7 +17,6 @@ public class ItensPedidoDTO {
 
     public ItensPedidoDTO(ItensPedido itensPedido){
         this.quantidadeProduto = itensPedido.getQuantidadeProduto();
-        this.pedido = itensPedido.getPedido();
         this.produto = itensPedido.getProduto();
     }
 
