@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,6 +29,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+
 
 
 @NgModule({
@@ -37,7 +40,14 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ItemOrderComponent,
     HeaderComponent,
     FooterComponent,
-    PaginationComponent
+    PaginationComponent,
+    CustomerListComponent,
+    ProductListComponent,
+    OrderListComponent,
+    PedidoComponent,
+    EnderecoComponent,
+    CustomerFormComponent,
+    CadastroProdutoComponent
 
   ],
   imports: [
@@ -59,7 +69,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     RouterModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
