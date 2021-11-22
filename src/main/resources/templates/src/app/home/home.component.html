@@ -54,15 +54,14 @@
         <h5 class="card-title">Orgulho e Preconceito</h5>
         <p class="card-text">Jane Austen</p>
         <p class="card-text">R$:45,13</p>
-      </div>
-      <div class="card-footer">
-        <a class="btn btn-primary" href="#" role="button">Comprar</a>
+        <a class="btn btn-primary"  [routerLink]="['/itensPedido']"
+        routerLinkActive="router-link-active" id=1 value=45.13>Comprar</a>
       </div>
     </div>
   </div>
   <div class="col">
     <div class="card h-100">
-      <img src="assets\img\produtos\ruinasdeminaster.jpg"  class="img-thumbnail" width=50% height=50%>
+      <img src="assets\img\produtos\ruinasdeminaster.jpg" class="img-thumbnail" width=50% height=50%>
       <div class="card-body">
         <h5 class="card-title">Ruínas de Minaster</h5>
         <p class="card-text">Raianne Viana</p>
@@ -70,19 +69,21 @@
 
       </div>
       <div class="card-footer">
-        <a class="btn btn-primary" href="#" role="button">Comprar</a>
+        <a class="btn btn-primary" [routerLink]="['/itensPedido']"
+        routerLinkActive="router-link-active" role="button" id=2 value=49.90>Comprar</a>
       </div>
     </div>
   </div>
   <div class="col">
     <div class="card h-100">
-      <img src="assets\img\produtos\hibiscoroxo.jpg" class="img-thumbnail" width=50% height=50%>>
+      <img src="assets\img\produtos\hibiscoroxo.jpg" class="img-thumbnail" width=50% height=50%>
       <div class="card-body">
         <h5 class="card-title">Hibisco Roxo</h5>
         <p class="card-text">R$ 28,90</p>
       </div>
       <div class="card-footer">
-        <a class="btn btn-primary" href="#" role="button" value=>Comprar</a>
+        <a class="btn btn-primary" [routerLink]="['/itensPedido']"
+        routerLinkActive="router-link-active" role="button" id=3 value=28.90>Comprar</a>
       </div>
     </div>
   </div>
