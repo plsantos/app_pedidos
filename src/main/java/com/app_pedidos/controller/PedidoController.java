@@ -22,7 +22,8 @@ public class PedidoController {
 
     @PostMapping
     public void save(@RequestBody Pedido pedido) {
-        repository.save(pedido);
+        if(pedido.getItensPedido().getProduto().isStatus())
+            repository.save(pedido);
     }
 
     @DeleteMapping("/{id}")
