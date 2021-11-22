@@ -13,9 +13,9 @@
 
   <div class="form-group">
     <label for="tipo">Tipo</label>
-    <select class="form-control" name="tipo" id="tipo">
-      <option value="1">Pessoa física</option>
-      <option value="2">Pessoa jurídica</option>
+    <select class="form-control" [(ngModel)]="cliente.tipo" name="tipo" id="tipo">
+      <option value="fisica">Pessoa física</option>
+      <option value="juridica">Pessoa jurídica</option>
     </select>
   </div>
 
