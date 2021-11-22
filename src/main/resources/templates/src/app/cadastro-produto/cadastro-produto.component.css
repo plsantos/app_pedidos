@@ -1,3 +1,9 @@
 .mat-radio-button ~ .mat-radio-button {
   margin-left: 16px;
 }
+
+mat-toolbar{
+  width: 100%;
+  background-color:#70587C;
+  color:white;
+}

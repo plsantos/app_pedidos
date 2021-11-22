@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
+import { Produto } from '../model/produto';
 
 export interface Task {
   name: string;
@@ -15,8 +16,14 @@ export interface Task {
 })
 
 export class CadastroProdutoComponent implements OnInit {
+  produto: Produto = new Produto();
 
-   constructor() { }
+   constructor(
+     private descricao: ProdutoDescricao,
+     private router: Router,
+     private valor: ProdutoValor,
+     
+   ) { }
 
   ngOnInit(): void {
   }

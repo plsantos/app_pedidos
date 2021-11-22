@@ -12,7 +12,6 @@ import { ItemOrderComponent } from './item-order/item-order.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
-
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'customerList', component: CustomerListComponent },
