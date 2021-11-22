@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ItensPedido } from '../model/itensPedido';
+import { ItemOrderService } from '../services/item-order.service';
 
 @Component({
   selector: 'app-item-order',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemOrderComponent implements OnInit {
 
-  constructor() { }
+  listaItensPedido: ItensPedido[] = [];
+  displayedColumns = ['id', 'idPedido', 'idProduto', 'quantidade', 'acoes' ];
+  constructor(private itemOrder: ItemOrderService) { }
 
-  ngOnInit(): void {
+
+
+  ngOnInit() {
+   this.itemOrder.getItensPedido()
+   .subscribe(data => {
+     this.listaItensPedido = data
+   })
   }
 
 }

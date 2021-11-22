@@ -10,4 +10,3 @@ export class PedidoComponent implements OnInit {
   ngOnInit(): void {
   }
 }
-

@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'customerForm', component: CustomerFormComponent },
   { path: 'enderecoForm', component: EnderecoComponent },
   { path: 'cadastroProduto', component: CadastroProdutoComponent},
-  { path: 'item-order', component: ItemOrderComponent},
+  { path: 'itensPedido', component: ItemOrderComponent},
   { path: 'header',component: HeaderComponent},
   { path: 'footer',component: FooterComponent}
 ]

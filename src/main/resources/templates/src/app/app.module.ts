@@ -45,6 +45,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     OrderListComponent,
     PedidoComponent,
     EnderecoComponent,
+    ItemOrderComponent,
     CustomerFormComponent,
     CadastroProdutoComponent,
 
