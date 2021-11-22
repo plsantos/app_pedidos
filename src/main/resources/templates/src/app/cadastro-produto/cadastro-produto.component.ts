@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {ThemePalette} from '@angular/material/core';
 
-interface Food {
-  value: string;
-  viewValue: string;
+export interface Task {
+  name: string;
+  completed: boolean;
+  color: ThemePalette;
+  subtasks?: Task[];
 }
-
 
 @Component({
   selector: 'app-cadastro-produto',
@@ -13,12 +15,6 @@ interface Food {
 })
 
 export class CadastroProdutoComponent implements OnInit {
-
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
 
    constructor() { }
 
