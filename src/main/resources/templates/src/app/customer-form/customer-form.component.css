@@ -4,18 +4,36 @@ mat-toolbar{
   color:white;
 }
 
-.title-customer-list{
+.title-customer-form{
   margin-left: 500px;
 }
 
 .formD {
   margin-bottom: 0;
-  margin-left: 500px;
+  margin-left: 300px;
 }
 
 .mat-raised-button{
   background-color: #C8B8DB;
   margin: 10px;
   padding: 1px;
+  }
+
+
+  /* formatação campos input */
+  .form-group {
+    width: 50%;
+    float: left;
+    color: #c0c0c0;
+  }
+
+  .form-group input {
+
+    width: 50%;
+  }
+
+  .form-group select {
+
+    width: 50%;
   }
 

@@ -12,12 +12,10 @@ import lombok.Getter;
 @Getter
 public class ItensPedidoDTO {
     private int quantidadeProduto;
-    private Pedido pedido;
     private Produto produto;
 
     public ItensPedidoDTO(ItensPedido itensPedido){
         this.quantidadeProduto = itensPedido.getQuantidadeProduto();
-        this.pedido = itensPedido.getPedido();
         this.produto = itensPedido.getProduto();
     }
 

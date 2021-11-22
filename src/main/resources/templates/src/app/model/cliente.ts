@@ -3,10 +3,10 @@ import { Endereco } from '../model/endereco';
 
 export class Cliente {
   constructor(
-    public id: number,
-    public nome: String,
-    public tipo: String,
-    public documento: String,
-    public endereco: Endereco
+    public id?: number,
+    public nome?: String,
+    public tipo?: String,
+    public documento?: String,
+    public endereco?: Endereco
   ) {}
 }

@@ -6,6 +6,4 @@ import com.app_pedidos.model.entity.ItensPedido;
 
 public interface ItensPedidoRepository extends JpaRepository<ItensPedido,Long> {
 
-	
-
 }

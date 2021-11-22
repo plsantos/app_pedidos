@@ -21,5 +21,8 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "itens_pedido_id")
+    private ItensPedido itensPedido;
     private boolean situacao;
 }

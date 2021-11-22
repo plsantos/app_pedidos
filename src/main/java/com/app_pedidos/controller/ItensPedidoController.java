@@ -44,7 +44,6 @@ public class ItensPedidoController {
 		ItensPedido itensPedidoPesquisado = repository.getOne(id);
         if (itensPedidoPesquisado != null) {
         	itensPedidoPesquisado.setQuantidadeProduto(itensPedido.getQuantidadeProduto());
-        	itensPedidoPesquisado.setPedido(itensPedido.getPedido());
         	itensPedidoPesquisado.setProduto(itensPedido.getProduto());
             repository.save(itensPedidoPesquisado);
         }

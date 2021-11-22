@@ -23,13 +23,6 @@
     <td mat-cell *matCellDef="let order"> {{order.cliente.nome}} </td>
   </ng-container>
 
-
-  <!-- valor total Column -->
-  <ng-container matColumnDef="valorTotal">
-    <th mat-header-cell *matHeaderCellDef> Valor Total </th>
-    <td mat-cell *matCellDef="let order"> {{order.valorTotal}} </td>
-  </ng-container>
-
    <!-- situação Column -->
    <ng-container matColumnDef="situacao">
     <th mat-header-cell *matHeaderCellDef> Situação </th>

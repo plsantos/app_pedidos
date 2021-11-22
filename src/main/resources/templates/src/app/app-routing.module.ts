@@ -6,7 +6,11 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
-import {CadastroProdutoComponent} from './cadastro-produto/cadastro-produto.component';
+import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
+import { EnderecoComponent } from './endereco/endereco.component';
+import { ItemOrderComponent } from './item-order/item-order.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 const routes: Routes = [
@@ -16,8 +20,12 @@ const routes: Routes = [
   { path: 'orderList', component: OrderListComponent },
   { path: 'pedido', component: PedidoComponent },
   { path: 'customerForm', component: CustomerFormComponent },
+  { path: 'enderecoForm', component: EnderecoComponent },
   { path: 'cadastroProduto', component: CadastroProdutoComponent},
-];
+  { path: 'item-order', component: ItemOrderComponent},
+  { path: 'header',component: HeaderComponent},
+  { path: 'footer',component: FooterComponent}
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
