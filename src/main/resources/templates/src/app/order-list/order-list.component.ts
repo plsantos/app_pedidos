@@ -10,14 +10,25 @@ import { Observable } from 'rxjs';
 })
 export class OrderListComponent implements OnInit {
 
-  order$: Observable<Pedido[]>;
-  displayedColumns = ['id', 'cliente', 'dataPedido', 'valorTotal', 'situacao', 'acoes'];
+  order$: Pedido[] = [];
+  displayedColumns = ['id', 'cliente', 'data', 'situacao', 'acoes'];
 
- constructor(private orderService: OrderService) {
-   this.order$ = this.orderService.findAll();
- }
+  constructor(private orderService: OrderService) {
+  }
 
- ngOnInit(): void {
 
- }
-}
+   ngOnInit(): void {
+    this.orderService.getPedidos()
+     .subscribe(data => {
+      this.order$ = data;
+      console.log(data);
+
+   })
+   }
+
+   deletePedido(id: number): void {
+    this.orderService.deletePedido(id).subscribe();
+    this.order$ = this.order$.filter((p) => p.id != id);
+  }
+
+  }

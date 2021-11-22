@@ -11,39 +11,31 @@
     <td mat-cell *matCellDef="let order"> {{order.id}} </td>
   </ng-container>
 
+  <!-- data pedido Column -->
+  <ng-container matColumnDef="data">
+    <th mat-header-cell *matHeaderCellDef> Data Pedido </th>
+    <td mat-cell *matCellDef="let order"> {{order.data}} </td>
+  </ng-container>
+
   <!-- cliente Column -->
   <ng-container matColumnDef="cliente">
     <th mat-header-cell *matHeaderCellDef> Cliente </th>
-    <td mat-cell *matCellDef="let order"> {{order.cliente}} </td>
-  </ng-container>
-
-  <!-- data pedido Column -->
-  <ng-container matColumnDef="dataPedido">
-    <th mat-header-cell *matHeaderCellDef> Data Pedido </th>
-    <td mat-cell *matCellDef="let order"> {{order.dataPedido}} </td>
-  </ng-container>
-
-  <!-- valor total Column -->
-  <ng-container matColumnDef="valorTotal">
-    <th mat-header-cell *matHeaderCellDef> Valor Total </th>
-    <td mat-cell *matCellDef="let order"> {{order.valorTotal}} </td>
+    <td mat-cell *matCellDef="let order"> {{order.cliente.nome}} </td>
   </ng-container>
 
    <!-- situação Column -->
    <ng-container matColumnDef="situacao">
     <th mat-header-cell *matHeaderCellDef> Situação </th>
-    <td mat-cell *matCellDef="let element">
-      <mat-checkbox class="example-margin">Aberto</mat-checkbox>
-      <mat-checkbox class="example-margin">Concluído</mat-checkbox>
-    </td>
+    <td mat-cell *matCellDef="let order"> {{order.situacao}} </td>
   </ng-container>
 
    <!-- acoes Column -->
    <ng-container matColumnDef="acoes">
     <th mat-header-cell *matHeaderCellDef> Ações </th>
-    <td mat-cell *matCellDef="let element">
+    <td mat-cell *matCellDef="let order">
       <button mat-raised-button [routerLink]="['/routePath']" routerLinkActive="router-link-active" >Editar</button>
-      <button mat-raised-button >Excluir</button>
+      <button mat-raised-button       (click)="deletePedido(order.id)"
+      >Excluir</button>
     </td>
   </ng-container>
 

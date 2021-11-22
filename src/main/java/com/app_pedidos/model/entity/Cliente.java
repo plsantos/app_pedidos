@@ -20,7 +20,7 @@ public class Cliente {
     private String documento;
     private String nome;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 }

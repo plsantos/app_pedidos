@@ -1,18 +1,12 @@
 //interface, usada apenas em tempo de desenvolvimento, não irá para produção
+import { Endereco } from '../model/endereco';
+
 export class Cliente {
-  id: String;
-  nome: String;
-  tipo: String;
-  documento: String;
-  endereco: String;
-
-  constructor( id: String, nome: String, tipo: String, documento: String, endereco: String){
-    this.id = id;
-    this.nome = nome;
-    this.tipo = tipo;
-    this.documento = documento;
-    this.endereco = endereco;
+  constructor(
+    public id?: number,
+    public nome?: String,
+    public tipo?: String,
+    public documento?: String,
+    public endereco?: Endereco
+  ) {}
 }
-}
-
-
