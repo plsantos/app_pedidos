@@ -33,7 +33,7 @@ public class PedidoController {
     @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody Pedido pedido) {
         Pedido pedidoPesquisado = repository.getOne(id);
-        if (pedidoPesquisado != null) {
+        if (pedidoPesquisado != null && pedidoPesquisado.isSituacao()) {
             pedidoPesquisado.setData(pedido.getData());
             repository.save(pedidoPesquisado);
         }
