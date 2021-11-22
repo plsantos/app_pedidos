@@ -17,7 +17,7 @@ public class PedidoDTO {
     private boolean situacao;
     private ItensPedido itensPedido;
 
-    public PedidoDTO(Pedido pedido){
+    public PedidoDTO(Pedido pedido) {
         this.id = pedido.getId();
         this.data = pedido.getData();
         this.cliente = pedido.getCliente();
@@ -25,7 +25,7 @@ public class PedidoDTO {
         this.itensPedido = pedido.getItensPedido();
     }
 
-    public static List<PedidoDTO> converter(List<Pedido> pedidos){
+    public static List<PedidoDTO> converter(List<Pedido> pedidos) {
         return pedidos.stream().map(PedidoDTO::new).collect(Collectors.toList());
     }
 }
