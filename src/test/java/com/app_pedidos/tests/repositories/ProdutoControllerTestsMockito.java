@@ -14,7 +14,7 @@ import com.app_pedidos.controller.ProdutoController;
 import com.app_pedidos.model.repositories.ProdutoRepository;
 
 @ExtendWith(SpringExtension.class)
-public class ProdutoControllerTests {
+public class ProdutoControllerTestsMockito {
 	private long existingId;
 	private long nonExistingId;
 	@InjectMocks
