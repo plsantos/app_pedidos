@@ -13,10 +13,12 @@ import lombok.Getter;
 public class ItensPedidoDTO {
     private int quantidadeProduto;
     private Produto produto;
+    private Long id;
 
     public ItensPedidoDTO(ItensPedido itensPedido){
         this.quantidadeProduto = itensPedido.getQuantidadeProduto();
         this.produto = itensPedido.getProduto();
+        this.id = itensPedido.getId();
     }
 
     public static List<ItensPedidoDTO> converter(List<ItensPedido> itensPedido){

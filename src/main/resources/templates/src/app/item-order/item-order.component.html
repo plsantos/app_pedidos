@@ -4,7 +4,7 @@
         <span class='title-item-order'>Itens de Pedidos</span>
     </mat-toolbar>
 
-<table mat-table *ngFor = "let itensPedido of listaItensPedido" class="mat-elevation-z8">
+<table mat-table [dataSource]="listaItensPedido" class="mat-elevation-z8">
 
     <!-- ID Column -->
     <ng-container matColumnDef="id">
@@ -13,21 +13,15 @@
     </ng-container>
 
     <!-- idProduto Column -->
-    <ng-container matColumnDef="idPedido">
-        <th mat-header-cell *matHeaderCellDef> ID do Pedido </th>
-        <td mat-cell *matCellDef="let itensPedido"> {{itensPedido.pedido}} </td>
+    <ng-container matColumnDef="produto_id">
+        <th mat-header-cell *matHeaderCellDef> ID do Produto </th>
+        <td mat-cell *matCellDef="let itensPedido"> {{itensPedido.produto.id}} </td>
     </ng-container>
 
     <!-- idProduto Column -->
-    <ng-container matColumnDef="idProduto">
-        <th mat-header-cell *matHeaderCellDef> ID do Produto </th>
-        <td mat-cell *matCellDef="let itensPedido"> {{itensPedido.produto}} </td>
-    </ng-container>
-
-    <!-- Quantidade do Produto Column -->
-    <ng-container matColumnDef="qtdProduto">
-        <th mat-header-cell *matHeaderCellDef> Quantidade do Produto </th>
-        <td mat-cell *matCellDef="let itensPedido "> {{itensPedido.quantidade}} </td>
+    <ng-container matColumnDef="quantidadeProduto">
+        <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+        <td mat-cell *matCellDef="let itensPedido"> {{itensPedido.quantidadeProduto}} </td>
     </ng-container>
 
    <!-- acoes Column -->
