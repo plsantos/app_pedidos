@@ -2,6 +2,8 @@ package com.app_pedidos.controller;
 
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -51,10 +53,15 @@ public class ProdutoController {
 
     @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody Produto produto){
-        Produto produtoPesquisado = repository.getOne(id);
-        if (produtoPesquisado != null){
-            produtoPesquisado.setDescricao(produto.getDescricao());
-            repository.save(produtoPesquisado);
-        }
+    	try {
+    		Produto produtoPesquisado = repository.getOne(id);
+            if (produtoPesquisado != null){
+                produtoPesquisado.setDescricao(produto.getDescricao());
+                repository.save(produtoPesquisado);
+            }
+    	}catch(EntityNotFoundException e) {
+			throw new  ResourceNotFoundException("Id não encontrado "+id);
+		}
+        
     }
 }

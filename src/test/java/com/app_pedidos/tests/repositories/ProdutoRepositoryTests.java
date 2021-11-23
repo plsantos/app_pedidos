@@ -12,7 +12,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import com.app_pedidos.model.entity.Produto;
 import com.app_pedidos.model.repositories.ProdutoRepository;
 
-@DataJpaTest // executa o teste carregando somente os componentes do JPA
+@DataJpaTest // executa o teste carregando somente os componentes do JPA, para exlcuir para deveria se ro contyroller
 public class ProdutoRepositoryTests {
 
 	@Autowired
