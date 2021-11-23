@@ -14,6 +14,7 @@ export class ItemOrderService {
   getItensPedido(){
     return this.http.get<ItensPedido[]>(this.urlBase);
   }
-
+  
+  //criar metodo para adicionar os produtos - Byanca 
 
 }
