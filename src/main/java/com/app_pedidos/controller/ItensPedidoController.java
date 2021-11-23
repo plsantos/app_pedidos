@@ -25,7 +25,8 @@ public class ItensPedidoController {
 
 	@PostMapping
 	public void save(@RequestBody ItensPedido itensPedido) {
-		repository.save(itensPedido);
+		if(itensPedido.getProduto().isStatus())
+			repository.save(itensPedido);
 	}
 
 	@GetMapping
