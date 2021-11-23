@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItensPedido } from '../model/itensPedido';
+import { Produto } from '../model/produto';
 import { ItemOrderService } from '../services/item-order.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ItemOrderService } from '../services/item-order.service';
 export class ItemOrderComponent implements OnInit {
 
   listaItensPedido: ItensPedido[] = [];
-  displayedColumns = ['id', 'idPedido', 'idProduto', 'quantidade', 'acoes' ];
+  displayedColumns = ['id', 'produto_id', 'quantidadeProduto', 'acoes' ];
   constructor(private itemOrder: ItemOrderService) { }
 
 
