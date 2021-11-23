@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ItensPedido } from '../model/itensPedido';
+import { ItemOrderService } from '../services/item-order.service';
 
 @Component({
   selector: 'app-confirmar-compra',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmarCompraComponent implements OnInit {
 
-  constructor() { }
+  listaItensPedido: ItensPedido[] = [];
+  displayedColumns = ['id_pedido', 'nome', 'data','valor','status', 'acoes' ];
+
+  constructor(private itemOrder: ItemOrderService) { }
 
   ngOnInit(): void {
+    this.itemOrder.getItensPedido()
+    .subscribe(data => {
+      this.listaItensPedido = data
+    })
   }
 
 }
