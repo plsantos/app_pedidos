@@ -9,15 +9,15 @@ import { ItemOrderService } from '../services/item-order.service';
 })
 export class ConfirmarCompraComponent implements OnInit {
 
-  listaItensPedido: ItensPedido[] = [];
-  displayedColumns = ['id_pedido', 'nome', 'data','valor','status', 'acoes' ];
+  listaPedido: ItensPedido[] = [];
+  displayedColumns = ['id', 'nome','endereço', 'data','valor','valorDesconto' ];
 
   constructor(private itemOrder: ItemOrderService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.itemOrder.getItensPedido()
     .subscribe(data => {
-      this.listaItensPedido = data
+      this.listaPedido = data
     })
   }
 
