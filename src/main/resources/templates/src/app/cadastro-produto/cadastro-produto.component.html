@@ -1,50 +1,45 @@
-<div>
-<mat-card>
-  <mat-card-title> Produto </mat-card-title>
-  <mat-card-subtitle>Aqui vamos cadastrar os produtos</mat-card-subtitle>
-<form action="">
-  <mat-card-content align="start" floatLabel="always">
-    Descrição
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput />
-    </mat-form-field>
-  </mat-card-content>
-  <mat-divider></mat-divider>
+<div class="card">
+  <mat-card>
+    <mat-toolbar>
+      <span class="title-endereco">Cadastro de Produto</span>
+    </mat-toolbar>
+  </mat-card>
+  <br />
+  <form action="" #f="ngForm" class="formD">
+    <div class="form-group">
+      <label for="produto">Descrição</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="produto.descricao"
+        id="desc"
+        name="desc"
+      />
+    </div>
 
-  <mat-card-content align="start" floatLabel="always">
-    Unidade de Medida
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput />
-    </mat-form-field>
-  </mat-card-content>
-  <mat-divider></mat-divider>
+    <div class="form-group">
+      <label for="logradouro">Valor</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="produto.valor"
+        name="valor"
+        id="valor"
+      />
+    </div>
 
-  <mat-card-content align="start" floatLabel="always">
-    Valor Unitário
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput />
-    </mat-form-field>
-  </mat-card-content>
-  <mat-divider></mat-divider>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select class="form-control" id="status" required
+      [(ngModel)] = "produto.status" name="status">
+        <option *ngFor="let stat of status" [value]="stat">{{ stat }}</option>
+      </select>
+    </div>
 
-  <mat-card-content align="start" floatLabel="always">
-    Status
-    <mat-form-field>
-      <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value=true>Ativo</mat-radio-button>
-        <mat-radio-button value=false>Inativo</mat-radio-button>
-      </mat-radio-group>
-    </mat-form-field>
-  </mat-card-content>
+    <br />
 
-  <section class="example-section">
-  <mat-checkbox class="example-margin">Check me!</mat-checkbox>
-  <mat-checkbox class="example-margin" [disabled]="true">Disabled</mat-checkbox>
-</section>
-</form>
-</mat-card>
+    <button mat-raised-button (click)="saveProduto()">Salvar</button>
+    <button mat-raised-button>Cancelar</button>
 
+  </form>
 </div>

@@ -1,1 +1,18 @@
+#carrosel{
+    margin-top: 50px;
+}
+#texto-entrada{
+    margin-top: 150px;
+    text-align: center;
+}
+
 .carousel-item{transition: transform 2s ease, opacity .5s ease-out}
+
+#catalogo{
+    margin-top: 100px;
+    background-color: #70587C;
+}
+#catalogo-texto{
+    margin-top: 20px;
+    color: #ffff;
+}
