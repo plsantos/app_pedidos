@@ -13,7 +13,7 @@ import { ProductService } from '../services/product.service';
 export class CadastroProdutoComponent implements OnInit {
   produto: Produto = new Produto();
   status = ['True', 'False']
-  submitted = false;
+  //submitted = false;
 
    constructor(
      private productService: ProductService,
@@ -30,6 +30,6 @@ export class CadastroProdutoComponent implements OnInit {
     });
   }
 
-  onSubmit() { this.submitted = true; }
+  //onSubmit() { this.submitted = true; }
 
 }
