@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      
+
       <p class="text-start text-break">Genius Livraria delivery é uma livraria online que busca facilitar a compra e entrega de livros de forma simples e fácil, com o melhor custo-benefício. <br>Nosso catálogo possui os mais diversos gêneros literários para agradar todos os públicos e idades, confira mais!</p>
 
     </div>
@@ -39,6 +39,11 @@
     </div>
   </div>
 </div>
+
+<ng-container matColumnDef="id">
+  <th mat-header-cell *matHeaderCellDef> ID</th>
+  <td mat-cell *matCellDef="let product"> {{product.id}} </td>
+</ng-container>
 
 <div class="card text-center m">
   <div class="card-body">

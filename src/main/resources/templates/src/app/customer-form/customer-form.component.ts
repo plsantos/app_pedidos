@@ -10,11 +10,16 @@ import { Cliente } from '../model/cliente';
   styleUrls: ['./customer-form.component.css']
 })
 export class CustomerFormComponent implements OnInit {
+  cliente$: Cliente[] = [];
+
 
   cliente: Cliente = new Cliente();
+
   constructor(private customerService: CustomerService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.cliente);
+
   }
 
   saveCliente(){
@@ -22,4 +27,5 @@ export class CustomerFormComponent implements OnInit {
     .subscribe(data => {
       this.router.navigate(['/customerList'])});
   }
+
 }
