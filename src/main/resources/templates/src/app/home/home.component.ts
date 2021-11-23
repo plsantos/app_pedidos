@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Produto } from '../model/produto';
+import { ProductService } from './../services/product.service';
+import { HttpClient } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-home',
@@ -8,13 +13,19 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
-  
-    home(){
-      this.router.navigate(['/home'])
-    }
+  produto$: Produto[] = [];
+
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private service: ProductService
+  ) {}
 
   ngOnInit(): void {
+    this.productService.getProdutos().subscribe((data) => {
+      this.produto$ = data;
+      console.log(data);
+    });
   }
 
 }

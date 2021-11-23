@@ -1,10 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
+import { Router, RouterModule } from '@angular/router';
+import { Produto } from '../model/produto';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-cadastro-produto',
@@ -13,16 +11,25 @@ interface Food {
 })
 
 export class CadastroProdutoComponent implements OnInit {
+  produto: Produto = new Produto();
+  status = ['True', 'False']
+  submitted = false;
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
-
-   constructor() { }
+   constructor(
+     private productService: ProductService,
+     private router: Router,
+     private httpClient: HttpClient
+   ) { }
 
   ngOnInit(): void {
   }
+
+  saveProduto() {
+    this.productService.saveProduto(this.produto).subscribe((data) => {
+      this.router.navigate(['/productList']);
+    });
+  }
+
+  onSubmit() { this.submitted = true; }
 
 }

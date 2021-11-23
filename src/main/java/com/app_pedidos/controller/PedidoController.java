@@ -3,7 +3,12 @@ package com.app_pedidos.controller;
 import com.app_pedidos.model.dto.PedidoDTO;
 import com.app_pedidos.model.entity.Pedido;
 import com.app_pedidos.model.repositories.PedidoRepository;
+import com.app_pedidos.model.services.exceptions.DatabaseException;
+import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,13 +27,18 @@ public class PedidoController {
 
     @PostMapping
     public void save(@RequestBody Pedido pedido) {
-        if(pedido.getItensPedido().getProduto().isStatus())
             repository.save(pedido);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        repository.deleteById(id);
+    	try {
+    		repository.deleteById(id);
+    	}catch(EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException("Id não encontrado "+id);
+		}catch(DataIntegrityViolationException e) {
+			throw new DatabaseException("Violação de integridade do banco");
+		}
     }
 
     @PutMapping("/{id}")

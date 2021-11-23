@@ -6,10 +6,10 @@
   <div class="row">
     <div class="col">
       
-      <p class="text-start text-break">Genius Livraria delivery é uma livraria online que busca facilitar a compra e entrega de livros de forma simples e fácil, com o melhor custo-benefício. <br>Nosso catálogo possui os mais diversos gêneros literários para agradar todos os públicos e idades, confira mais!</p>
+      <p class="text-start text-break" id="texto-entrada">Genius Livraria delivery é uma livraria online que busca facilitar a compra e entrega de livros de forma simples e fácil, com o melhor custo-benefício. <br>Nosso catálogo possui os mais diversos gêneros literários para agradar todos os públicos e idades, confira mais!</p>
 
     </div>
-    <div class="col">
+    <div class="col" id="carrosel">
       <div class="ms-auto p-2 bd-highlight">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -40,9 +40,9 @@
   </div>
 </div>
 
-<div class="card text-center m">
+<div class="card text-center m mt-100px mb-100px" id="catalogo">
   <div class="card-body">
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <h4 class="card-title fs-2 " id="catalogo-texto">Nosso Catálogo de Produtos</h4>
   </div>
 </div>
 
@@ -54,15 +54,14 @@
         <h5 class="card-title">Orgulho e Preconceito</h5>
         <p class="card-text">Jane Austen</p>
         <p class="card-text">R$:45,13</p>
-      </div>
-      <div class="card-footer">
-        <a class="btn btn-primary" href="#" role="button">Comprar</a>
+        <a class="btn btn-primary"  [routerLink]="['/itensPedido']"
+        routerLinkActive="router-link-active" id=1 value=45.13>Comprar</a>
       </div>
     </div>
   </div>
   <div class="col">
     <div class="card h-100">
-      <img src="assets\img\produtos\ruinasdeminaster.jpg"  class="img-thumbnail" width=50% height=50%>
+      <img src="assets\img\produtos\ruinasdeminaster.jpg" class="img-thumbnail" width=50% height=50%>
       <div class="card-body">
         <h5 class="card-title">Ruínas de Minaster</h5>
         <p class="card-text">Raianne Viana</p>
@@ -70,19 +69,21 @@
 
       </div>
       <div class="card-footer">
-        <a class="btn btn-primary" href="#" role="button">Comprar</a>
+        <a class="btn btn-primary" [routerLink]="['/itensPedido']"
+        routerLinkActive="router-link-active" role="button" id=2 value=49.90>Comprar</a>
       </div>
     </div>
   </div>
   <div class="col">
     <div class="card h-100">
-      <img src="assets\img\produtos\hibiscoroxo.jpg" class="img-thumbnail" width=50% height=50%>>
+      <img src="assets\img\produtos\hibiscoroxo.jpg" class="img-thumbnail" width=50% height=50%>
       <div class="card-body">
         <h5 class="card-title">Hibisco Roxo</h5>
         <p class="card-text">R$ 28,90</p>
       </div>
       <div class="card-footer">
-        <a class="btn btn-primary" href="#" role="button" value=>Comprar</a>
+        <a class="btn btn-primary" [routerLink]="['/itensPedido']"
+        routerLinkActive="router-link-active" role="button" id=3 value=28.90>Comprar</a>
       </div>
     </div>
   </div>

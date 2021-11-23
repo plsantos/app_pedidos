@@ -28,9 +28,8 @@ import { ItemOrderComponent } from './item-order/item-order.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+// import {NgxPaginationModule} from 'ngx-pagination';
 import { CustomerListComponent } from './customer-list/customer-list.component';
-
 
 
 @NgModule({
@@ -48,7 +47,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     EnderecoComponent,
     ItemOrderComponent,
     CustomerFormComponent,
-    CadastroProdutoComponent
+    CadastroProdutoComponent,
 
   ],
   imports: [
@@ -70,8 +69,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     RouterModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    NgxPaginationModule,
-    MatToolbarModule
+    //NgxPaginationModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
