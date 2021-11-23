@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 @RestController
 @RequestMapping("/pedido")
 public class PedidoController {
@@ -43,10 +45,14 @@ public class PedidoController {
 
     @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody Pedido pedido) {
-        Pedido pedidoPesquisado = repository.getOne(id);
-        if (pedidoPesquisado != null && pedidoPesquisado.isSituacao()) {
-            pedidoPesquisado.setData(pedido.getData());
-            repository.save(pedidoPesquisado);
-        }
+    	try {
+	        Pedido pedidoPesquisado = repository.getOne(id);
+	        if (pedidoPesquisado != null && pedidoPesquisado.isSituacao()) {
+	            pedidoPesquisado.setData(pedido.getData());
+	            repository.save(pedidoPesquisado);
+	        }
+    	}catch(EntityNotFoundException e) {
+			throw new  ResourceNotFoundException("Id não encontrado "+id);
+		}
     }
 }
