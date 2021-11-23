@@ -27,7 +27,7 @@ public class ProdutoControllerTestsJPA {
 	void setUp() throws Exception{
 		existingId = 1L;
 		nonExistingId = 1000L;
-		countTotalProducts= 5l;
+		countTotalProducts= 4l;
 	}
 	//deletar id se existir
 	@Test
@@ -57,9 +57,9 @@ public class ProdutoControllerTestsJPA {
 		
 		//id não pode ser null
 		Assertions.assertNotNull(product.getId());
-		Assertions.assertEquals(countTotalProducts+1, product.getId());//se for igual gerou o auto incremento 
+		Assertions.assertEquals(countTotalProducts + 1L, product.getId());//se for igual gerou o auto incremento 
 		Assertions.assertTrue(result.isPresent());// testa se a busca retornou o objeto 
-		Assertions.assertSame(product, result);//se a mesma referencia os objetos 
+		Assertions.assertSame(result.get(),product);//se a mesma referencia os objetos 
 		
 	}
 
