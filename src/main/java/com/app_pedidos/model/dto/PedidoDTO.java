@@ -15,14 +15,14 @@ public class PedidoDTO {
     private LocalDate data;
     private Cliente cliente;
     private boolean situacao;
-    private ItensPedido itensPedido;
+    
 
     public PedidoDTO(Pedido pedido) {
         this.id = pedido.getId();
         this.data = pedido.getData();
         this.cliente = pedido.getCliente();
         this.situacao = pedido.isSituacao();
-        this.itensPedido = pedido.getItensPedido();
+        
     }
 
     public static List<PedidoDTO> converter(List<Pedido> pedidos) {
