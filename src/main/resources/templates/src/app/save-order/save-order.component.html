@@ -5,6 +5,7 @@
     </mat-toolbar>
   </mat-card>
   <br/>
+
   <form action="" #f="ngForm" class="formD">
     <div class="form-group">
       <label for="pedido">Cliente</label>
@@ -17,15 +18,26 @@
       />
     </div>
 
+    <!-- <div class="form-group">
+      <label for="pedido">Endereço</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="pedido.endereco"
+        id="desc"
+        name="desc"
+      />
+    </div> -->
+
     <div class="form-group">
       <label for="pedido">Data</label>
-      <input
+      <!-- <input
         type="text"
         class="form-control"
         [(ngModel)]="pedido.data"
         name="valor"
         id="valor"
-      />
+      /> -->
     </div>
 
     <!-- <div class="form-group">

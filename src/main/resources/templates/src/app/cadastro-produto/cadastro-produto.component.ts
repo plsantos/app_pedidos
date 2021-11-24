@@ -13,7 +13,6 @@ import { ProductService } from '../services/product.service';
 export class CadastroProdutoComponent implements OnInit {
   produto: Produto = new Produto();
   status = ['True', 'False']
-  //submitted = false;
 
    constructor(
      private productService: ProductService,
@@ -29,7 +28,5 @@ export class CadastroProdutoComponent implements OnInit {
       this.router.navigate(['/productList']);
     });
   }
-
-  //onSubmit() { this.submitted = true; }
-
+  
 }
