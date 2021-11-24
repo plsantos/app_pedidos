@@ -31,23 +31,21 @@
     <input type="text" class="form-control" [(ngModel)]="cliente.documento" name="documento" id="documento">
   </div>
 
-  <div class="form-group">
-    <label for="endereco">Endereço</label>
-    <input type="text" class="form-control" id="endereco" name="endereco" id="endereco" [routerLink]="['/enderecoForm']" routerLinkActive="router-link-active" >
-  </div>
-  <td mat-cell *matCellDef="let endereco">
+  <!-- <ng-container matColumnDef="endereco">
+    <th mat-header-cell *matHeaderCellDef> Endereço </th>
+    <td mat-cell *matCellDef="let endereco"> {{endereco}} </td>
+  </ng-container> -->
 
-    {{
-      "Logradouro: " +
-        endereco.rua +
-        " " +
-        endereco.numero
-    }}
-    <br />
-    {{ "Bairro: " + endereco.bairro }} <br />
-    {{ "Cidade: " + endereco.cidade }} <br />
-    {{ "Cep: " + endereco.cep }} <br />
-  </td>
+  <div class="form-group">
+    <div class="col-xs-12">
+        <label for="endereco" class="col-sm-2 control-label blue-font" style="width: 100%">Selecione o Endereço:*</label>
+        <select class="form-control"  name="endereco" id="endereco" ng-model="endereco">
+            <option *ngFor='let enderecos of endereco' [value]="enderecos.id">Id: {{enderecos.id}} Rua: {{enderecos.rua}}, {{enderecos.numero}} - {{enderecos.bairro}}</option>
+        </select>
+    </div>
+  </div>
+
+
 
   <!-- <div class="form-group">
     <table mat-table [dataSource]="cliente$" id="head" class="mat-elevation-z8">

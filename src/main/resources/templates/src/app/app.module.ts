@@ -30,6 +30,15 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 // import {NgxPaginationModule} from 'ngx-pagination';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
+
+
+
+
 
 
 @NgModule({
@@ -47,7 +56,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     EnderecoComponent,
     ItemOrderComponent,
     CustomerFormComponent,
-    CadastroProdutoComponent,
+    CadastroProdutoComponent
 
   ],
   imports: [
@@ -71,6 +80,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     MatSliderModule,
     //NgxPaginationModule,
     MatToolbarModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
