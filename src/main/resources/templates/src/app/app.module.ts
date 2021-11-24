@@ -31,7 +31,8 @@ import { PaginationComponent } from './shared/pagination/pagination.component';
 // import {NgxPaginationModule} from 'ngx-pagination';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { SaveOrderComponent } from './save-order/save-order.component';
-import { NgxViacepModule } from "@brunoc/ngx-viacep";
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -50,8 +51,9 @@ import { NgxViacepModule } from "@brunoc/ngx-viacep";
     ItemOrderComponent,
     CustomerFormComponent,
     CadastroProdutoComponent,
-    SaveOrderComponent
+    SaveOrderComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -73,7 +75,9 @@ import { NgxViacepModule } from "@brunoc/ngx-viacep";
     MatSliderModule,
     //NgxPaginationModule,
     MatToolbarModule,
-    NgxViacepModule,
+    ReactiveFormsModule,
+    CommonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

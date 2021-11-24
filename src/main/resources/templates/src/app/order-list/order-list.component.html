@@ -26,7 +26,7 @@
    <!-- situação Column -->
    <ng-container matColumnDef="situacao">
     <th mat-header-cell *matHeaderCellDef> Situação </th>
-    <td mat-cell *matCellDef="let order"> {{order.situacao}} </td>
+    <td mat-cell *matCellDef="let order"> {{order.situacao=='true'?'Concluído':'Não Concluído'}} </td>
   </ng-container>
 
    <!-- acoes Column -->

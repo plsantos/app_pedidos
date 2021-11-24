@@ -28,4 +28,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  inserirCarrinho(): void {
+
+  }
+
 }

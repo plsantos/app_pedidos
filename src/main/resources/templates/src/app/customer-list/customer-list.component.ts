@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./customer-list.component.css'],
 })
 export class CustomerListComponent implements OnInit {
+
+
   cliente$: Cliente[] = [];
   displayedColumns = ['id', 'nome', 'tipo', 'documento', 'endereco', 'acoes'];
 

@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 @Getter
 public class EnderecoDTO {
+    private Long id;
     private String rua;
     private String numero;
     private String bairro;
@@ -15,6 +16,7 @@ public class EnderecoDTO {
     private String cep;
 
     public EnderecoDTO(Endereco endereco) {
+        this.id = endereco.getId();
         this.rua = endereco.getRua();
         this.numero = endereco.getNumero();
         this.bairro = endereco.getBairro();
