@@ -5,6 +5,7 @@ export class Pedido {
     public id?: number,
     public cliente?: Cliente,
     public data?: Date,
-    public situacao?: boolean
+    public situacao?: boolean,
+    public valor?: number,
   ) {}
 }

@@ -10,7 +10,9 @@ import { OrderService } from '../services/order.service';
   styleUrls: ['./save-order.component.css']
 })
 export class SaveOrderComponent implements OnInit {
+
   pedido: Pedido = new Pedido();
+  pedido_data: Pedido[] = [];
   status = ['True', 'False']
 
   constructor(
@@ -27,6 +29,6 @@ export class SaveOrderComponent implements OnInit {
       this.router.navigate(['/orderList']);
     });
   }
-  
+
 
 }

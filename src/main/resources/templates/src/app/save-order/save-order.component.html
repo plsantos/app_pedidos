@@ -4,7 +4,7 @@
       <span class="title-endereco">Pedido</span>
     </mat-toolbar>
   </mat-card>
-  <br/>
+  <br />
 
   <form action="" #f="ngForm" class="formD">
     <div class="form-group">
@@ -30,17 +30,23 @@
     </div> -->
 
     <div class="form-group">
-      <label for="pedido">Data</label>
-      <!-- <input
-        type="text"
+      <label for="pedido" id="data">Data</label>
+
+      <input
+        class="form-control"
+        type="date"
+        name="pedido.data"
+        value="<? = $conta ['pedido.data']->format('dd-mm-YYYY') ?>"
+      />
+      <!-- type="text"
         class="form-control"
         [(ngModel)]="pedido.data"
         name="valor"
         id="valor"
-      /> -->
+        let dt of pedido_data [value]="pedido_data">{{pedido.data}} -->
     </div>
 
-    <!-- <div class="form-group">
+    <div class="form-group">
       <label for="pedido">Valor Total</label>
       <input
         type="text"
@@ -50,14 +56,21 @@
         id="valor"
         currency="BRL"
       />
-    </div> -->
+    </div>
 
     <div class="form-group">
-      <label for="status">Situação</label>
+      <label for="pedido">Situação</label>
 
-      <select class="form-control" id="situacao" required
-      [(ngModel)] = "pedido.situacao" name="situacao">
-        <option *ngFor="let stat of status" [value]="stat">{{ stat=='True'?'Ativo':'Inativo' }}</option>
+      <select
+        class="form-control"
+        id="situacao"
+        required
+        [(ngModel)]="pedido.situacao"
+        name="situacao"
+      >
+        <option *ngFor="let stat of status" [value]="stat">
+          {{ stat == "True" ? "Ativo" : "Inativo" }}
+        </option>
       </select>
     </div>
 
@@ -65,6 +78,5 @@
 
     <button mat-raised-button (click)="savePedido()">Salvar</button>
     <button mat-raised-button>Cancelar</button>
-
   </form>
 </div>
