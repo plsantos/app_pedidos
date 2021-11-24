@@ -1,15 +1,34 @@
 <div class="card">
-<mat-card>
-  <mat-toolbar>
-    <span class="title-customer-form">Cadastro de Clientes</span>
-  </mat-toolbar>
   <mat-card>
+    <mat-toolbar>
+      <span class="title-customer-form">Cadastro de Clientes</span>
+    </mat-toolbar>
 
-  <form action="" class="formD">
-  <div class="form-group">
-    <label for="nome">Nome</label>
-    <input type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome" id="nome">
-  </div>
+    <mat-card>
+      <form action="" class="formD">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="cliente.nome"
+            name="nome"
+            id="nome"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">Tipo</label>
+          <select
+            class="form-control"
+            [(ngModel)]="cliente.tipo"
+            name="tipo"
+            id="tipo"
+          >
+            <option value="fisica">Pessoa física</option>
+            <option value="juridica">Pessoa jurídica</option>
+          </select>
+        </div>
 
   <div class="form-group">
     <label for="tipo">Tipo</label>
