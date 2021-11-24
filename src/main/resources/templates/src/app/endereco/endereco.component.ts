@@ -5,19 +5,25 @@ import { Router } from '@angular/router';
 import { CepService } from '../services/cep.service';
 import { Form } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { NgxViacepService } from "@brunoc/ngx-viacep";
+import { CEPError, CEPErrorCode } from "@brunoc/ngx-viacep";
 
 @Component({
   selector: 'app-endereco',
   templateUrl: './endereco.component.html',
   styleUrls: ['./endereco.component.css'],
 })
+
 export class EnderecoComponent implements OnInit {
   endereco: Endereco = new Endereco();
   constructor(
     private enderecoService: EnderecoService,
     private router: Router,
     private cepService: CepService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private viacep: NgxViacepService,
+    private CEPError: NgxViacepService,
+    private CEPErrorCode: NgxViacepService
   ) {}
 
   ngOnInit(): void {}
