@@ -13,7 +13,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SaveOrderComponent } from './save-order/save-order.component';
 
-
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'customerList', component: CustomerListComponent },
