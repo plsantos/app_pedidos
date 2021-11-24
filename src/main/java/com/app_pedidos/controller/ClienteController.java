@@ -12,6 +12,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -25,6 +26,16 @@ public class ClienteController {
     public List<ClienteDTO> findAll(){
         List<Cliente> clientesLista = repository.findAll();
         return ClienteDTO.converter(clientesLista);
+    }
+
+    @GetMapping("/{id}")
+    public Cliente buscarPorId(@PathVariable Long id){
+        Optional<Cliente> clientePesquisado = repository.findById(id);
+
+        if(clientePesquisado.isPresent()){
+            return repository.getById(id);
+        }
+        return null;
     }
 
     @PostMapping
@@ -46,14 +57,19 @@ public class ClienteController {
 
     @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody Cliente cliente){
-    	try {
+    	//try {
 	        Cliente clientePesquisado = repository.getOne(id);
 	        if(clientePesquisado != null){
 	            clientePesquisado.setNome(cliente.getNome());
 	            repository.save(clientePesquisado);
-	        }
-    	}catch(EntityNotFoundException e) {
-			throw new  ResourceNotFoundException("Id não encontrado "+id);
-		}
-    }
+	        }}
+//    	}catch(EntityNotFoundException e) {
+//			throw new  ResourceNotFoundException("Id não encontrado "+id);
+//		}
+
+
+    /*@PutMapping("/{id}")
+    public void update(@RequestBody Cliente p){
+        repository.save(p);
+    }*/
 }

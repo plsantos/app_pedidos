@@ -16,16 +16,16 @@ export class CustomerService {
     return this.http.get<Cliente[]>(this.Url);
   }
 
-  getCliente(id: number): Observable<any>{
-    return this.http.get<Cliente>(this.Url + id);
+  getCliente(id: any): Observable<any>{
+    return this.http.get<Cliente>(this.Url+'/'+ id);
   }
 
   saveCliente(cliente: Cliente): Observable<any>{
     return this.http.post<Cliente>(this.Url, cliente);
   }
 
-  editCliente(id: number, cliente: Cliente): Observable<any>{
-    return this.http.put(this.Url + id, cliente);
+  editCliente(cliente: Cliente): Observable<any>{
+    return this.http.put(this.Url +'/'+ cliente.id, cliente);
   }
 
   deleteCliente(id: number): Observable<any>{

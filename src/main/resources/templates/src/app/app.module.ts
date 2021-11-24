@@ -32,7 +32,7 @@ import { PaginationComponent } from './shared/pagination/pagination.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
 
@@ -56,7 +56,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EnderecoComponent,
     ItemOrderComponent,
     CustomerFormComponent,
-    CadastroProdutoComponent
+    CadastroProdutoComponent,
+    EditCustomerComponent
 
   ],
   imports: [

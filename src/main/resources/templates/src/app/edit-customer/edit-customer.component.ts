@@ -8,11 +8,12 @@ import { EnderecoService } from './../services/endereco.service';
 
 
 @Component({
-  selector: 'app-customer-form',
-  templateUrl: './customer-form.component.html',
-  styleUrls: ['./customer-form.component.css']
+  selector: 'app-edit-customer',
+  templateUrl: './edit-customer.component.html',
+  styleUrls: ['./edit-customer.component.css']
 })
-export class CustomerFormComponent implements OnInit {
+export class EditCustomerComponent implements OnInit {
+
 
 
   endereco: Endereco[] = [];
@@ -23,22 +24,31 @@ export class CustomerFormComponent implements OnInit {
   constructor(private customerService: CustomerService, private router: Router, private enderecoService: EnderecoService) { }
 
 
-
   ngOnInit(): void {
-    this.customerService.getClientes();
      this.enderecoService.getEnderecos()
      .subscribe(data => {
       this.endereco = data;
      console.log(data);
    })
-         console.log(this.cliente);
+   this.buscaCliente();
+
+   console.log(this.cliente);
 
    }
 
-  saveCliente(){
-    this.customerService.saveCliente(this.cliente)
-    .subscribe(data => {
-      this.router.navigate(['/customerList'])});
-  }
+   buscaCliente(){
+    let idLocalStorage = localStorage.getItem("id");
+        this.customerService.getCliente(idLocalStorage).subscribe(data =>{
+          this.cliente = data;
+         });
+         console.log(this.cliente);
+    }
 
+    atualizar(){
+      this.customerService.editCliente(this.cliente)
+      .subscribe(data =>{
+        this.cliente = data;
+        this.router.navigate(['customerList'])
+      })
+    }
 }
