@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 
 @RestController
@@ -20,6 +21,9 @@ import javax.persistence.EntityNotFoundException;
 public class EnderecoController {
     @Autowired
     private EnderecoRepository repository;
+
+    public EnderecoController(EntityManager entityManager) {
+    }
 
     @GetMapping
     public List<EnderecoDTO> findAll(){
