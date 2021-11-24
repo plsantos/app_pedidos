@@ -11,7 +11,6 @@ import { EnderecoComponent } from './endereco/endereco.component';
 import { ItemOrderComponent } from './item-order/item-order.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { ConfirmarCompraComponent } from './confirmar-compra/confirmar-compra.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -24,8 +23,7 @@ const routes: Routes = [
   { path: 'cadastroProduto', component: CadastroProdutoComponent},
   { path: 'itensPedido', component: ItemOrderComponent},
   { path: 'header',component: HeaderComponent},
-  { path: 'footer',component: FooterComponent},
-  { path: 'confirmarCompra', component: ConfirmarCompraComponent}
+  { path: 'footer',component: FooterComponent}
 ]
 
 @NgModule({
