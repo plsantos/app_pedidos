@@ -4,13 +4,13 @@ mat-toolbar{
   color:white;
 }
 
-.title-customer-form{
-  margin-left: 500px;
+.title-endereco{
+  margin-left: 45%;
 }
 
 .formD {
   margin-bottom: 0;
-  margin-left: 300px;
+  margin-left: 35%;
 }
 
 .mat-raised-button{
@@ -23,7 +23,7 @@ mat-toolbar{
   /* formatação campos input */
   .form-group {
     width: 50%;
-    float: left;
+    float: bottom;
     color: #c0c0c0;
   }
 
@@ -35,4 +35,10 @@ mat-toolbar{
   .form-group select {
 
     width: 50%;
+  }
+
+  .form-control{
+    margin: 10px 1%;
+    padding: 8px 1%;
+    width: 90%;
   }

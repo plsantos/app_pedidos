@@ -29,4 +29,8 @@ export class CustomerListComponent implements OnInit {
     this.customerService.deleteCliente(id).subscribe();
     this.cliente$ = this.cliente$.filter((p) => p.id != id);
   }
+
+  editar(id: any): void {
+    localStorage.setItem("id", id.toString());
+   }
 }

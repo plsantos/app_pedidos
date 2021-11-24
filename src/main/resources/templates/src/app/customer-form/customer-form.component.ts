@@ -23,7 +23,9 @@ export class CustomerFormComponent implements OnInit {
   constructor(private customerService: CustomerService, private router: Router, private enderecoService: EnderecoService) { }
 
 
+
   ngOnInit(): void {
+    this.customerService.getClientes();
      this.enderecoService.getEnderecos()
      .subscribe(data => {
       this.endereco = data;
