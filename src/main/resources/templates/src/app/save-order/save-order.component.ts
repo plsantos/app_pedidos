@@ -68,6 +68,7 @@ export class SaveOrderComponent implements OnInit {
       numero: '',
       bairro: dados.bairro,
       cidade: dados.localidade,
+      estado: dados.uf,
     });
   }
 

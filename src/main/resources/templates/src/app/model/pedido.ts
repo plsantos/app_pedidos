@@ -6,7 +6,7 @@ export class Pedido {
     public cliente?: Cliente,
     public data?: Date,
     public situacao?: boolean,
-    public valor?: number,
+    public valorTotal?: number,
     public rua?: String,
     public numero?: number,
     public bairro?: string,
