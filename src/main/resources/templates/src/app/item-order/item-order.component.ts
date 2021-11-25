@@ -17,10 +17,10 @@ export class ItemOrderComponent implements OnInit {
 
 
   ngOnInit() {
-   this.itemOrder.getItensPedido()
-   .subscribe(data => {
-     this.listaItensPedido = data
-   })
+//   this.itemOrder.getItensPedido()
+//   .subscribe(data => {
+//     this.listaItensPedido = data
+//   })
   }
 
 }

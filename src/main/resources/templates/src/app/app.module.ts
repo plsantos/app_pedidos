@@ -30,6 +30,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 // import {NgxPaginationModule} from 'ngx-pagination';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     EnderecoComponent,
     ItemOrderComponent,
     CustomerFormComponent,
-    CadastroProdutoComponent
+    CadastroProdutoComponent,
+    ProductComponent
 
   ],
   imports: [
