@@ -30,4 +30,12 @@ export class ProductService {
   deleteProduto(id: number): Observable<any> {
     return this.http.delete<Produto>(`${this.Url}/${id}`);
   }
+
+  getTotalPaginas(): Observable<any>{
+    return this.http.get(this.Url + "totaldepaginas");
+  }
+
+  listarProdutos(page: string){
+    return this.http.get<Produto[]>(this.Url + "pageable?page=" + page + "&size=10");
+  }
 }
