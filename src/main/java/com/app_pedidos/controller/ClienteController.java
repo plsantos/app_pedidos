@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
+import java.util.List;
 
 
 @RestController
@@ -20,6 +21,13 @@ public class ClienteController {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(dto.getId()).toUri(); //inserindo e repondendo no cabeçalho de resposta
 		return ResponseEntity.created(uri).body(dto);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<ClienteDTO>>findAll(){
+		List<ClienteDTO>list = service.findAll();
+		return ResponseEntity.ok().body(list);
+		
 	}
 	
 	
