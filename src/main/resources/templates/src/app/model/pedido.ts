@@ -7,5 +7,12 @@ export class Pedido {
     public data?: Date,
     public situacao?: boolean,
     public valor?: number,
+    public rua?: String,
+    public numero?: number,
+    public bairro?: string,
+    public cidade?: String,
+    public cep?: String,
+    public descontos?: number
+
   ) {}
 }
