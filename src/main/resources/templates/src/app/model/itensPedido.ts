@@ -1,15 +1,14 @@
+import { Endereco } from "./endereco";
+
 export class ItensPedido{
     id: number;
-    idPedido: number;
-    idProduto: number;
-    quantidade: number;
-    valorTotal: number;
+    produto_id: number;
+    quantidadeProduto: number;
 
-    constructor(id: number, idPedido: number, idProduto: number, quantidade: number, valorTotal: number){
+    constructor(id: number, produto_id: number, quantidadeProduto: number, public endereco?: Endereco){
         this.id = id;
-        this.idPedido = idPedido;
-        this.idProduto = idProduto;
-        this.quantidade = quantidade;
-        this.valorTotal = valorTotal;
+        this.produto_id = produto_id;
+        this.quantidadeProduto = quantidadeProduto;
+        this.endereco = endereco;
     }
 }
