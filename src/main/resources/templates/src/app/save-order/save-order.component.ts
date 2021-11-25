@@ -10,31 +10,30 @@ import { OrderService } from '../services/order.service';
 @Component({
   selector: 'app-save-order',
   templateUrl: './save-order.component.html',
-  styleUrls: ['./save-order.component.css']
+  styleUrls: ['./save-order.component.css'],
 })
 export class SaveOrderComponent implements OnInit {
-
   cliente$: Cliente[] = [];
 
   pedido: Pedido = new Pedido();
 
   pedido_data: Pedido[] = [];
 
+
+
   constructor(
     private orderService: OrderService,
     private router: Router,
     private httpClient: HttpClient,
     private customerService: CustomerService
-
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.customerService.getClientes()
-     .subscribe(data => {
+    this.customerService.getClientes().subscribe((data) => {
       this.cliente$ = data;
-     console.log(data);
-   })
-         console.log(this.cliente$);
+      console.log(data);
+    });
+    console.log(this.cliente$);
   }
 
   savePedido() {
@@ -75,13 +74,11 @@ export class SaveOrderComponent implements OnInit {
     });
   }
 
-  // valorDesconto (value: any){
-  //   if (value = 10){
-  //     this.pedido.valor -= this.pedido.valor*0.10;
+  // valorDesconto(value: any) {
+  //   if (value != 0)
+  //     return value/100
+  //    else
 
-  //   }
 
   // }
-
-
 }
