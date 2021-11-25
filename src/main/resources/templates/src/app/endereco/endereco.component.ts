@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Endereco } from '../model/endereco';
-import { EnderecoService } from '../services/endereco.service';
-import { Router } from '@angular/router';
-import { CepService } from '../services/cep.service';
-import { Form } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Endereco } from '../model/endereco';
+import { CepService } from '../services/cep.service';
+import { EnderecoService } from '../services/endereco.service';
 
 @Component({
   selector: 'app-endereco',
