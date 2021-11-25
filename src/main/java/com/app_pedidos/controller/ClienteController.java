@@ -1,75 +1,54 @@
 package com.app_pedidos.controller;
-
 import com.app_pedidos.model.dto.ClienteDTO;
-import com.app_pedidos.model.entity.Cliente;
-import com.app_pedidos.model.repositories.ClienteRepository;
-import com.app_pedidos.model.services.exceptions.DatabaseException;
-import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
-
+import com.app_pedidos.model.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
 
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
-    @Autowired
-    private ClienteRepository repository;
-
-    @GetMapping
-    public List<ClienteDTO> findAll(){
-        List<Cliente> clientesLista = repository.findAll();
-        return ClienteDTO.converter(clientesLista);
-    }
-
-    @GetMapping("/{id}")
-    public Cliente buscarPorId(@PathVariable Long id){
-        Optional<Cliente> clientePesquisado = repository.findById(id);
-
-        if(clientePesquisado.isPresent()){
-            return repository.getById(id);
-        }
-        return null;
-    }
-
-    @PostMapping
-    public void save(@RequestBody Cliente cliente){
-        repository.save(cliente);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
-    	try {
-    		repository.deleteById(id);
-    		
-		}catch(EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException("Id não encontrado "+id);
-		}catch(DataIntegrityViolationException e) {
-			throw new DatabaseException("Violação de integridade do banco");
-		}
-    }
-
-    @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody Cliente cliente){
-    	//try {
-	        Cliente clientePesquisado = repository.getOne(id);
-	        if(clientePesquisado != null){
-	            clientePesquisado.setNome(cliente.getNome());
-	            repository.save(clientePesquisado);
-	        }}
-//    	}catch(EntityNotFoundException e) {
-//			throw new  ResourceNotFoundException("Id não encontrado "+id);
-//		}
-
-
-    /*@PutMapping("/{id}")
-    public void update(@RequestBody Cliente p){
-        repository.save(p);
-    }*/
+	@Autowired //injetando
+	private ClienteService service;
+	
+	@PostMapping
+	public ResponseEntity<ClienteDTO> insert(@RequestBody ClienteDTO dto){
+		dto = service.insert(dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(dto.getId()).toUri(); //inserindo e repondendo no cabeçalho de resposta
+		return ResponseEntity.created(uri).body(dto);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<ClienteDTO>>findAll(){
+		List<ClienteDTO>list = service.findAll();
+		return ResponseEntity.ok().body(list);
+		
+	}
+	
+	@GetMapping(value="/{id}")
+	public ResponseEntity<ClienteDTO>findById(@PathVariable Long id){
+		ClienteDTO dto = service.findById(id);
+		
+		return ResponseEntity.ok().body(dto);//resposta 200 ou seja foi com sucesso
+	}
+	
+	@PutMapping(value="/{id}")
+	public ResponseEntity<ClienteDTO> update(@PathVariable Long id,@RequestBody ClienteDTO dto){
+		dto = service.update(id,dto);
+		return ResponseEntity.ok().body(dto);
+	}
+	
+	@DeleteMapping(value="/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+	
+	
 }

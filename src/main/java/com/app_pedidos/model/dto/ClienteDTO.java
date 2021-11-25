@@ -1,29 +1,34 @@
 package com.app_pedidos.model.dto;
 
 import com.app_pedidos.model.entity.Cliente;
-import com.app_pedidos.model.entity.Endereco;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import java.io.Serializable;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
-public class ClienteDTO {
-    private long id;
-    private String tipo;
-    private String nome;
-    private String documento;
-    private Endereco endereco;
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ClienteDTO implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	private Long id;
+	private String tipo;
+	private String documento;
+	private String nome;
+	
+	
+	public ClienteDTO(Cliente entity) {
+		this.id= entity.getId();
+		this.tipo=entity.getTipo();
+		this.documento=entity.getDocumento();
+		this.nome=entity.getNome();
+	}
 
-    public ClienteDTO(Cliente cliente){
-        this.id = cliente.getId();
-        this.tipo = cliente.getTipo();
-        this.nome = cliente.getNome();
-        this.documento = cliente.getDocumento();
-        this.endereco = cliente.getEndereco();
-    }
-
-    public static List<ClienteDTO> converter(List<Cliente> clientes){
-        return clientes.stream().map(ClienteDTO::new).collect(Collectors.toList());
-    }
+		
+	
 }
+
