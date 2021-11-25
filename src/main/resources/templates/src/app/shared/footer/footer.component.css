@@ -2,3 +2,22 @@
     background-color: #70587C;
     text-decoration: #ffffff;
 }
+*  {
+    margin:0;
+    padding:0;
+}
+
+html, body {height:100%;}
+
+.geral {
+    min-height:100%;
+    position:relative;
+    width:800px;
+}
+
+.footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+
