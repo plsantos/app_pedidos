@@ -4,8 +4,6 @@ import { ProductService } from './../services/product.service';
 import { Produto } from '../model/produto';
 import { ItemOrderService } from './../services/item-order.service';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

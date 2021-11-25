@@ -42,4 +42,12 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <div class="container-buttons">
+        <button [routerLink]="['/saveOrder']" mat-raised-button>
+            Confirmar compra
+        </button>
+        <button [routerLink]="['/home']" mat-raised-button>
+            Adicionar itens
+        </button>
+    </div>
 </mat-card>

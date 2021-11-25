@@ -30,11 +30,11 @@ export class SaveOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerService.getClientes()
-     .subscribe(data => {
-      this.cliente$ = data;
-     console.log(data);
-   })
-         console.log(this.cliente$);
+      .subscribe(data => {
+        this.cliente$ = data;
+        console.log(data);
+      })
+    console.log(this.cliente$);
   }
 
   savePedido() {

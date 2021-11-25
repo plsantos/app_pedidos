@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Carrinho } from '../model/carrinho';
-import { ItemOrderService } from '../services/item-order.service';
-import { Produto } from '../model/produto';
+import { ItemOrderService, CarrinhoItems } from '../services/item-order.service';
 
 @Component({
   selector: 'app-item-order',
@@ -17,29 +16,30 @@ export class ItemOrderComponent implements OnInit {
 
   ngOnInit() {
     this.itemOrder.getProducts()
-      .subscribe((data: Produto[]) => {
-
-        data.forEach((item) => {
-          const index = this.listProducts.findIndex((findItem) => findItem.id === item.id)
-          if (index != -1) {
-            const quantidade = (this.listProducts[index].quantidade || 0) + 1;
-            this.listProducts[index] = {
-              descricao: item.descricao,
-              total: quantidade * (item.valor || 0),
-              quantidade,
-              valor: item.valor,
-              id: item.id,
+      .subscribe((data: CarrinhoItems) => {
+        if (data.listaItensCarrinho) {
+          data.listaItensCarrinho.forEach((item) => {
+            const index = this.listProducts.findIndex((findItem) => findItem.id === item.id)
+            if (index != -1) {
+              const quantidade = (this.listProducts[index].quantidade || 0) + 1;
+              this.listProducts[index] = {
+                descricao: item.descricao,
+                total: quantidade * (item.valor || 0),
+                quantidade,
+                valor: item.valor,
+                id: item.id,
+              }
+            } else {
+              this.listProducts.push({
+                descricao: item.descricao,
+                total: item.valor,
+                quantidade: 1,
+                valor: item.valor,
+                id: item.id,
+              })
             }
-          } else {
-            this.listProducts.push({
-              descricao: item.descricao,
-              total: item.valor,
-              quantidade: 1,
-              valor: item.valor,
-              id: item.id,
-            })
-          }
-        })
+          })
+        }
 
         this.listaItensPedido = this.listProducts
       })

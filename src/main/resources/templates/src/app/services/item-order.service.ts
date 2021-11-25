@@ -1,46 +1,64 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Produto } from '../model/produto';
+import { OrderService } from './../services/order.service';
 
+
+export interface CarrinhoItems {
+  idPedido?: number,
+  listaItensCarrinho: Produto[]
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ItemOrderService {
 
-  public ListaItensCarrinho: any = [];
+  public Carrinho: any = {
+    idPedido: 0,
+    listaItensCarrinho: []
+  };
   public productList = new BehaviorSubject<any>([]);
 
-  constructor() { }
+  constructor(
+    private orderService: OrderService,
+  ) { }
 
   getProducts() {
     return this.productList.asObservable();
   }
 
   addCarrinho(product: Produto) {
-    this.ListaItensCarrinho.push(product);
-    this.productList.next(this.ListaItensCarrinho);
+    if (!this.Carrinho.listaItensCarrinho.length) {
+      this.orderService.savePedido({}).subscribe((data) => {
+        console.log('pedido criação ===> ', data)
+        this.Carrinho.idPedido = data.id;
+      })
+    }
+    this.Carrinho.listaItensCarrinho.push(product);
+    this.productList.next(this.Carrinho);
     this.getPrecoTotal();
-    console.log(this.ListaItensCarrinho)
+    console.log(this.Carrinho.listaItensCarrinho)
   }
 
   getPrecoTotal() {
     let valorTotal = 0;
-    this.ListaItensCarrinho.map((a: any) => {
+    this.Carrinho.listaItensCarrinho.map((a: any) => {
       valorTotal += a.total;
     })
   }
 
   deleteItemCarrinho(product: any) {
-    this.ListaItensCarrinho.map((a: any, index: any) => {
+    this.Carrinho.listaItensCarrinho.map((a: any, index: any) => {
       if (product.id === a.id) {
-        this.ListaItensCarrinho.aplice(index, 1);
+        this.Carrinho.listaItensCarrinho.aplice(index, 1);
       }
     })
   }
 
   deleteAllItemCarrinho() {
-    this.ListaItensCarrinho = []
-    this.productList.next(this.ListaItensCarrinho);
+    this.Carrinho.listaItensCarrinho = []
+    this.productList.next(this.Carrinho.listaItensCarrinho);
   }
 }

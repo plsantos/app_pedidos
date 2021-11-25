@@ -1,7 +1,6 @@
 table {
   width: 80%;
   margin-left: 125px;
-
 }
 
 mat-toolbar{
@@ -31,5 +30,12 @@ td.mat-cell{
 .mat-raised-button{
   background-color: #C8B8DB;
   margin: 10px;
-  padding: 1px;
+  padding: 8px;
   }
+
+.container-buttons{ 
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  width: 90%;
+}
