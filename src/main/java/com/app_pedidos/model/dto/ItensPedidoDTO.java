@@ -1,16 +1,23 @@
 package com.app_pedidos.model.dto;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+import java.io.Serializable;
 import com.app_pedidos.model.entity.ItensPedido;
 import com.app_pedidos.model.entity.Pedido;
 import com.app_pedidos.model.entity.Produto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
-public class ItensPedidoDTO {
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ItensPedidoDTO implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	private Long id;
     private int quantidadeProduto;
     private Produto produto;
     private Pedido pedido;
@@ -19,9 +26,8 @@ public class ItensPedidoDTO {
         this.quantidadeProduto = itensPedido.getQuantidadeProduto();
         this.produto = itensPedido.getProduto();
         this.pedido = itensPedido.getPedido();
+        this.id = itensPedido.getId();
     }
 
-    public static List<ItensPedidoDTO> converter(List<ItensPedido> itensPedido){
-        return itensPedido.stream().map(ItensPedidoDTO::new).collect(Collectors.toList());
-    }
+    
 }

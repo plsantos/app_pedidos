@@ -20,7 +20,4 @@ public class Cliente {
     private String documento;
     private String nome;
 
-    @OneToOne
-    @JoinColumn(name = "endereco_id")
-    private Endereco endereco;
 }
