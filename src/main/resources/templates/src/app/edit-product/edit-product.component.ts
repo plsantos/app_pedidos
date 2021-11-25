@@ -17,6 +17,7 @@ export class EditProductComponent implements OnInit {
 
   constructor(private productService: ProductService, private router: Router) { }
 
+  status = ['True', 'False']
 
   ngOnInit(): void {
 

@@ -25,30 +25,35 @@
             name="tipo"
             id="tipo"
           >
-            <option value="fisica">Pessoa física</option>
-            <option value="juridica">Pessoa jurídica</option>
+            <option value="Pessoa física">Pessoa física</option>
+            <option value="Pessoa jurídica">Pessoa jurídica</option>
           </select>
         </div>
 
-
-  <!-- <div class="form-group">
+        <!-- <div class="form-group">
     <label for="tipo">Tipo</label>
     <select class="form-control" id="tipo" required>
       <option *ngFor="let tipo of cliente.tipo" [value]="tipo">{{cliente.tipo}}</option>
     </select>
   </div> -->
 
-  <div class="form-group">
-    <label for="documento">Documento</label>
-    <input type="text" class="form-control" [(ngModel)]="cliente.documento" name="documento" id="documento">
-  </div>
+        <div class="form-group">
+          <label for="documento">Documento</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="cliente.documento"
+            name="documento"
+            id="documento"
+          />
+        </div>
 
-  <!-- <ng-container matColumnDef="endereco">
+        <!-- <ng-container matColumnDef="endereco">
     <th mat-header-cell *matHeaderCellDef> Endereço </th>
     <td mat-cell *matCellDef="let endereco"> {{endereco}} </td>
   </ng-container> -->
 
-  <!-- <div class="form-group">
+        <!-- <div class="form-group">
     <div class="col-xs-12">
         <label for="endereco" class="col-sm-2 control-label blue-font" style="width: 100%">Selecione o Endereço:*</label>
         <select class="form-control"  name="endereco" id="endereco" ng-model="endereco">
@@ -57,9 +62,7 @@
     </div>
   </div> -->
 
-
-
-  <!-- <div class="form-group">
+        <!-- <div class="form-group">
     <table mat-table [dataSource]="cliente$" id="head" class="mat-elevation-z8">
       <ng-container matColumnDef="endereco">
         <label for="endereco">Endereço</label>
@@ -80,11 +83,14 @@
     </table>
   </div> -->
 
-  <button mat-raised-button (click)="saveCliente()">Salvar </button>
-  <button  mat-raised-button
-
->
-  Cancelar
-</button>
-</form>
-</mat-card>
+        <button mat-raised-button (click)="saveCliente()">Salvar</button>
+        <button
+          mat-raised-button
+          [routerLink]="['/home']"
+          routerLinkActive="router-link-active">
+          Cancelar
+        </button>
+      </form>
+    </mat-card>
+  </mat-card>
+</div>
