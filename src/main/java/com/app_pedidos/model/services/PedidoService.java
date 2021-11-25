@@ -34,7 +34,6 @@ public class PedidoService {
     	Pedido entity = new Pedido();
 		entity.setCliente(dto.getCliente());
 		entity.setData(dto.getData());
-		entity.setEndereco(dto.getEndereco());
 		entity.setSituacao(dto.isSituacao());
 		entity = repository.save(entity);
 		
@@ -63,13 +62,13 @@ public class PedidoService {
 	public PedidoDTO update(Long id, PedidoDTO dto) {
 		try {
 			Pedido entity = repository.getOne(id);
-			entity.setCliente(dto.getCliente());
-			entity.setData(dto.getData());
-			entity.setEndereco(dto.getEndereco());
-			entity.setSituacao(dto.isSituacao());
-			entity = repository.save(entity);
+			if(entity.isSituacao()) {
+				entity.setCliente(dto.getCliente());
+				entity.setData(dto.getData());
+				entity.setSituacao(dto.isSituacao());
+				entity = repository.save(entity);
+			}
 			return new PedidoDTO(entity);
-			
 		}catch(EntityNotFoundException e) {
 			throw new  ResourceNotFoundException("Id não encontrado "+id);
 		}
