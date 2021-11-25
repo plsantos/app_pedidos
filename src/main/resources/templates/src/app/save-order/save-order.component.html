@@ -24,7 +24,6 @@
           <label for="endereco">Cep</label>
           <input
             type="text"
-            [ngModelOptions]="{ standalone: true }"
             class="form-control"
             [(ngModel)]="pedido.cep"
             (blur)="consultaCep(pedido.cep, f)"
@@ -37,7 +36,6 @@
           <label for="logradouro">Rua</label>
           <input
             type="text"
-            [ngModelOptions]="{ standalone: true }"
             class="form-control"
             [(ngModel)]="pedido.rua"
             name="rua"
@@ -49,7 +47,6 @@
           <label for="numero">Número</label>
           <input
             type="text"
-            [ngModelOptions]="{ standalone: true }"
             class="form-control"
             [(ngModel)]="pedido.numero"
             name="numero"
@@ -61,7 +58,6 @@
           <label for="bairro">Bairro</label>
           <input
             type="text"
-            [ngModelOptions]="{ standalone: true }"
             class="form-control"
             [(ngModel)]="pedido.bairro"
             name="bairro"
@@ -73,7 +69,6 @@
           <label for="localidade">Cidade</label>
           <input
             type="text"
-            [ngModelOptions]="{ standalone: true }"
             class="form-control"
             [(ngModel)]="pedido.cidade"
             id="cidade"
@@ -85,7 +80,6 @@
           <label for="uf">Estado</label>
           <input
             type="text"
-            [ngModelOptions]="{ standalone: true }"
             class="form-control"
             [(ngModel)]="pedido.estado"
             id="estado"
@@ -96,7 +90,6 @@
           <label for="pedido" id="data">Data</label>
           <input
             type="text"
-            [ngModelOptions]="{ standalone: true }"
             class="form-control"
             [(ngModel)]="pedido.data"
             id="data"

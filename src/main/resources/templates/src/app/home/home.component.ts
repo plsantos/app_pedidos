@@ -9,10 +9,9 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   url = 'http://localhost:8080/endereco';
   produto$: Produto[] = [];
 
@@ -21,7 +20,7 @@ export class HomeComponent implements OnInit {
     private itemOrderService: ItemOrderService,
     private router: Router,
     private http: HttpClient
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.productService.getProdutos().subscribe((data) => {
@@ -31,10 +30,10 @@ export class HomeComponent implements OnInit {
   }
 
   inserirCarrinho(product: Produto): void {
-    this.itemOrderService.addCarrinho(product)
+    this.itemOrderService.addCarrinho(product);
   }
 
   getTotalPaginas(): Observable<any> {
-    return this.http.get(this.url + "totaldepaginas");
+    return this.http.get(this.url + 'totaldepaginas');
   }
 }
