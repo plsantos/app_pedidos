@@ -61,19 +61,19 @@
 
 <div class="card text-center m mt-00px mb-100px" id="catalogo">
   <div class="card-body " id="">
-    <h4 class="card-title fs-2 " id="catalogo-texto">Nosso Catálogo de Produtos</h4>
+    <h4 class="card-title fs-2"id="catalogo-texto">Nosso Catálogo de Produtos</h4>
   </div>
 </div>
 
-<div class="container row align-items-center" *ngFor="let produto of produto$" >
-<div class="row row-cols-1 row-cols-md-3 g-4" >
+<div class="container align-items-center"  >
+<div class="row row-cols-3 justify-content"  >
   <div class="col">
-    <div class="card h-70 w-30" id="card1">
+    <div class="card h-70 w-30" id="card1" *ngFor="let produto of produto$">
       <img src="../assets/img/produtos/{{produto.id}}.jpg" class="img-thumbnail" width=50% height=50%>
       <div class="card-body"id= itemProduto>
         <span hidden>{{produto.id}}</span>
         <h5 class="card-title">{{produto.descricao}}</h5>
-        <p class="card-text">R$: {{produto.valor}}</p>
+        <p class="card-text">R$:{{produto.valor}}</p>
         <a class="btn btn-primary"  [routerLink]="['/itensPedido']" type= "submit"
         routerLinkActive="router-link-active">Comprar</a>
       </div>

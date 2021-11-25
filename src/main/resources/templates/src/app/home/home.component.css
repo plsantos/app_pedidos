@@ -19,12 +19,12 @@
 }
 
 #missao:hover{
-    background-color: #70587C;
+    background-color: #c8b8db;
     text-decoration: #ffffff;
 }
 
 #valores:hover{
-    background-color: #70587C;
+    background-color: #c8b8db;
 }
 
 .carousel-item{transition: transform 2s ease, opacity .5s ease-out}
