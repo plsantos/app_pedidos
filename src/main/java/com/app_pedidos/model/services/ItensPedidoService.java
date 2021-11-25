@@ -28,7 +28,7 @@ public class ItensPedidoService {
 	 	entity.setQuantidadeProduto(dto.getQuantidadeProduto());
 	 	entity.setProduto(dto.getProduto());
 	 	entity.setPedido(dto.getPedido());
-		
+		entity.setValorTotal(dto.getValorTotal());
 		entity = repository.save(entity);
 		
 		return new ItensPedidoDTO(entity);
@@ -59,7 +59,7 @@ public class ItensPedidoService {
 			entity.setQuantidadeProduto(dto.getQuantidadeProduto());
 		 	entity.setProduto(dto.getProduto());
 		 	entity.setPedido(dto.getPedido());
-			
+		 	entity.setValorTotal(dto.getValorTotal());
 			entity = repository.save(entity);
 			return new ItensPedidoDTO(entity);
 			

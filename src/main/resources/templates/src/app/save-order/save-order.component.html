@@ -4,7 +4,7 @@
       <span class="title-endereco">Pedido</span>
     </mat-toolbar>
   </mat-card>
-  <br/>
+  <br />
 
   <form action="" #f="ngForm" class="formD">
     <div class="form-group">
@@ -18,6 +18,62 @@
       />
     </div>
 
+      <div class="form-group">
+        <label for="endereco">Cep</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="pedido.cep"
+          (blur)="consultaCep(pedido.cep, f)"
+          id="cep"
+          name="cep"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="logradouro">Rua</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="pedido.rua"
+          name="rua"
+          id="rua"
+        />
+
+        <div class="form-group">
+          <label for="numero">Número</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="pedido.numero"
+            name="numero"
+            id="numero"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="bairro">Bairro</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="pedido.bairro"
+          name="bairro"
+          id="bairro"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="localidade">Cidade</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="pedido.cidade"
+          id="cidade"
+          name="cidade"
+        />
+      </div>
+
     <!-- <div class="form-group">
       <label for="pedido">Endereço</label>
       <input
@@ -30,18 +86,45 @@
     </div> -->
 
     <div class="form-group">
-      <label for="pedido">Data</label>
-      <!-- <input
-        type="text"
+      <label for="pedido" id="data">Data</label>
+
+      <input
+        class="form-control"
+        type="date"
+        name="pedido.data"
+        value="<? = $conta ['pedido.data']->format('dd-mm-YYYY') ?>"
+      />
+      <!-- type="text"
         class="form-control"
         [(ngModel)]="pedido.data"
         name="valor"
         id="valor"
-      /> -->
+        let dt of pedido_data [value]="pedido_data">{{pedido.data}} -->
+    </div>
+
+    <div class="form-group">
+      <label for="pedido">Valor Total</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="pedido.valor"
+        name="valor"
+        id="valor"
+        currency="BRL"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="pedido">Descontos</label> <p><p>
+        <mat-radio-group>
+          <mat-radio-button value=10>10 %</mat-radio-button>
+          <mat-radio-button value=20>20 %</mat-radio-button>
+          <mat-radio-button value=30>30 %</mat-radio-button>
+        </mat-radio-group>
     </div>
 
     <!-- <div class="form-group">
-      <label for="pedido">Valor Total</label>
+      <label for="pedido">Valor Final com Desconto</label>
       <input
         type="text"
         class="form-control"
@@ -53,18 +136,23 @@
     </div> -->
 
     <div class="form-group">
-      <label for="status">Situação</label>
+      <label for="pedido">Situação</label>
 
-      <select class="form-control" id="situacao" required
-      [(ngModel)] = "pedido.situacao" name="situacao">
-        <option *ngFor="let stat of status" [value]="stat">{{ stat=='True'?'Ativo':'Inativo' }}</option>
-      </select>
+      <!-- <select
+        class="form-control"
+        id="situacao"
+        required
+        [(ngModel)]="pedido.situacao"
+        name="situacao"
+      >
+        <option *ngFor="let stat of status" [value]="stat">
+          {{ stat == "True" ? "Ativo" : "Inativo" }}
+        </option>
+      </select> -->
     </div>
 
     <br />
 
     <button mat-raised-button (click)="savePedido()">Salvar</button>
     <button mat-raised-button>Cancelar</button>
-
   </form>
-</div>

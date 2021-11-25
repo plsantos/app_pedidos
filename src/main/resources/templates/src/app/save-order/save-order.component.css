@@ -15,7 +15,7 @@ mat-toolbar{
 
 .mat-raised-button{
   background-color: #C8B8DB;
-  /* margin: 10px; */
+  margin: 10px;
   padding: 1px;
   }
 
@@ -29,4 +29,9 @@ mat-toolbar{
     margin: 10px 1%;
     padding: 8px 1%;
     width: 90%;
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+    color-interpolation-filters: #70587C ;
   }
