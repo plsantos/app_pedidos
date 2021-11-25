@@ -12,6 +12,7 @@ import { Cliente } from '../model/cliente';
   styleUrls: ['./edit-order.component.css']
 })
 export class EditOrderComponent implements OnInit {
+
   cliente: Cliente[] = [];
 
   pedido$: Pedido[] = [];
