@@ -34,6 +34,7 @@ import { SaveOrderComponent } from './save-order/save-order.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 
@@ -59,7 +60,8 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     CustomerFormComponent,
     CadastroProdutoComponent,
     EditCustomerComponent,
-    SaveOrderComponent
+    SaveOrderComponent,
+    EditProductComponent
   ],
 
   imports: [
