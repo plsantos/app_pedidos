@@ -1,4 +1,4 @@
-package com.app_pedidos.tests.repositories;
+package com.app_pedidos.tests.controller;
 
 import java.util.Optional;
 
