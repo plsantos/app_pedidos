@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from './../services/customer.service';
 import { Router } from '@angular/router';
 
 import { Cliente } from '../model/cliente';
-import { Endereco } from '../model/endereco';
-import { CustomerService } from './../services/customer.service';
-import { EnderecoService } from './../services/endereco.service';
-
 
 
 @Component({
@@ -15,28 +12,15 @@ import { EnderecoService } from './../services/endereco.service';
 })
 export class CustomerFormComponent implements OnInit {
 
-
-  endereco: Endereco[] = [];
   cliente$: Cliente[] = [];
 
   cliente: Cliente = new Cliente();
 
-  constructor(private customerService: CustomerService,
-               private router: Router,
-               private enderecoService: EnderecoService) { }
-
-
+  constructor(private customerService: CustomerService, private router: Router) { }
 
   ngOnInit(): void {
-    this.customerService.getClientes();
-     this.enderecoService.getEnderecos()
-     .subscribe(data => {
-      this.endereco = data;
-     console.log(data);
-   })
-         console.log(this.cliente);
 
-   }
+  }
 
   saveCliente(){
     this.customerService.saveCliente(this.cliente)

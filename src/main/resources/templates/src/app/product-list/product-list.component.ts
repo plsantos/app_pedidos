@@ -34,4 +34,8 @@ export class ProductListComponent implements OnInit {
     this.productService.deleteProduto(id).subscribe();
     this.produto$ = this.produto$.filter((p) => p.id != id);
   }
+
+  editar(id: any): void {
+    localStorage.setItem("id", id.toString());
+   }
 }
