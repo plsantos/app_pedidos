@@ -22,8 +22,7 @@ public class Pedido {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
     private boolean situacao = true;
-    
-    /*@OneToOne
+    @OneToOne
     @JoinColumn(name = "endereco_id")
-    private Endereco endereco;*/
+    private Endereco endereco;
 }
