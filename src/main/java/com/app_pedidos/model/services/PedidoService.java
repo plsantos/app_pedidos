@@ -67,17 +67,18 @@ public class PedidoService {
 	public PedidoDTO update(Long id, PedidoDTO dto) {
 		try {
 			Pedido entity = repository.getOne(id);
-			entity.setCliente(dto.getCliente());
-			entity.setData(dto.getData());
-			entity.setRua(dto.getRua());
-			entity.setNumero(dto.getNumero());
-			entity.setBairro(dto.getBairro());
-			entity.setCidade(dto.getCidade());
-			entity.setCep(dto.getCep());
-			entity.setSituacao(dto.isSituacao());
-			entity = repository.save(entity);
+			if(entity.isSituacao()) {
+				entity.setCliente(dto.getCliente());
+				entity.setData(dto.getData());
+				entity.setRua(dto.getRua());
+				entity.setNumero(dto.getNumero());
+				entity.setBairro(dto.getBairro());
+				entity.setCidade(dto.getCidade());
+				entity.setCep(dto.getCep());
+				entity.setSituacao(dto.isSituacao());
+				entity = repository.save(entity);
+			}
 			return new PedidoDTO(entity);
-			
 		}catch(EntityNotFoundException e) {
 			throw new  ResourceNotFoundException("Id não encontrado "+id);
 		}
