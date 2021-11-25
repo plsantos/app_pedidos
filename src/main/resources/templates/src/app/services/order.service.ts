@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Pedido } from '../model/pedido';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -9,7 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class OrderService {
 
-  constructor(private http: HttpClient) {}
+  public pedidoId = new BehaviorSubject<number>(-1);
+
+  constructor(private http: HttpClient) { }
 
   Url = 'http://localhost:8080/pedido';
 

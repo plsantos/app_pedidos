@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Produto } from '../model/produto';
 import { ProductService } from './../services/product.service';
+import { Produto } from '../model/produto';
 import { ItemOrderService } from './../services/item-order.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
-
 
 @Component({
   selector: 'app-home',
@@ -15,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  url='http://localhost:8080/endereco';
+  url = 'http://localhost:8080/endereco';
   produto$: Produto[] = [];
 
   constructor(
@@ -23,16 +21,20 @@ export class HomeComponent implements OnInit {
     private itemOrderService: ItemOrderService,
     private router: Router,
     private http: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.productService.getProdutos().subscribe((data) => {
-      this.produto$ = data.slice(0,3);
+      this.produto$ = data.content.slice(0, 3);
       console.log('Produtos ===>', data);
     });
   }
 
-  getTotalPaginas(): Observable<any>{
+  inserirCarrinho(product: Produto): void {
+    this.itemOrderService.addCarrinho(product)
+  }
+
+  getTotalPaginas(): Observable<any> {
     return this.http.get(this.url + "totaldepaginas");
   }
 }

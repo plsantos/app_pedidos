@@ -5,6 +5,7 @@ import { Cliente } from '../model/cliente';
 import { Pedido } from '../model/pedido';
 import { CustomerService } from '../services/customer.service';
 import { OrderService } from '../services/order.service';
+import { ItemOrderService, CarrinhoItems } from '../services/item-order.service';
 
 @Component({
   selector: 'app-save-order',
@@ -13,6 +14,7 @@ import { OrderService } from '../services/order.service';
 })
 export class SaveOrderComponent implements OnInit {
   cliente$: Cliente[] = [];
+  carrinho: CarrinhoItems = { idPedido: 0, listaItensCarrinho: [] };
 
   pedido: Pedido = new Pedido();
 
@@ -22,15 +24,25 @@ export class SaveOrderComponent implements OnInit {
     private orderService: OrderService,
     private router: Router,
     private httpClient: HttpClient,
-    private customerService: CustomerService
-  ) {}
+    private customerService: CustomerService,
+    private itemOrder: ItemOrderService
+
+  ) { }
 
   ngOnInit(): void {
-    this.customerService.getClientes().subscribe((data) => {
-      this.cliente$ = data;
-      console.log(data);
-    });
+    this.customerService.getClientes()
+      .subscribe(data => {
+        this.cliente$ = data;
+        console.log(data);
+      })
     console.log(this.cliente$);
+
+    this.itemOrder.getProducts()
+      .subscribe((data: CarrinhoItems) => {
+        this.carrinho = data;
+        this.pedido.valorTotal = data.listaItensCarrinho.map((item) => item.valor).
+          reduce((acc, valor) => (acc || 0) + (valor || 0), 0)
+      })
   }
 
   savePedido() {
@@ -72,11 +84,9 @@ export class SaveOrderComponent implements OnInit {
     });
   }
 
-  // valorDesconto(value: any) {
-  //   if (value != 0)
-  //     return value/100
-  //    else
+  valorDesconto(value: any) {
+    this.pedido.descontos = (this.pedido.valorTotal || 0) - ((this.pedido.valorTotal || 0) * value / 100);
+  }
 
 
-  // }
 }

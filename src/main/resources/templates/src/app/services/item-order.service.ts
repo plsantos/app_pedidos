@@ -1,49 +1,64 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Produto } from '../model/produto';
+import { OrderService } from './../services/order.service';
 
+
+export interface CarrinhoItems {
+  idPedido?: number,
+  listaItensCarrinho: Produto[]
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ItemOrderService {
 
-  public ListaItensCarrinho : any =[];
+  public Carrinho: any = {
+    idPedido: 0,
+    listaItensCarrinho: []
+  };
   public productList = new BehaviorSubject<any>([]);
-  
-  constructor() { }
 
-  getProducts(){
+  constructor(
+    private orderService: OrderService,
+  ) { }
+
+  getProducts() {
     return this.productList.asObservable();
   }
 
-  addCarrinho(product : any){
-    this.ListaItensCarrinho.push(product);
-    this.productList.next(this.ListaItensCarrinho);
+  addCarrinho(product: Produto) {
+    if (!this.Carrinho.listaItensCarrinho.length) {
+      this.orderService.savePedido({}).subscribe((data) => {
+        console.log('pedido criação ===> ', data)
+        this.Carrinho.idPedido = data.id;
+      })
+    }
+    this.Carrinho.listaItensCarrinho.push(product);
+    this.productList.next(this.Carrinho);
     this.getPrecoTotal();
-    console.log(this.ListaItensCarrinho)
+    console.log(this.Carrinho.listaItensCarrinho)
   }
 
-  getPrecoTotal(){
+  getPrecoTotal() {
     let valorTotal = 0;
-    this.ListaItensCarrinho.map((a:any)=>{
+    this.Carrinho.listaItensCarrinho.map((a: any) => {
       valorTotal += a.total;
     })
   }
 
-  getTotalItem(){
-    return this.ListaItensCarrinho.length
-  }
-
-  deleteItemCarrinho(product: any){
-    this.ListaItensCarrinho.map((a:any, index:any)=>{
-      if(product.id === a.id){
-        this.ListaItensCarrinho.aplice(index,1);
+  deleteItemCarrinho(product: any) {
+    this.Carrinho.listaItensCarrinho.map((a: any, index: any) => {
+      if (product.id === a.id) {
+        this.Carrinho.listaItensCarrinho.aplice(index, 1);
       }
     })
   }
 
-  deleteAllItemCarrinho(){
-    this.ListaItensCarrinho = []
-    this.productList.next(this.ListaItensCarrinho);
+  deleteAllItemCarrinho() {
+    this.Carrinho.listaItensCarrinho = []
+    this.productList.next(this.Carrinho.listaItensCarrinho);
   }
 }
