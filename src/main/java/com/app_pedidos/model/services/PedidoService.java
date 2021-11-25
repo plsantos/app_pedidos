@@ -38,8 +38,10 @@ public class PedidoService {
 		entity.setNumero(dto.getNumero());
 		entity.setBairro(dto.getBairro());
 		entity.setCidade(dto.getCidade());
+		entity.setEstado(dto.getEstado());
 		entity.setCep(dto.getCep());
 		entity.setSituacao(dto.isSituacao());
+		entity.setValorTotal(dto.getValorTotal());
 		entity = repository.save(entity);
 		
 		return new PedidoDTO(entity);
@@ -74,8 +76,10 @@ public class PedidoService {
 				entity.setNumero(dto.getNumero());
 				entity.setBairro(dto.getBairro());
 				entity.setCidade(dto.getCidade());
+				entity.setEstado(dto.getEstado());
 				entity.setCep(dto.getCep());
 				entity.setSituacao(dto.isSituacao());
+				entity.setValorTotal(dto.getValorTotal());
 				entity = repository.save(entity);
 			}
 			return new PedidoDTO(entity);
