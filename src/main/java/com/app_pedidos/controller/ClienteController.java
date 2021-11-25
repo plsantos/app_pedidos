@@ -37,5 +37,13 @@ public class ClienteController {
 		return ResponseEntity.ok().body(dto);//resposta 200 ou seja foi com sucesso
 	}
 	
+	@PutMapping(value="/{id}")
+	public ResponseEntity<ClienteDTO> update(@PathVariable Long id,@RequestBody ClienteDTO dto){
+		dto = service.update(id,dto);
+		return ResponseEntity.ok().body(dto);
+		
+		
+	}
+	
 	
 }
