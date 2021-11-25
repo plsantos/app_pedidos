@@ -30,7 +30,8 @@
 .carousel-item{transition: transform 2s ease, opacity .5s ease-out}
 
 #catalogo{
-    margin-top: 100px;
+    margin-top: 5%;
+    margin-bottom: 5%;
     background-color: #70587C;
 }
 #catalogo-texto{
