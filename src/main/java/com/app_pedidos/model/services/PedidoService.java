@@ -17,6 +17,7 @@ import com.app_pedidos.model.entity.Pedido;
 import com.app_pedidos.model.repositories.PedidoRepository;
 import com.app_pedidos.model.services.exceptions.DatabaseException;
 import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
+
 @Service
 public class PedidoService {
     @Autowired
