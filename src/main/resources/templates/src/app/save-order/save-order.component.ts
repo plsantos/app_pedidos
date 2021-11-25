@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { Cliente } from '../model/cliente';
 import { Pedido } from '../model/pedido';
-import { CepService } from '../services/cep.service';
+import { CustomerService } from '../services/customer.service';
 import { OrderService } from '../services/order.service';
 
 @Component({
@@ -12,25 +14,34 @@ import { OrderService } from '../services/order.service';
 })
 export class SaveOrderComponent implements OnInit {
 
+  cliente$: Cliente[] = [];
+
   pedido: Pedido = new Pedido();
+
   pedido_data: Pedido[] = [];
-  status = ['True', 'False']
 
   constructor(
     private orderService: OrderService,
     private router: Router,
     private httpClient: HttpClient,
-    private cepService: CepService,
+    private customerService: CustomerService
 
   ) { }
 
   ngOnInit(): void {
+    this.customerService.getClientes()
+     .subscribe(data => {
+      this.cliente$ = data;
+     console.log(data);
+   })
+         console.log(this.cliente$);
   }
 
   savePedido() {
     this.orderService.savePedido(this.pedido).subscribe((data) => {
       this.router.navigate(['/orderList']);
     });
+    console.log(this.pedido);
   }
 
   consultaCep(valor: any, formGroup: any) {
