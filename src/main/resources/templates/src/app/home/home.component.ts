@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from '../model/produto';
 import { ProductService } from './../services/product.service';
-import { HttpClient } from '@angular/common/http';
-
 
 
 @Component({
