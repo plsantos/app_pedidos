@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemOrderService } from '../../services/item-order.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public numberOfItems = 0;
+
+  constructor(
+    private itemOrderService: ItemOrderService
+  ) { }
 
   ngOnInit(): void {
+    this.itemOrderService.getProducts()
+    .subscribe(res=>{
+      this.numberOfItems = res.length;
+    })
   }
-
 }

@@ -13,6 +13,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { SaveOrderComponent } from './save-order/save-order.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch:'full'},
@@ -28,7 +30,9 @@ const routes: Routes = [
   { path: 'header',component: HeaderComponent},
   { path: 'footer',component: FooterComponent},
   { path: 'editCustomer/:id',component: EditCustomerComponent},
-  { path: 'saveOrder', component: SaveOrderComponent}
+  { path: 'saveOrder', component: SaveOrderComponent},
+  { path: 'editProduct/:id',component: EditProductComponent},
+
 ]
 
 @NgModule({
