@@ -3,8 +3,6 @@ package com.app_pedidos.model.services;
 import com.app_pedidos.model.dto.ProdutoDTO;
 
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
@@ -12,6 +10,8 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.app_pedidos.model.entity.Produto;
@@ -45,15 +45,8 @@ public class ProdutoService {
 		return new ProdutoDTO(entity);
 	}
     
-    public List<ProdutoDTO> findAll() {
-		List<Produto> list= repository.findAll();
-		List<ProdutoDTO>listDto = new ArrayList<>();
-		
-		for(Produto cob : list) {
-			listDto.add(new ProdutoDTO(cob));
-		}
-		
-		return listDto;
+    public Page<Produto> findAll(Pageable pageable) {
+		return repository.findAll(pageable);
 	}
     
     public ProdutoDTO findById(Long id) {
@@ -90,5 +83,4 @@ public class ProdutoService {
 		}
 		
 	}
-
 }
