@@ -15,16 +15,16 @@ export class ProductService {
     return this.http.get<Produto[]>(this.Url);
   }
 
-  getProduto(id: number): Observable<any> {
-    return this.http.get<Produto>(this.Url + id);
+  getProduto(id: any): Observable<any> {
+    return this.http.get<Produto>(this.Url+'/'+ id);
   }
 
   saveProduto(produto: Produto): Observable<any> {
     return this.http.post<Produto>(this.Url, produto);
   }
 
-  editProduto(id: number, produto: Produto): Observable<any> {
-    return this.http.put(this.Url + id, produto);
+  editProduto(produto: Produto): Observable<any> {
+    return this.http.put(this.Url +'/'+ produto.id, produto);
   }
 
   deleteProduto(id: number): Observable<any> {
