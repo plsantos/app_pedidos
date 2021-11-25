@@ -1,4 +1,4 @@
-package com.app_pedidos.tests.repositories;
+package com.app_pedidos.tests.controller;
 
 import com.app_pedidos.model.entity.Cliente;
 import com.app_pedidos.model.repositories.ClienteRepository;
