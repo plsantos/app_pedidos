@@ -6,6 +6,7 @@ import { Cliente } from '../model/cliente';
 import { Pedido } from '../model/pedido';
 import { CustomerService } from '../services/customer.service';
 import { OrderService } from '../services/order.service';
+import { ItemOrderService, CarrinhoItems } from '../services/item-order.service';
 
 @Component({
   selector: 'app-save-order',
@@ -15,6 +16,7 @@ import { OrderService } from '../services/order.service';
 export class SaveOrderComponent implements OnInit {
 
   cliente$: Cliente[] = [];
+  carrinho: CarrinhoItems = { idPedido: 0, listaItensCarrinho: [] };
 
   pedido: Pedido = new Pedido();
 
@@ -24,7 +26,8 @@ export class SaveOrderComponent implements OnInit {
     private orderService: OrderService,
     private router: Router,
     private httpClient: HttpClient,
-    private customerService: CustomerService
+    private customerService: CustomerService,
+    private itemOrder: ItemOrderService
 
   ) { }
 
@@ -35,6 +38,13 @@ export class SaveOrderComponent implements OnInit {
         console.log(data);
       })
     console.log(this.cliente$);
+
+    this.itemOrder.getProducts()
+      .subscribe((data: CarrinhoItems) => {
+        this.carrinho = data;
+        this.pedido.valor = data.listaItensCarrinho.map((item) => item.valor).
+          reduce((acc, valor) => (acc || 0) + (valor || 0), 0)
+      })
   }
 
   savePedido() {
@@ -75,13 +85,11 @@ export class SaveOrderComponent implements OnInit {
     });
   }
 
-  // valorDesconto (value: any){
-  //   if (value = 10){
-  //     this.pedido.valor -= this.pedido.valor*0.10;
-
-  //   }
-
-  // }
+  valorDesconto(value: any) {
+    if (value = 10) {
+      this.pedido.valor = (this.pedido.valor || 0) - ((this.pedido.valor || 0) * 0.10);
+    }
+  }
 
 
 }
