@@ -1,45 +1,54 @@
 <div class="card">
   <mat-card>
     <mat-toolbar>
-      <span class="title-endereco">Cadastro de Produto</span>
+      <span class="title-customer-form">Cadastro de Produto</span>
     </mat-toolbar>
+
+    <mat-card>
+      <form action="" #f="ngForm" class="formD">
+        <div class="form-group">
+          <label for="produto">Descrição</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="produto.descricao"
+            id="desc"
+            name="desc"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="logradouro">Valor</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="produto.valor"
+            name="valor"
+            id="valor"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="status">Status</label>
+
+          <select
+            class="form-control"
+            id="status"
+            required
+            [(ngModel)]="produto.status"
+            name="status"
+          >
+            <option *ngFor="let stat of status" [value]="stat">
+              {{ stat == "True" ? "Ativo" : "Inativo" }}
+            </option>
+          </select>
+        </div>
+
+        <br />
+
+        <button mat-raised-button (click)="saveProduto()">Salvar</button>
+        <button mat-raised-button>Cancelar</button>
+      </form>
+    </mat-card>
   </mat-card>
-  <br />
-  <form action="" #f="ngForm" class="formD">
-    <div class="form-group">
-      <label for="produto">Descrição</label>
-      <input
-        type="text"
-        class="form-control"
-        [(ngModel)]="produto.descricao"
-        id="desc"
-        name="desc"
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="logradouro">Valor</label>
-      <input
-        type="text"
-        class="form-control"
-        [(ngModel)]="produto.valor"
-        name="valor"
-        id="valor"
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="status">Status</label>
-      <select class="form-control" id="status" required
-      [(ngModel)] = "produto.status" name="status">
-        <option *ngFor="let stat of status" [value]="stat">{{ stat }}</option>
-      </select>
-    </div>
-
-    <br />
-
-    <button mat-raised-button (click)="saveProduto()">Salvar</button>
-    <button mat-raised-button>Cancelar</button>
-
-  </form>
 </div>

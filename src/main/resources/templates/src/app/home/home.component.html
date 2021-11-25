@@ -1,93 +1,112 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
+    
 
-<div class="container">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./assets/img/logo.png" class="d-flex w-100" height=430 alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/img/banner1.png"  class="d-flex w-100" height=430  alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/img/banner2.png" class="d-flex w-100" height=430  alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/img/banner3.png" class="d-flex w-100" height=430 alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="container" id="texto-sobre">
   <div class="row">
     <div class="col">
-      
-      <p class="text-start text-break" id="texto-entrada">Genius Livraria delivery é uma livraria online que busca facilitar a compra e entrega de livros de forma simples e fácil, com o melhor custo-benefício. <br>Nosso catálogo possui os mais diversos gêneros literários para agradar todos os públicos e idades, confira mais!</p>
-
+      <p class="text-start fs-5 " id="texto-entrada">Genius Livraria delivery é uma livraria online que busca facilitar a compra e entrega de livors com o melhor custo-benefício. Nosso catálogo possui os mais diversos gêneros literários para agradar todos os públicos e idades, confira mais!</p>
     </div>
-    <div class="col" id="carrosel">
-      <div class="ms-auto p-2 bd-highlight">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="./assets/img/logo.png" width=600px height=300px >
-            </div>
-            <div class="carousel-item">
-              <img src="./assets/img/banner1.png" width=600px height=300px >
-            </div>
-            <div class="carousel-item">
-              <img src="./assets/img/banner2.png" width=600px height=300px >
-            </div>
-            <div class="carousel-item">
-              <img src="./assets/img/banner3.png" width=600px height=300px >
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
+  </div>
+</div> 
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col align-self-start" id="missao">
+      <p class="fs-5">Missão</p>
+      <p class="card-text">O que dá direção e significado ao nosso trabalho?<br>
+        Disponibilizar um acervo de títulos completo, com equipe de colaboradores competente e treinada, orientada a fazer do momento da compra uma experiência única de descoberta e prazer.</p>
+    </div>
+    <div class="col align-self-end" id="valores">
+      <p class="fs-5">Valores</p>
+      <p class="card-text">
+        Acreditamos no poder transformador da informação e da cultura.<br>
+        Nosso objetivo é ser a melhor livraria, nos consolidando como a grande referência.<br>
+        Quanto mais crescermos, mais vamos disseminar essa informação, ajudando as pessoas a construir e viver em um mundo melhor e mais justo.
+      </p>
     </div>
   </div>
 </div>
 
-<div class="card text-center m mt-100px mb-100px" id="catalogo">
-  <div class="card-body">
+<div class="card text-center m mt-00px mb-100px" id="catalogo">
+  <div class="card-body " id="">
     <h4 class="card-title fs-2 " id="catalogo-texto">Nosso Catálogo de Produtos</h4>
   </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4" *ngFor="let produto of produto$">
   <div class="col">
-    <div class="card h-70 w-30">
+    <div class="card h-70 w-30" id="card1">
       <img src="assets\img\produtos\orgulhoepreconceito.jpg" class="img-thumbnail" width=50% height=50%>
-      <div class="card-body">
-        <h5 class="card-title">Orgulho e Preconceito</h5>
-        <p class="card-text">Jane Austen</p>
-        <p class="card-text">R$:45,13</p>
-        <a class="btn btn-primary"  [routerLink]="['/itensPedido']"
-        routerLinkActive="router-link-active" id=1 value=45.13>Comprar</a>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="assets\img\produtos\ruinasdeminaster.jpg" class="img-thumbnail" width=50% height=50%>
-      <div class="card-body">
-        <h5 class="card-title">Ruínas de Minaster</h5>
-        <p class="card-text">Raianne Viana</p>
-        <p class="card-text">R$ 49,90</p>
+      <div class="card-body"id= itemProduto>
+        <span hidden>{{produto.id}}</span>
+        <h5 class="card-title">{{produto.descricao}}</h5>
+        <p class="card-text">R$: {{produto.valor}}</p>
+        <a class="btn btn-primary"  [routerLink]="['/itensPedido']" type= "submit"
+        routerLinkActive="router-link-active">Comprar</a>
+        <!-- (click)=addItens(produto) -->
 
       </div>
-      <div class="card-footer">
+    </div>
+  </div>
+  
+  <div class="col">
+    <div class="card h-70 w-30" id="card2">
+      <img src="assets\img\produtos\ruinasdeminaster.jpg" class="img-thumbnail" width=50% height=50%>
+      <div class="card-body">
+        <span hidden>{{produto.id}}</span>
+        <h5 class="card-title">{{produto.descricao}}</h5>
+        <p class="card-text">R$:{{produto.valor}}</p>
         <a class="btn btn-primary" [routerLink]="['/itensPedido']"
-        routerLinkActive="router-link-active" role="button" id=2 value=49.90>Comprar</a>
+        routerLinkActive="router-link-active">Comprar</a>
       </div>
     </div>
   </div>
+
   <div class="col">
-    <div class="card h-100">
+    <div class="card h-70 w-30" id="card3">
       <img src="assets\img\produtos\hibiscoroxo.jpg" class="img-thumbnail" width=50% height=50%>
       <div class="card-body">
-        <h5 class="card-title">Hibisco Roxo</h5>
-        <p class="card-text">R$ 28,90</p>
-      </div>
-      <div class="card-footer">
+        <span hidden>{{produto.id}}</span>
+        <h5 class="card-title">{{produto.descricao}}</h5>
+        <p class="card-text">R$: {{produto.valor}}</p>
         <a class="btn btn-primary" [routerLink]="['/itensPedido']"
-        routerLinkActive="router-link-active" role="button" id=3 value=28.90>Comprar</a>
+        routerLinkActive="router-link-active">Comprar</a>
       </div>
     </div>
-  </div>
-</div>
+  </div>    
 <!--<app-pagination></app-pagination>-->
 <router-outlet></router-outlet>
 
