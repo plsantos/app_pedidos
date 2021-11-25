@@ -40,8 +40,10 @@ export class SaveOrderComponent implements OnInit {
     this.itemOrder.getProducts()
       .subscribe((data: CarrinhoItems) => {
         this.carrinho = data;
-        this.pedido.valorTotal = data.listaItensCarrinho.map((item) => item.valor).
+        this.pedido.valorTotal = data?.listaItensCarrinho?.map((item) => item.valor).
           reduce((acc, valor) => (acc || 0) + (valor || 0), 0)
+
+        console.log('aqui', this.pedido)
       })
   }
 
@@ -87,6 +89,5 @@ export class SaveOrderComponent implements OnInit {
   valorDesconto(value: any) {
     this.pedido.descontos = (this.pedido.valorTotal || 0) - ((this.pedido.valorTotal || 0) * value / 100);
   }
-
 
 }
