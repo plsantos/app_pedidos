@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from '../model/produto';
-import { ProductService } from './../services/product.service';
 import { HttpClient } from '@angular/common/http';
+import { ProductService } from './../services/product.service';
+import { ItemOrderService } from './../services/item-order.service';
 
 
 
@@ -17,18 +18,19 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private itemOrderService: ItemOrderService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.productService.getProdutos().subscribe((data) => {
-      this.produto$ = data;
+      this.produto$ = data.slice(0,3);
       console.log('Produtos ===>', data);
     });
   }
 
-  inserirCarrinho(): void {
-
+  inserirCarrinho(product: Produto): void {
+    this.itemOrderService.addCarrinho(product)
   }
 
 }

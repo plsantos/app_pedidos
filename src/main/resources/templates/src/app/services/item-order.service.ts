@@ -30,6 +30,10 @@ export class ItemOrderService {
     })
   }
 
+  getTotalItem(){
+    return this.ListaItensCarrinho.length
+  }
+
   deleteItemCarrinho(product: any){
     this.ListaItensCarrinho.map((a:any, index:any)=>{
       if(product.id === a.id){
@@ -42,16 +46,4 @@ export class ItemOrderService {
     this.ListaItensCarrinho = []
     this.productList.next(this.ListaItensCarrinho);
   }
-
-
-
-
-//  urlBase = "http://localhost:8080/itensPedido"
-
-//  getItensPedido(){
-//    return this.http.get<ItensPedido[]>(this.urlBase);
-//  }
-  
-  //criar metodo para adicionar os produtos - Byanca 
-
 }

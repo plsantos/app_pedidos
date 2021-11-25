@@ -3,3 +3,17 @@
     height:10%
 }
 
+.badge {
+    background-color: red;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    right: 4px;
+}
+
