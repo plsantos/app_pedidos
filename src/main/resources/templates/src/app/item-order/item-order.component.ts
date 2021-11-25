@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ItensPedido } from '../model/itensPedido';
+import { Carrinho } from '../model/carrinho';
 import { ItemOrderService } from '../services/item-order.service';
-//import { Guid } from 'guid-typescript';
-//import { FaChechCircle } from '@fortawesome/free-solid-svg-icons';
-import { FormGroup, FormControl } from '@angular/forms';
-
-
+import { Produto } from '../model/produto';
 
 @Component({
   selector: 'app-item-order',
@@ -14,17 +10,39 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ItemOrderComponent implements OnInit {
 
-  listaItensPedido: ItensPedido[] = [];
-  displayedColumns = ['id', 'produto_id', 'quantidadeProduto', 'acoes' ];
+  listaItensPedido: Carrinho[] = [];
+  listProducts: Carrinho[] = [];
+  displayedColumns = ['descricao', 'valor', 'status', 'valor-total', 'acoes'];
   constructor(private itemOrder: ItemOrderService) { }
 
-
-
   ngOnInit() {
-//   this.itemOrder.getItensPedido()
-//   .subscribe(data => {
-//     this.listaItensPedido = data
-//   })
+    this.itemOrder.getProducts()
+      .subscribe((data: Produto[]) => {
+
+        data.forEach((item) => {
+          const index = this.listProducts.findIndex((findItem) => findItem.id === item.id)
+          if (index != -1) {
+            const quantidade = (this.listProducts[index].quantidade || 0) + 1;
+            this.listProducts[index] = {
+              descricao: item.descricao,
+              total: quantidade * (item.valor || 0),
+              quantidade,
+              valor: item.valor,
+              id: item.id,
+            }
+          } else {
+            this.listProducts.push({
+              descricao: item.descricao,
+              total: item.valor,
+              quantidade: 1,
+              valor: item.valor,
+              id: item.id,
+            })
+          }
+        })
+
+        this.listaItensPedido = this.listProducts
+      })
   }
 
 }
