@@ -2,12 +2,10 @@ package com.app_pedidos.tests.repositories;
 
 import com.app_pedidos.controller.EnderecoController;
 import com.app_pedidos.model.entity.Endereco;
-import com.app_pedidos.model.entity.Produto;
 import com.app_pedidos.model.repositories.EnderecoRepository;
 import com.app_pedidos.model.services.exceptions.DatabaseException;
 import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
 import com.app_pedidos.tests.factory.EnderecoFactory;
-import com.app_pedidos.tests.factory.ProdutoFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -42,6 +41,8 @@ public class EnderecoControllerTestsMockito {
         Mockito.doNothing().when(repository).deleteById(existingId);
 
         Mockito.doThrow(EmptyResultDataAccessException.class).when(repository).deleteById(nonExistingId);
+
+        Mockito.doThrow(DataIntegrityViolationException.class).when(repository).deleteById(dependentId);
     }
 
     @Test
