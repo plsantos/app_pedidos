@@ -12,6 +12,7 @@ export class Pedido {
     public bairro?: string,
     public cidade?: String,
     public cep?: String,
+    public estado?: String,
     public descontos?: number
 
   ) {}

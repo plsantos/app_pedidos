@@ -19,8 +19,6 @@ export class SaveOrderComponent implements OnInit {
 
   pedido_data: Pedido[] = [];
 
-
-
   constructor(
     private orderService: OrderService,
     private router: Router,

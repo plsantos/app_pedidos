@@ -29,14 +29,9 @@
         </div>
 
         <div class="form-group">
-          <label for="logradouro">Status</label>
-          <input
-            type="text"
-            class="form-control"
-            [(ngModel)]="produto.status"
-             name="status"
-            id="status"
-          />  {{produto.status?"Ativo":"Inativo"}}        </div>
+          <label for="status">Status</label>
+          <input type="text" class="form-control" [(ngModel)]="produto.status" name= '{{produto.status?"Ativo":"Inativo"}}' id="status"/>
+        </div>
 
         <!-- <div class="form-group">
           <label for="status">Status</label>

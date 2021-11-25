@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit {
   // Observable<Product[]>;
   displayedColumns = ['id', 'descricao', 'valor', 'status', 'acoes'];
 
+
   produtoSelecionado = Produto;
 
   constructor(
