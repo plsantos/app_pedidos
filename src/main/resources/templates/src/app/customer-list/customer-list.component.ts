@@ -12,7 +12,7 @@ export class CustomerListComponent implements OnInit {
 
 
   cliente$: Cliente[] = [];
-  displayedColumns = ['id', 'nome', 'tipo', 'documento', 'endereco', 'acoes'];
+  displayedColumns = ['id', 'nome', 'tipo', 'documento', 'acoes'];
 
   constructor(private customerService: CustomerService) {
     //this.customer$ = this.customerService.findAll();

@@ -14,9 +14,6 @@ import { EnderecoService } from './../services/endereco.service';
 })
 export class EditCustomerComponent implements OnInit {
 
-
-
-  endereco: Endereco[] = [];
   cliente$: Cliente[] = [];
 
   cliente: Cliente = new Cliente();
@@ -25,12 +22,8 @@ export class EditCustomerComponent implements OnInit {
 
 
   ngOnInit(): void {
-     this.enderecoService.getEnderecos()
-     .subscribe(data => {
-      this.endereco = data;
-     console.log(data);
-   })
-   this.buscaCliente();
+
+     this.buscaCliente();
 
    console.log(this.cliente);
 
