@@ -41,9 +41,13 @@
 <div class="container" id="texto-sobre">
   <div class="row">
     <div class="col">
+<<<<<<< HEAD
       <p class="text-start fs-5 " id="texto-entrada">Genius Livraria delivery é uma livraria online que busca facilitar
         a compra e entrega de livors com o melhor custo-benefício. Nosso catálogo possui os mais diversos gêneros
         literários para agradar todos os públicos e idades, confira mais!</p>
+=======
+      <p class="text-start fs-5" id="texto-entrada">Genius Livraria delivery é uma livraria online que busca facilitar a compra e entrega de livors com o melhor custo-benefício. Nosso catálogo possui os mais diversos gêneros literários para agradar todos os públicos e idades, confira mais!</p>
+>>>>>>> feature/byanca.calixto
     </div>
   </div>
 </div>
@@ -69,28 +73,27 @@
 </div>
 
 <div class="card text-center m mt-00px mb-100px" id="catalogo">
-  <div class="card-body " id="">
-    <h4 class="card-title fs-2 " id="catalogo-texto">Nosso Catálogo de Produtos</h4>
+  <div class="card-body ">
+    <h4 class="card-title fs-2"id="catalogo-texto">Nosso Catálogo de Produtos</h4>
   </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div *ngFor="let produto of produto$">
-    <div class="col">
-      <div class="card h-70 w-30" id="card1">
-        <img src="../assets/img/produtos/{{produto.id}}.jpg" class="img-thumbnail" width=50% height=50%>
-        <div class="card-body" id=itemProduto>
-          <span hidden>{{produto.id}}</span>
-          <h5 class="card-title">{{produto.descricao}}</h5>
-          <p class="card-text">R$: {{produto.valor}}</p>
-          <a (click)=inserirCarrinho(produto) class="btn btn-primary" type="submit"
-            routerLinkActive="router-link-active">Comprar</a>
-        </div>
+
+<div class="row row-cols-3 justify-content" >
+    <div class="card h-70 w-30" *ngFor="let produto of produto$">
+      <img src="../assets/img/produtos/{{produto.id}}.jpg" class="img-thumbnail" width=50% height=50%>
+      <div class="card-body"id= itemProduto>
+        <span hidden>{{produto.id}}</span>
+        <h5 class="card-text">{{produto.descricao}}</h5>
+        <p class="card-text">R$:{{produto.valor}}</p>
+        <a class="btn"  [routerLink]="['/itensPedido']" type= "submit"
+        routerLinkActive="router-link-active">Comprar</a>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <mat-paginator [length]="12" [pageSize]="3" aria-label="Página">
-    </mat-paginator>
-  </div>
-  <router-outlet></router-outlet>
+</div>
+<div class="totaldepaginas">
+  <mat-paginator [length]="12" [pageSize]="3" aria-label="Página">
+  </mat-paginator>
+</div>
+<router-outlet></router-outlet>
+
