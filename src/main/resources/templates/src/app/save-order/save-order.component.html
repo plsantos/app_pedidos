@@ -17,43 +17,50 @@
 
         <div class="form-group">
           <label for="endereco">Cep</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.cep" (blur)="consultaCep(pedido.cep, f)" id="cep"
-            name="cep" />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.cep"
+            (blur)="consultaCep(pedido.cep, f)" id="cep" name="cep" />
         </div>
 
         <div class="form-group">
           <label for="logradouro">Rua</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.rua" name="rua" id="rua" />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.rua"
+            name="rua" id="rua" />
         </div>
 
         <div class="form-group">
           <label for="numero">Número</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.numero" name="numero" id="numero" />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.numero"
+            name="numero" id="numero" />
         </div>
 
         <div class="form-group">
           <label for="bairro">Bairro</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.bairro" name="bairro" id="bairro" />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.bairro"
+            name="bairro" id="bairro" />
         </div>
 
         <div class="form-group">
           <label for="localidade">Cidade</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.cidade" id="cidade" name="cidade" />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.cidade"
+            id="cidade" name="cidade" />
         </div>
 
         <div class="form-group">
           <label for="uf">Estado</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.estado" id="estado" />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.estado"
+            id="estado" />
         </div>
 
         <div class="form-group">
           <label for="pedido" id="data">Data</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.data" id="data" />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.data"
+            id="data" />
         </div>
 
         <div class="form-group">
           <label for="pedido">Valor Total</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.valorTotal" id="valor" currency="BRL" readonly />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.valorTotal"
+            id="valor" currency="BRL" readonly />
         </div>
 
         <div class="form-group">
@@ -70,12 +77,14 @@
 
         <div class="form-group">
           <label for="pedido">Valor Final com Desconto</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.valorTotal" id="valor" currency="BRL" />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.descontos"
+            id="valor" currency="BRL" />
         </div>
 
         <div class="form-group">
           <label for="pedido">Situação</label>
-          <input type="text" class="form-control" [(ngModel)]="pedido.situacao" id="situacao" />
+          <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="pedido.situacao"
+            id="situacao" />
         </div>
         <button mat-raised-button (click)="savePedido()">Salvar</button>
         <button mat-raised-button [routerLink]="['/home']" routerLinkActive="router-link-active"> Cancelar </button>
