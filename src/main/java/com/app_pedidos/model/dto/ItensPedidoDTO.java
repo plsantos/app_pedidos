@@ -21,12 +21,14 @@ public class ItensPedidoDTO implements Serializable{
     private int quantidadeProduto;
     private Produto produto;
     private Pedido pedido;
+    private double valorTotal;
 
     public ItensPedidoDTO(ItensPedido itensPedido){
         this.quantidadeProduto = itensPedido.getQuantidadeProduto();
         this.produto = itensPedido.getProduto();
         this.pedido = itensPedido.getPedido();
         this.id = itensPedido.getId();
+        this.valorTotal = itensPedido.getValorTotal();
     }
 
     
