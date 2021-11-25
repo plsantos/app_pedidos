@@ -65,48 +65,27 @@
   </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4" *ngFor="let produto of produto$">
+<div class="container row align-items-center" *ngFor="let produto of produto$" >
+<div class="row row-cols-1 row-cols-md-3 g-4" >
   <div class="col">
     <div class="card h-70 w-30" id="card1">
-      <img src="assets\img\produtos\orgulhoepreconceito.jpg" class="img-thumbnail" width=50% height=50%>
+      <img src="../assets/img/produtos/{{produto.id}}.jpg" class="img-thumbnail" width=50% height=50%>
       <div class="card-body"id= itemProduto>
         <span hidden>{{produto.id}}</span>
         <h5 class="card-title">{{produto.descricao}}</h5>
         <p class="card-text">R$: {{produto.valor}}</p>
         <a class="btn btn-primary"  [routerLink]="['/itensPedido']" type= "submit"
         routerLinkActive="router-link-active">Comprar</a>
-        <!-- (click)=addItens(produto) -->
-
       </div>
     </div>
   </div>
-
-  <div class="col">
-    <div class="card h-70 w-30" id="card2">
-      <img src="assets\img\produtos\ruinasdeminaster.jpg" class="img-thumbnail" width=50% height=50%>
-      <div class="card-body">
-        <span hidden>{{produto.id}}</span>
-        <h5 class="card-title">{{produto.descricao}}</h5>
-        <p class="card-text">R$:{{produto.valor}}</p>
-        <a class="btn btn-primary" [routerLink]="['/itensPedido']"
-        routerLinkActive="router-link-active">Comprar</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card h-70 w-30" id="card3">
-      <img src="assets\img\produtos\hibiscoroxo.jpg" class="img-thumbnail" width=50% height=50%>
-      <div class="card-body">
-        <span hidden>{{produto.id}}</span>
-        <h5 class="card-title">{{produto.descricao}}</h5>
-        <p class="card-text">R$: {{produto.valor}}</p>
-        <a class="btn btn-primary" [routerLink]="['/itensPedido']"
-        routerLinkActive="router-link-active">Comprar</a>
-      </div>
-    </div>
-  </div>
-
-<!--<app-pagination></app-pagination>-->
+</div>
+</div>
+<div class="container">
+  <mat-paginator [length]="12" 
+    [pageSize]="3"
+    aria-label="Página">
+  </mat-paginator>
+</div>
 <router-outlet></router-outlet>
 
