@@ -40,3 +40,12 @@
     margin-top: 20px;
     color: #ffff;
 }
+.img-thumbnail{
+    align-self: center;
+}
+.card-text,.card-body{
+    text-align: center;
+}
+.btn{
+    background-color: #c8b8db;
+}
