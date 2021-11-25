@@ -22,4 +22,10 @@ public class Pedido {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
     private boolean situacao = true;
+    private String rua;
+    private String numero;
+    private String bairro;
+    private String cidade;
+    private String cep;
+    private double valorTotal;
 }

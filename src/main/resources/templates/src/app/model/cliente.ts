@@ -7,6 +7,6 @@ export class Cliente {
     public nome?: String,
     public tipo?: String,
     public documento?: String,
-    public endereco?: Endereco
   ) {}
 }
+

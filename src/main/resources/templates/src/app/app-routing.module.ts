@@ -11,10 +11,11 @@ import { EnderecoComponent } from './endereco/endereco.component';
 import { ItemOrderComponent } from './item-order/item-order.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { ProductComponent } from './product/product.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { SaveOrderComponent } from './save-order/save-order.component';
 
 const routes: Routes = [
-  { path: '', redirectTo:'home', pathMatch:'full'},
+  { path: '', component: HomeComponent, pathMatch:'full'},
   { path: 'home', component: HomeComponent },
   { path: 'customerList', component: CustomerListComponent },
   { path: 'productList', component: ProductListComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'itensPedido', component: ItemOrderComponent},
   { path: 'header',component: HeaderComponent},
   { path: 'footer',component: FooterComponent},
-  { path: 'product',component: ProductComponent}
+  { path: 'editCustomer/:id',component: EditCustomerComponent},
+  { path: 'saveOrder', component: SaveOrderComponent}
 ]
 
 @NgModule({

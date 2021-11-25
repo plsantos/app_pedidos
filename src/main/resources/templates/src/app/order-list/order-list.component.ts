@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit {
-
+  situacao = ['true', 'false']
   order$: Pedido[] = [];
   displayedColumns = ['id', 'cliente', 'data', 'situacao', 'acoes'];
 

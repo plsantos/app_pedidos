@@ -30,7 +30,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 // import {NgxPaginationModule} from 'ngx-pagination';
 import { CustomerListComponent } from './customer-list/customer-list.component';
-import { ProductComponent } from './product/product.component';
+import { SaveOrderComponent } from './save-order/save-order.component';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
 @NgModule({
@@ -49,9 +52,10 @@ import { ProductComponent } from './product/product.component';
     ItemOrderComponent,
     CustomerFormComponent,
     CadastroProdutoComponent,
-    ProductComponent
-
+    EditCustomerComponent,
+    SaveOrderComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -73,6 +77,9 @@ import { ProductComponent } from './product/product.component';
     MatSliderModule,
     //NgxPaginationModule,
     MatToolbarModule,
+    ReactiveFormsModule,
+    CommonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

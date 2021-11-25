@@ -12,6 +12,15 @@ export class EnderecoService {
 
   Url='http://localhost:8080/endereco';
 
+  getEnderecos(): Observable<any>{
+    return this.http.get<Endereco[]>(this.Url);
+  }
+
+
+  getEndereco(id: number): Observable<any> {
+    return this.http.get<Endereco>(this.Url + id);
+  }
+
    saveEndereco(endereco: Endereco): Observable<any>{
     return this.http.post<Endereco>(this.Url, endereco);
   }
