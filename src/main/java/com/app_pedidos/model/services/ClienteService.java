@@ -2,9 +2,11 @@ package com.app_pedidos.model.services;
 import com.app_pedidos.model.dto.ClienteDTO;
 import com.app_pedidos.model.entity.Cliente;
 import com.app_pedidos.model.repositories.ClienteRepository;
+import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +53,13 @@ public class ClienteService {
 		}
 		
 		return listDto;
+	}
+
+	public ClienteDTO findById(Long id) {
+		Optional<Cliente>obj = repository.findById(id);// optional evita trabalhar com valor nulo
+		Cliente entity = obj.orElseThrow(()->new ResourceNotFoundException("Entidade não encontrada"));
+		 
+		return new ClienteDTO(entity);
 	}
     
     

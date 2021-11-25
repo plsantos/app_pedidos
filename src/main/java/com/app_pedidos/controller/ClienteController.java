@@ -30,5 +30,12 @@ public class ClienteController {
 		
 	}
 	
+	@GetMapping(value="/{id}")
+	public ResponseEntity<ClienteDTO>findById(@PathVariable Long id){
+		ClienteDTO dto = service.findById(id);
+		
+		return ResponseEntity.ok().body(dto);//resposta 200 ou seja foi com sucesso
+	}
+	
 	
 }
