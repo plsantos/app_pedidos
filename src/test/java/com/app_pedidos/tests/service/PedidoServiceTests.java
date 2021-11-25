@@ -9,9 +9,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.app_pedidos.model.entity.Pedido;
 import com.app_pedidos.model.repositories.PedidoRepository;
 import com.app_pedidos.model.services.PedidoService;
 import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
+import com.app_pedidos.tests.factory.PedidoFactory;
 
 @ExtendWith(SpringExtension.class)
 public class PedidoServiceTests {
@@ -52,5 +55,19 @@ public class PedidoServiceTests {
 		});
 		// verifica se o metodo deleteById foi chamado no ProdutoRepository um unica vez
 		Mockito.verify(repository, Mockito.times(1)).deleteById(nonExistingId);
+	}
+	
+	// se salvar com id nulo não lança excecao
+	@Test
+	public void saveShouldPersistWithAutoincrementWhenIdIsNull() {
+
+		Assertions.assertDoesNotThrow(() -> {// não lança exceção
+			Pedido pedido = PedidoFactory.createPedido();
+			pedido.setId(null);
+			pedido = repository.save(pedido);
+
+		});
+		// verifica se o método de salvamento foi invocado
+		Mockito.verify(repository).save(Mockito.any(Pedido.class));
 	}
 }

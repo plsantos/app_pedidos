@@ -11,10 +11,12 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.app_pedidos.model.entity.Produto;
 import com.app_pedidos.model.repositories.ProdutoRepository;
 import com.app_pedidos.model.services.ProdutoService;
 import com.app_pedidos.model.services.exceptions.DatabaseException;
 import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
+import com.app_pedidos.tests.factory.ProdutoFactory;
 
 @ExtendWith(SpringExtension.class)
 public class ProdutoServiceTests {
@@ -73,5 +75,17 @@ public class ProdutoServiceTests {
 		Mockito.verify(repository, Mockito.times(1)).deleteById(dependentId);
 	}
 
-	
+	// se salvar com id nulo não lança excecao
+	@Test
+	public void saveShouldPersistWithAutoincrementWhenIdIsNull() {
+
+		Assertions.assertDoesNotThrow(() -> {// não lança exceção
+			Produto produto = ProdutoFactory.createProduct();
+			produto.setId(null);
+			produto = repository.save(produto);
+
+		});
+		// verifica se o método de salvamento foi invocado
+		Mockito.verify(repository).save(Mockito.any(Produto.class));
+	}
 }
