@@ -15,6 +15,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { SaveOrderComponent } from './save-order/save-order.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent, pathMatch:'full'},
   { path: 'home', component: HomeComponent },
   { path: 'customerList', component: CustomerListComponent },
   { path: 'productList', component: ProductListComponent },
