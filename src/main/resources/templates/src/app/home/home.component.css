@@ -1,9 +1,30 @@
 #carrosel{
     margin-top: 50px;
 }
-#texto-entrada{
-    margin-top: 150px;
-    text-align: center;
+
+#texto-sobre{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align:center;
+}
+
+#missao{
+    margin-top: 10px;
+    border-radius: 1rem;
+}
+
+#valores{
+    margin-top: 10px;
+    border-radius: 1rem;
+}
+
+#missao:hover{
+    background-color: #70587C;
+    text-decoration: #ffffff;
+}
+
+#valores:hover{
+    background-color: #70587C;
 }
 
 .carousel-item{transition: transform 2s ease, opacity .5s ease-out}
