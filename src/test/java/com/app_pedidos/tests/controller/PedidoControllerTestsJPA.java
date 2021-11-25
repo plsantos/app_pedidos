@@ -1,8 +1,8 @@
-package com.app_pedidos.tests.repositories;
+package com.app_pedidos.tests.controller;
 
-import com.app_pedidos.model.entity.ItensPedido;
-import com.app_pedidos.model.repositories.ItensPedidoRepository;
-import com.app_pedidos.tests.factory.ItensPedidoFactory;
+import com.app_pedidos.model.entity.Pedido;
+import com.app_pedidos.model.repositories.PedidoRepository;
+import com.app_pedidos.tests.factory.PedidoFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,10 +13,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import java.util.Optional;
 
 @DataJpaTest
-public class ItensPedidoControllerTestsJPA {
+public class PedidoControllerTestsJPA {
 
     @Autowired
-    private ItensPedidoRepository repository;
+    private PedidoRepository repository;
 
     private long existingId;
     private long nonExistingId;
@@ -33,7 +33,7 @@ public class ItensPedidoControllerTestsJPA {
     public void deleteShouldDeleteObjectWhenIdExists() {
         repository.deleteById(existingId);
 
-        Optional<ItensPedido> result = repository.findById(existingId);
+        Optional<Pedido> result = repository.findById(existingId);
 
         Assertions.assertFalse(result.isPresent());
     }
@@ -47,15 +47,16 @@ public class ItensPedidoControllerTestsJPA {
 
     @Test
     public void saveShouldPersistWithAutoincrementWhenIdIsNull() {
-        ItensPedido itensPedido = ItensPedidoFactory.createItensPedido();
-        itensPedido.setId(null);
+        Pedido pedido = PedidoFactory.createPedido();
+        pedido.setId(null);
 
-        itensPedido = repository.save(itensPedido);
-        Optional<ItensPedido> result = repository.findById(itensPedido.getId());
+        pedido = repository.save(pedido);
+        Optional<Pedido> result = repository.findById(pedido.getId());
 
-        Assertions.assertNotNull(itensPedido.getId());
-        Assertions.assertEquals(countTotalProducts + 1L, itensPedido.getId());
+        Assertions.assertNotNull(pedido.getId());
+        Assertions.assertEquals(countTotalProducts + 1L, pedido.getId());
         Assertions.assertTrue(result.isPresent());
-        Assertions.assertSame(result.get(), itensPedido);
+        Assertions.assertSame(result.get(), pedido);
     }
+
 }

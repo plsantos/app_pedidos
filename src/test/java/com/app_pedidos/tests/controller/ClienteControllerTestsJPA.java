@@ -1,8 +1,8 @@
-package com.app_pedidos.tests.repositories;
+package com.app_pedidos.tests.controller;
 
-import com.app_pedidos.model.entity.Pedido;
-import com.app_pedidos.model.repositories.PedidoRepository;
-import com.app_pedidos.tests.factory.PedidoFactory;
+import com.app_pedidos.model.entity.Cliente;
+import com.app_pedidos.model.repositories.ClienteRepository;
+import com.app_pedidos.tests.factory.ClienteFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,10 +13,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import java.util.Optional;
 
 @DataJpaTest
-public class PedidoControllerTestsJPA {
+public class ClienteControllerTestsJPA {
 
     @Autowired
-    private PedidoRepository repository;
+    private ClienteRepository repository;
 
     private long existingId;
     private long nonExistingId;
@@ -33,13 +33,14 @@ public class PedidoControllerTestsJPA {
     public void deleteShouldDeleteObjectWhenIdExists() {
         repository.deleteById(existingId);
 
-        Optional<Pedido> result = repository.findById(existingId);
+        Optional<Cliente> result = repository.findById(existingId);
 
         Assertions.assertFalse(result.isPresent());
     }
 
     @Test
     public void deleteShouldThrowsEmptyResultDataAccessExceptionWhenIdDoesNotExists() {
+
         Assertions.assertThrows(EmptyResultDataAccessException.class, () -> {
             repository.deleteById(nonExistingId);
         });
@@ -47,16 +48,16 @@ public class PedidoControllerTestsJPA {
 
     @Test
     public void saveShouldPersistWithAutoincrementWhenIdIsNull() {
-        Pedido pedido = PedidoFactory.createPedido();
-        pedido.setId(null);
+        Cliente cliente = ClienteFactory.createCliente();
+        cliente.setId(null);
 
-        pedido = repository.save(pedido);
-        Optional<Pedido> result = repository.findById(pedido.getId());
+        cliente = repository.save(cliente);
+        Optional<Cliente> result = repository.findById(cliente.getId());
 
-        Assertions.assertNotNull(pedido.getId());
-        Assertions.assertEquals(countTotalProducts + 1L, pedido.getId());
+        Assertions.assertNotNull(cliente.getId());
+        Assertions.assertEquals(countTotalProducts + 1L, cliente.getId());
         Assertions.assertTrue(result.isPresent());
-        Assertions.assertSame(result.get(), pedido);
-    }
+        Assertions.assertSame(result.get(), cliente);
 
+    }
 }
