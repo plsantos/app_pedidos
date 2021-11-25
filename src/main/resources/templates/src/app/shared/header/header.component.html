@@ -1,37 +1,46 @@
-<nav class="navbar navbar-expand-sm navbar-dark ">
+  <nav class="navbar navbar-expand-sm navbar-dark fs-6">
     <div class="container-fluid">
       <a class="navbar-brand">
         <img width= 50px height= 50px src="assets\img\logo-white.png">
       </a>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink='home'>Home</a>
+            <a class="nav-link active" routerLink='home'>Home</a>
           </li>
-          <!--Colocar aqui o link para a pagina de cadastro de produtos-->
-          <li class="nav-item">
-            <a class="nav-link active" href="#homeprodutos">Produtos</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Produto</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink='cadastroProduto'>Cadastro</a></li>
+              <li><a class="dropdown-item" href='productList'>Listagem</a></li>
+            </ul>
+          </li> 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" role="button" data-bs-toggle="dropdown">Pedido</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink='saveOrder'>Cadastro</a></li>
+              <li><a class="dropdown-item" routerLink='orderList'>Listagem</a></li>
+            </ul>
           </li>
-
-         <!--Colocar aqui o link para a pagina de cadastro de pedidos-->
-          <li class="nav-item">
-            <a class="nav-link active" routerLink='orderList'>Pedidos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" routerLink='customerForm'>Cadastro de clientes</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" routerLink='cadastroProduto'>Cadastro de produtos</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Cliente</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink='customerForm'>Cadastro</a></li>
+              <li><a class="dropdown-item" routerLink='customerList'>Listagem</a></li>
+            </ul>
           </li>
         </ul>
-
       </div>
       <a>
         <img src="assets\img\shopping-cart.png" style="font-size: 30px;" width= 30px height= 30px>
         <!-- <div style="font-size: 5-x;">5</div> -->
       </a>
     </div>
-    
   </nav>
+  
+
+  
 
