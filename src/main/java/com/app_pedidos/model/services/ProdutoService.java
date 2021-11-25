@@ -3,6 +3,8 @@ package com.app_pedidos.model.services;
 import com.app_pedidos.model.dto.ProdutoDTO;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
@@ -33,7 +35,10 @@ public class ProdutoService {
 //        }
 //        repository.save(produto);
 //    }
-    
+
+	public Page<Produto> listAll(Pageable pageable){
+		return repository.findAll(pageable);
+	}
     @Transactional
 	public ProdutoDTO insert(ProdutoDTO dto) {
     	Produto entity = new Produto();
@@ -45,8 +50,15 @@ public class ProdutoService {
 		return new ProdutoDTO(entity);
 	}
     
-    public Page<Produto> findAll(Pageable pageable) {
-		return repository.findAll(pageable);
+    public List<ProdutoDTO> findAll() {
+		List<Produto> list= repository.findAll();
+		List<ProdutoDTO>listDto = new ArrayList<>();
+
+		for(Produto cob : list) {
+			listDto.add(new ProdutoDTO(cob));
+		}
+
+		return listDto;
 	}
     
     public ProdutoDTO findById(Long id) {
