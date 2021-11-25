@@ -1,10 +1,12 @@
 package com.app_pedidos.model.services;
-
-import com.app_pedidos.controller.ClienteController;
+import com.app_pedidos.model.dto.ClienteDTO;
 import com.app_pedidos.model.entity.Cliente;
 import com.app_pedidos.model.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class ClienteService {
     @Autowired
     private ClienteRepository repository;
@@ -24,4 +26,18 @@ public class ClienteService {
         }
         return verifica;
     }
+
+    @Transactional
+	public ClienteDTO insert(ClienteDTO dto) {
+		Cliente entity = new Cliente();
+		entity.setDocumento(dto.getDocumento());
+		entity.setNome(dto.getNome());
+		entity.setTipo(dto.getTipo());
+		entity = repository.save(entity);
+		
+		return new ClienteDTO(entity);
+	}
+    
+    
+    
 }
