@@ -1,8 +1,10 @@
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição: Harry Potter e a pedra filosofal, Autor: JK.Rowling;
 Valor unitário: R$ 29,92;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição: O menino do dedo verde, Autor: Maurice Duron;
 Valor unitário: R$ 32,98;
 Status: ativo;
@@ -12,6 +14,7 @@ Descrição: Orgulho e preconceito, Autor: Jane Austen;
 Valor unitário: R$ 45,13;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição: A batalha do apocalipse: Da queda dos anjos ao crepúsculo do mundo, Autor: Eduardo Spohr;
 Valor unitário: R$ 32,90;
 Status: ativo;
@@ -21,30 +24,37 @@ Descrição:Ruínas de Minaster, Autor: Raianne Viana;
 Valor unitário: R$ 49,90;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição: O penultimo olhar sobre as coisas, Autor: Miró da Muribeca;
 Valor unitário: R$ 35,00;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição:Pedagogia da autonomia, Autor: Paulo Freire
 Valor unitário: R$ 19,95;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição:O Pequeno Príncipe, Autor: Antoine de Saint-Exupéry;
 Valor unitário: R$ 24,90;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição: Adivinhe Se Puder, Autor: Eva Furnari;
 Valor unitário: R$ 35,94;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição: Jardim secreto, Autor: Johanna Basford;
 Valor unitário: R$ 21,89;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição: Hibisco roxo, Autor: Chimamanda Ngozi Adichie;
 Valor unitário: R$ 28,90;
 Status: ativo;
 ----------------------------------------------------------------------------------------------------------
+ok
 Descrição: Bleach - vol. 1, Autor: Tite Kubo;
-Valor unitário: R$ 48,99;
+Valor unitário: R$  ;
 Status: ativo;
