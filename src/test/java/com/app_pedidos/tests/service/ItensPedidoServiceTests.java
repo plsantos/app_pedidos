@@ -10,9 +10,11 @@ import org.mockito.Mockito;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.app_pedidos.model.entity.ItensPedido;
 import com.app_pedidos.model.repositories.ItensPedidoRepository;
 import com.app_pedidos.model.services.ItensPedidoService;
 import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
+import com.app_pedidos.tests.factory.ItensPedidoFactory;
 
 
 @ExtendWith(SpringExtension.class)
@@ -59,6 +61,18 @@ public class ItensPedidoServiceTests {
 		Mockito.verify(repository, Mockito.times(1)).deleteById(nonExistingId);
 	}
 	
-	
+	// se salvar com id nulo não lança excecao
+	@Test
+	public void saveShouldPersistWithAutoincrementWhenIdIsNull() {
+
+		Assertions.assertDoesNotThrow(() -> {// não lança exceção
+			ItensPedido itensPedido= ItensPedidoFactory.createItensPedido();
+			itensPedido.setId(null);
+			itensPedido = repository.save(itensPedido);
+
+		});
+		// verifica se o método de salvamento foi invocado
+		Mockito.verify(repository).save(Mockito.any(ItensPedido.class));
+	}
 
 }

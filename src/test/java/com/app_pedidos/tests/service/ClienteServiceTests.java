@@ -11,11 +11,12 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.app_pedidos.model.entity.Cliente;
 import com.app_pedidos.model.repositories.ClienteRepository;
 import com.app_pedidos.model.services.ClienteService;
 import com.app_pedidos.model.services.exceptions.DatabaseException;
 import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
-
+import com.app_pedidos.tests.factory.ClienteFactory;
 
 @ExtendWith(SpringExtension.class)
 public class ClienteServiceTests {
@@ -71,5 +72,19 @@ public class ClienteServiceTests {
 		});
 		// verifica se o metodo deleteById foi chamado no ProdutoRepository um unica vez
 		Mockito.verify(repository, Mockito.times(1)).deleteById(dependentId);
+	}
+	
+	// se salvar com id nulo não lança excecao
+	@Test
+	public void saveShouldPersistWithAutoincrementWhenIdIsNull() {
+
+		Assertions.assertDoesNotThrow(() -> {// não lança exceção
+			Cliente cliente = ClienteFactory.createCliente();
+			cliente.setId(null);
+			cliente = repository.save(cliente);
+
+		});
+		// verifica se o método de salvamento foi invocado
+		Mockito.verify(repository).save(Mockito.any(Cliente.class));
 	}
 }

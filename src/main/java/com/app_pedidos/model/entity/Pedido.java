@@ -26,8 +26,12 @@ public class Pedido {
     private String numero;
     private String bairro;
     private String cidade;
+    @JoinColumn(nullable = true)
     private String estado;
     private String cep;
     private double valorTotal;
+	   
+    
+    
 
 }
