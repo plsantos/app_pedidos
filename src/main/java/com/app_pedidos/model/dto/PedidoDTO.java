@@ -1,7 +1,6 @@
 package com.app_pedidos.model.dto;
 
 import com.app_pedidos.model.entity.Cliente;
-import com.app_pedidos.model.entity.Endereco;
 import com.app_pedidos.model.entity.Pedido;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,12 +21,21 @@ public class PedidoDTO implements Serializable {
     private LocalDate data;
     private Cliente cliente;
     private boolean situacao;
+    private String rua;
+    private String numero;
+    private String bairro;
+    private String cidade;
+    private String cep;
 
     public PedidoDTO(Pedido pedido) {
         this.id = pedido.getId();
         this.data = pedido.getData();
         this.cliente = pedido.getCliente();
         this.situacao = pedido.isSituacao();
+        this.rua = pedido.getRua();
+        this.numero = pedido.getNumero();
+        this.cidade = pedido.getCidade();
+        this.cep = pedido.getCep();
     }
 
 }
