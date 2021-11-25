@@ -1,31 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { Endereco } from '../model/endereco';
-import { EnderecoService } from '../services/endereco.service';
-import { Router } from '@angular/router';
-import { CepService } from '../services/cep.service';
-import { Form } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Pedido } from '../model/pedido';
+import { CepService } from '../services/cep.service';
+import { OrderService } from '../services/order.service';
 
 @Component({
-  selector: 'app-endereco',
-  templateUrl: './endereco.component.html',
-  styleUrls: ['./endereco.component.css'],
+  selector: 'app-save-order',
+  templateUrl: './save-order.component.html',
+  styleUrls: ['./save-order.component.css']
 })
+export class SaveOrderComponent implements OnInit {
 
-export class EnderecoComponent implements OnInit {
-  endereco: Endereco = new Endereco();
+  pedido: Pedido = new Pedido();
+  pedido_data: Pedido[] = [];
+  status = ['True', 'False']
+
   constructor(
-    private enderecoService: EnderecoService,
+    private orderService: OrderService,
     private router: Router,
-    private cepService: CepService,
     private httpClient: HttpClient,
-  ) {}
+    private cepService: CepService,
 
-  ngOnInit(): void {}
+  ) { }
 
-  saveEndereco() {
-    this.enderecoService.saveEndereco(this.endereco).subscribe((data) => {
-      this.router.navigate(['/customerForm']);
+  ngOnInit(): void {
+  }
+
+  savePedido() {
+    this.orderService.savePedido(this.pedido).subscribe((data) => {
+      this.router.navigate(['/orderList']);
     });
   }
 
@@ -59,4 +63,14 @@ export class EnderecoComponent implements OnInit {
       cidade: dados.localidade,
     });
   }
+
+  // valorDesconto (value: any){
+  //   if (value = 10){
+  //     this.pedido.valor -= this.pedido.valor*0.10;
+
+  //   }
+
+  // }
+
+
 }

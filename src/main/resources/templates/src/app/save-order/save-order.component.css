@@ -4,13 +4,13 @@ mat-toolbar{
   color:white;
 }
 
-.title-customer-form{
-  margin-left: 45%;
+.title-endereco{
+  margin-left: 500px;
 }
 
 .formD {
   margin-bottom: 0;
-  margin-left: 35%;
+  margin-left: 100px;
 }
 
 .mat-raised-button{
@@ -19,12 +19,9 @@ mat-toolbar{
   padding: 1px;
   }
 
-
-
   /* formatação campos input */
   .form-group {
     width: 50%;
-    float: bottom;
     color: #c0c0c0;
   }
 
@@ -34,8 +31,7 @@ mat-toolbar{
     width: 90%;
   }
 
-  .form-control{
-    margin: 10px 1%;
-    padding: 8px 1%;
-    width: 90%;
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+    color-interpolation-filters: #70587C ;
   }

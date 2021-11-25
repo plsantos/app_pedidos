@@ -5,12 +5,12 @@ mat-toolbar{
 }
 
 .title-customer-form{
-  margin-left: 45%;
+  margin-left: 500px;
 }
 
 .formD {
   margin-bottom: 0;
-  margin-left: 35%;
+  margin-left: 300px;
 }
 
 .mat-raised-button{
@@ -20,22 +20,20 @@ mat-toolbar{
   }
 
 
-
   /* formatação campos input */
   .form-group {
     width: 50%;
-    float: bottom;
+    float: left;
     color: #c0c0c0;
   }
 
   .form-group input {
-    margin: 10px 1%;
-    padding: 8px 1%;
-    width: 90%;
+
+    width: 50%;
   }
 
-  .form-control{
-    margin: 10px 1%;
-    padding: 8px 1%;
-    width: 90%;
+  .form-group select {
+
+    width: 50%;
   }
+

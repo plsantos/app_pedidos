@@ -17,8 +17,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private router: Router,
-    private service: ProductService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +25,10 @@ export class HomeComponent implements OnInit {
       this.produto$ = data;
       console.log(data);
     });
+  }
+
+  inserirCarrinho(): void {
+
   }
 
 }

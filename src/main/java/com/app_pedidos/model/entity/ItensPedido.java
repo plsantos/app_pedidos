@@ -23,5 +23,6 @@ public class ItensPedido {
     @ManyToOne
     @JoinColumn(name = "pedido_id")
     private Pedido pedido;
+    private double valorTotal;
 
 }

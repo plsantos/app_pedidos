@@ -1,8 +1,8 @@
 package com.app_pedidos.tests.repositories;
 
-import com.app_pedidos.model.entity.Endereco;
-import com.app_pedidos.model.repositories.EnderecoRepository;
-import com.app_pedidos.tests.factory.EnderecoFactory;
+import com.app_pedidos.model.entity.Cliente;
+import com.app_pedidos.model.repositories.ClienteRepository;
+import com.app_pedidos.tests.factory.ClienteFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,47 +13,51 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import java.util.Optional;
 
 @DataJpaTest
-public class EnderecoControllerTestsJPA {
+public class ClienteControllerTestsJPA {
 
     @Autowired
-    private EnderecoRepository repository;
+    private ClienteRepository repository;
 
     private long existingId;
-    private long nonExsistingId;
-    private long countTotalEnderecos;
+    private long nonExistingId;
+    private long countTotalProducts;
 
     @BeforeEach
     void setUp() throws Exception {
         existingId = 1L;
-        nonExsistingId = 1000l;
-        countTotalEnderecos = 4l;
+        nonExistingId = 1000L;
+        countTotalProducts = 4l;
     }
 
     @Test
-    public void deleteShouldDeleteObjectWhenExists() {
+    public void deleteShouldDeleteObjectWhenIdExists() {
         repository.deleteById(existingId);
-        Optional<Endereco> result = repository.findById(existingId);
+
+        Optional<Cliente> result = repository.findById(existingId);
+
         Assertions.assertFalse(result.isPresent());
     }
 
     @Test
     public void deleteShouldThrowsEmptyResultDataAccessExceptionWhenIdDoesNotExists() {
+
         Assertions.assertThrows(EmptyResultDataAccessException.class, () -> {
-            repository.deleteById(nonExsistingId);
+            repository.deleteById(nonExistingId);
         });
     }
 
     @Test
     public void saveShouldPersistWithAutoincrementWhenIdIsNull() {
-        Endereco endereco = EnderecoFactory.createEndereco();
-        endereco.setId(null);
+        Cliente cliente = ClienteFactory.createCliente();
+        cliente.setId(null);
 
-        endereco = repository.save(endereco);
-        Optional<Endereco> result = repository.findById(endereco.getId());
+        cliente = repository.save(cliente);
+        Optional<Cliente> result = repository.findById(cliente.getId());
 
-        Assertions.assertNotNull(endereco.getId());
-        Assertions.assertEquals(countTotalEnderecos + 1L, endereco.getId());
+        Assertions.assertNotNull(cliente.getId());
+        Assertions.assertEquals(countTotalProducts + 1L, cliente.getId());
         Assertions.assertTrue(result.isPresent());
-        Assertions.assertSame(result.get(), endereco);
+        Assertions.assertSame(result.get(), cliente);
+
     }
 }
