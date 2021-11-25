@@ -2,8 +2,8 @@ package com.app_pedidos.model.services;
 import com.app_pedidos.model.dto.ClienteDTO;
 import com.app_pedidos.model.entity.Cliente;
 import com.app_pedidos.model.repositories.ClienteRepository;
+import com.app_pedidos.model.services.exceptions.DatabaseException;
 import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +11,8 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -77,6 +79,18 @@ public class ClienteService {
 		}catch(EntityNotFoundException e) {
 			throw new  ResourceNotFoundException("Id não encontrado "+id);
 		}
+	}
+
+	public void delete(Long id) {
+		try {
+			repository.deleteById(id);
+			
+		}catch(EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException("Id não encontrado "+id);
+		}catch(DataIntegrityViolationException e) {
+			throw new DatabaseException("Violação de integridade do banco");
+		}
+		
 	}
 
 	 
