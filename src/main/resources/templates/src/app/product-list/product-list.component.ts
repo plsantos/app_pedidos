@@ -22,11 +22,11 @@ export class ProductListComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private service: ProductService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.productService.getProdutos().subscribe((data) => {
-      this.produto$ = data;
+      this.produto$ = data.content;
       console.log(data);
     });
   }
@@ -38,5 +38,5 @@ export class ProductListComponent implements OnInit {
 
   editar(id: any): void {
     localStorage.setItem("id", id.toString());
-   }
+  }
 }
