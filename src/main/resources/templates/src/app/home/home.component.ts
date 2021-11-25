@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from '../model/produto';
 import { ProductService } from './../services/product.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -11,11 +14,12 @@ import { ProductService } from './../services/product.service';
 })
 export class HomeComponent implements OnInit {
 
+  url='http://localhost:8080/endereco';
   produto$: Produto[] = [];
 
   constructor(
     private productService: ProductService,
-    private router: Router
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -25,8 +29,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  inserirCarrinho(): void {
-
+  getTotalPaginas(): Observable<any>{
+    return this.http.get(this.url + "totaldepaginas");
   }
-
 }
