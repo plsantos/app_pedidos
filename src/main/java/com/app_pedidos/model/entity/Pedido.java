@@ -27,4 +27,5 @@ public class Pedido {
     private String bairro;
     private String cidade;
     private String cep;
+    private double valorTotal;
 }
