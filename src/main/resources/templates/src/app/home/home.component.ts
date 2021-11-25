@@ -30,6 +30,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  inserirCarrinho(product: Produto): void {
+    this.itemOrderService.addCarrinho(product)
+  }
+
   getTotalPaginas(): Observable<any> {
     return this.http.get(this.url + "totaldepaginas");
   }

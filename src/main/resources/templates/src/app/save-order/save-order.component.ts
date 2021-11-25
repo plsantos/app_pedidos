@@ -85,9 +85,7 @@ export class SaveOrderComponent implements OnInit {
   }
 
   valorDesconto(value: any) {
-    if (value = 10) {
-      this.pedido.descontos = (this.pedido.valorTotal || 0) - ((this.pedido.valorTotal || 0) * 0.10);
-    }
+    this.pedido.descontos = (this.pedido.valorTotal || 0) - ((this.pedido.valorTotal || 0) * value / 100);
   }
 
 
