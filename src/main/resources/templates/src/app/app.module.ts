@@ -36,6 +36,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import {MatPaginatorModule} from '@angular/material/paginator'
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -88,7 +89,8 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
     MatToolbarModule,
     ReactiveFormsModule,
     CommonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent],
