@@ -25,6 +25,7 @@ public class PedidoDTO implements Serializable {
     private String numero;
     private String bairro;
     private String cidade;
+    private String estado;
     private String cep;
     private double valorTotal;
 
@@ -36,6 +37,7 @@ public class PedidoDTO implements Serializable {
         this.rua = pedido.getRua();
         this.numero = pedido.getNumero();
         this.cidade = pedido.getCidade();
+        this.estado = pedido.getEstado();
         this.cep = pedido.getCep();
         this.valorTotal = pedido.getValorTotal();
     }
