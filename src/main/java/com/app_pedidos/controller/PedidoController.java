@@ -1,58 +1,54 @@
 package com.app_pedidos.controller;
 
 import com.app_pedidos.model.dto.PedidoDTO;
-import com.app_pedidos.model.entity.Pedido;
-import com.app_pedidos.model.repositories.PedidoRepository;
-import com.app_pedidos.model.services.exceptions.DatabaseException;
-import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
-
+import com.app_pedidos.model.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
-
-import javax.persistence.EntityNotFoundException;
 
 @RestController
 @RequestMapping("/pedido")
 public class PedidoController {
     @Autowired
-    private PedidoRepository repository;
-
-    @GetMapping
-    public List<PedidoDTO> findAll() {
-        List<Pedido> pedidosLista = repository.findAll();
-        return PedidoDTO.converter(pedidosLista);
-    }
-
+    private PedidoService service;
+    
     @PostMapping
-    public void save(@RequestBody Pedido pedido) {
-            repository.save(pedido);
-    }
+	public ResponseEntity<PedidoDTO> insert(@RequestBody PedidoDTO dto){
+		dto = service.insert(dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(dto.getId()).toUri(); //inserindo e repondendo no cabeçalho de resposta
+		return ResponseEntity.created(uri).body(dto);
+	}
+    
+    @GetMapping
+	public ResponseEntity<List<PedidoDTO>>findAll(){
+		List<PedidoDTO>list = service.findAll();
+		return ResponseEntity.ok().body(list);
+		
+	}
+    
+    @GetMapping(value="/{id}")
+	public ResponseEntity<PedidoDTO>findById(@PathVariable Long id){
+    	PedidoDTO dto = service.findById(id);
+		
+		return ResponseEntity.ok().body(dto);//resposta 200 ou seja foi com sucesso
+	}
+    
+    @PutMapping(value="/{id}")
+	public ResponseEntity<PedidoDTO> update(@PathVariable Long id,@RequestBody PedidoDTO dto){
+		dto = service.update(id,dto);
+		return ResponseEntity.ok().body(dto);
+	}
+    
+    @DeleteMapping(value="/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-    	try {
-    		repository.deleteById(id);
-    	}catch(EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException("Id não encontrado "+id);
-		}catch(DataIntegrityViolationException e) {
-			throw new DatabaseException("Violação de integridade do banco");
-		}
-    }
-
-    @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody Pedido pedido) {
-    	try {
-	        Pedido pedidoPesquisado = repository.getOne(id);
-	        if (pedidoPesquisado != null && pedidoPesquisado.isSituacao()) {
-	            pedidoPesquisado.setData(pedido.getData());
-	            repository.save(pedidoPesquisado);
-	        }
-    	}catch(EntityNotFoundException e) {
-			throw new  ResourceNotFoundException("Id não encontrado "+id);
-		}
-    }
+    
 }

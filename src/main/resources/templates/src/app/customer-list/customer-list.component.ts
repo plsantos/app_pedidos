@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./customer-list.component.css'],
 })
 export class CustomerListComponent implements OnInit {
+
+
   cliente$: Cliente[] = [];
   displayedColumns = ['id', 'nome', 'tipo', 'documento', 'endereco', 'acoes'];
 
@@ -27,4 +29,8 @@ export class CustomerListComponent implements OnInit {
     this.customerService.deleteCliente(id).subscribe();
     this.cliente$ = this.cliente$.filter((p) => p.id != id);
   }
+
+  editar(id: any): void {
+    localStorage.setItem("id", id.toString());
+   }
 }

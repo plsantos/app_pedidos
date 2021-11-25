@@ -52,7 +52,8 @@
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
       <td mat-cell *matCellDef="let customer">
-        <button mat-raised-button [routerLink]="['/customerForm']" routerLinkActive="router-link-active" >Editar</button>
+        <button mat-raised-button [routerLink]="['/editCustomer', customer.id]" (click)="editar(customer.id)">Editar</button>
+
         <button mat-raised-button  (click)="deleteCliente(customer.id)">Excluir</button>
       </td>
     </ng-container>

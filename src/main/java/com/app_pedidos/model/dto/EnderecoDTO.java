@@ -1,13 +1,22 @@
 package com.app_pedidos.model.dto;
 
 import com.app_pedidos.model.entity.Endereco;
-import lombok.Getter;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import java.io.Serializable;
+
 
 @Getter
-public class EnderecoDTO {
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class EnderecoDTO  implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	private Long id;
     private String rua;
     private String numero;
     private String bairro;
@@ -15,14 +24,14 @@ public class EnderecoDTO {
     private String cep;
 
     public EnderecoDTO(Endereco endereco) {
+        this.id = endereco.getId();
         this.rua = endereco.getRua();
         this.numero = endereco.getNumero();
         this.bairro = endereco.getBairro();
         this.cidade = endereco.getCidade();
         this.cep = endereco.getCep();
+        this.id = endereco.getId();
     }
 
-    public static List<EnderecoDTO> converter(List<Endereco> enderecos){
-        return enderecos.stream().map(EnderecoDTO::new).collect(Collectors.toList());
-    }
+    
 }

@@ -1,63 +1,55 @@
 package com.app_pedidos.controller;
 
 import com.app_pedidos.model.dto.EnderecoDTO;
-import com.app_pedidos.model.entity.Endereco;
-import com.app_pedidos.model.repositories.EnderecoRepository;
-import com.app_pedidos.model.services.exceptions.DatabaseException;
-import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
-
+import com.app_pedidos.model.services.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
 
 @RestController
 @RequestMapping("/endereco")
 public class EnderecoController {
-    @Autowired
-    private EnderecoRepository repository;
-
-    public EnderecoController(EntityManager entityManager) {
-    }
-
-    @GetMapping
-    public List<EnderecoDTO> findAll(){
-        List<Endereco> enderecosLista = repository.findAll();
-        return EnderecoDTO.converter(enderecosLista);
-    }
-
-    @PostMapping
-    public void save(@RequestBody Endereco endereco){
-        repository.save(endereco);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
-    	try {
-    		repository.deleteById(id);
-    	}catch(EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException("Id não encontrado "+id);
-		}catch(DataIntegrityViolationException e) {
-			throw new DatabaseException("Violação de integridade do banco");
-		}
-    }
-
-    @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody Endereco endereco){
-    	try {
-	        Endereco enderecoPesquisado = repository.getOne(id);
-	        if(enderecoPesquisado != null){
-	            enderecoPesquisado.setCidade(endereco.getCidade());
-	            repository.save(enderecoPesquisado);
-	        }
-    	 }catch(EntityNotFoundException e) {
-    		 throw new  ResourceNotFoundException("Id não encontrado "+id);
-    	 }
-    }
-
+	@Autowired //injetando
+	private EnderecoService service;
+	
+	@PostMapping
+	public ResponseEntity<EnderecoDTO> insert(@RequestBody EnderecoDTO dto){
+		dto = service.insert(dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(dto.getId()).toUri(); //inserindo e repondendo no cabeçalho de resposta
+		return ResponseEntity.created(uri).body(dto);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<EnderecoDTO>>findAll(){
+		List<EnderecoDTO>list = service.findAll();
+		return ResponseEntity.ok().body(list);
+	}
+	
+	@GetMapping(value="/{id}")
+	public ResponseEntity<EnderecoDTO>findById(@PathVariable Long id){
+		EnderecoDTO dto = service.findById(id);
+		
+		return ResponseEntity.ok().body(dto);//resposta 200 ou seja foi com sucesso
+	}
+	
+	@PutMapping(value="/{id}")
+	public ResponseEntity<EnderecoDTO> update(@PathVariable Long id,@RequestBody EnderecoDTO dto){
+		dto = service.update(id,dto);
+		return ResponseEntity.ok().body(dto);
+		
+		
+	}
+	
+	@DeleteMapping(value="/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+		
+		
+	}
 }

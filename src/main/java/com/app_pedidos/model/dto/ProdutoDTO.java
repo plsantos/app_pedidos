@@ -1,12 +1,18 @@
 package com.app_pedidos.model.dto;
 
 import com.app_pedidos.model.entity.Produto;
-import lombok.Getter;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
 
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProdutoDTO {
     private long id;
     private String descricao;
@@ -20,7 +26,4 @@ public class ProdutoDTO {
         this.status = produto.isStatus();
     }
 
-    public static List<ProdutoDTO> converter(List<Produto> produtos){
-        return produtos.stream().map(ProdutoDTO::new).collect(Collectors.toList());
-    }
 }

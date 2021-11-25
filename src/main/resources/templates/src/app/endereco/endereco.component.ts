@@ -11,13 +11,14 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './endereco.component.html',
   styleUrls: ['./endereco.component.css'],
 })
+
 export class EnderecoComponent implements OnInit {
   endereco: Endereco = new Endereco();
   constructor(
     private enderecoService: EnderecoService,
     private router: Router,
     private cepService: CepService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ) {}
 
   ngOnInit(): void {}
