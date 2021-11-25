@@ -7,28 +7,25 @@
     <mat-card>
       <form action="" #f="ngForm" class="formD">
 
-      <div class="form-group">
-        <label for="pedido">Cliente</label>
-        <select
-          class="form-control"
-          name="cliente"
-          id="cliente"
-          ng-model="cliente">
-          <option *ngFor="let clientes of cliente$" value="{{ clientes.id }}">
-            Nome: {{ clientes.nome }}
-          </option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label for="pedido">Cliente</label>
+          <input
+            type="text"
+            class="form-control" let cliente of cliente
+            [(ngModel)]="pedido.cliente"
+            name="cliente"
+            id="cliente"
+          />
+        </div>
 
         <div class="form-group">
-          <label for="endereco">Cep</label>
+          <label for="cep">Cep</label>
           <input
             type="text"
             class="form-control"
             [(ngModel)]="pedido.cep"
-            (blur)="consultaCep(pedido.cep, f)"
-            id="cep"
             name="cep"
+            id="cep"
           />
         </div>
 
@@ -76,16 +73,18 @@
           />
         </div>
 
-        <!-- <div class="form-group">
-      <label for="pedido">Endereço</label>
-      <input
-        type="text"
-        class="form-control"
-        [(ngModel)]="pedido.endereco"
-        id="desc"
-        name="desc"
-      />
-    </div> -->
+
+        <div class="form-group">
+          <label for="localidade">Estado</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="pedido.estado"
+            id="estado"
+            name="estado"
+          />
+        </div>
+
 
         <div class="form-group">
           <label for="pedido" id="data">Data</label>
@@ -106,35 +105,10 @@
             [(ngModel)]="pedido.valorTotal"
             name="valor"
             id="valor"
-            currency="BRL"
           />
         </div>
 
-        <div class="form-group">
-          <label for="pedido">Descontos</label>
-          <p></p>
-          <p>
-            <mat-radio-group>
-              <mat-radio-button value="10">10 %</mat-radio-button>
-              <mat-radio-button value="20">20 %</mat-radio-button>
-              <mat-radio-button value="30">30 %</mat-radio-button>
-            </mat-radio-group>
-          </p>
-        </div>
-
-        <!-- <div class="form-group">
-      <label for="pedido">Valor Final com Desconto</label>
-      <input
-        type="text"
-        class="form-control"
-        [(ngModel)]="pedido.valor"
-        name="valor"
-        id="valor"
-        currency="BRL"
-      />
-    </div> -->
-
-        <div class="form-group">
+       <div class="form-group">
           <label for="pedido">Situação</label>
           <input
             type="text"
@@ -145,10 +119,11 @@
           />
         </div>
 
-        <br />
+        <br/>
 
-        <button mat-raised-button (click)="savePedido()">Salvar</button>
-        <button mat-raised-button>Cancelar</button>
+        <button mat-raised-button (click)="atualizar()" class="btn">
+          Salvar
+        </button>        <button mat-raised-button>Cancelar</button>
       </form>
     </mat-card>
   </mat-card>

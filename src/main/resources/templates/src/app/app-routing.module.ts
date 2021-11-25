@@ -14,6 +14,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { SaveOrderComponent } from './save-order/save-order.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { EditOrderComponent } from './edit-order/edit-order.component';
+
 
 
 const routes: Routes = [
@@ -32,7 +34,7 @@ const routes: Routes = [
   { path: 'editCustomer/:id',component: EditCustomerComponent},
   { path: 'saveOrder', component: SaveOrderComponent},
   { path: 'editProduct/:id',component: EditProductComponent},
-
+  { path: 'editOrder/:id',component: EditOrderComponent},
 ]
 
 @NgModule({

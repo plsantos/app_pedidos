@@ -35,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import {MatPaginatorModule} from '@angular/material/paginator'
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { EditOrderComponent } from './edit-order/edit-order.component';
 
 
 
@@ -61,7 +62,8 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     CadastroProdutoComponent,
     EditCustomerComponent,
     SaveOrderComponent,
-    EditProductComponent
+    EditProductComponent,
+    EditOrderComponent
   ],
 
   imports: [

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from './../services/customer.service';
 import { Router } from '@angular/router';
 import { Cliente } from '../model/cliente';
-import { Endereco } from '../model/endereco';
 import { EnderecoService } from './../services/endereco.service';
 
 
@@ -18,7 +17,7 @@ export class EditCustomerComponent implements OnInit {
 
   cliente: Cliente = new Cliente();
 
-  constructor(private customerService: CustomerService, private router: Router, private enderecoService: EnderecoService) { }
+  constructor(private customerService: CustomerService, private router: Router) { }
 
 
   ngOnInit(): void {

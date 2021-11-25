@@ -23,6 +23,14 @@
     <td mat-cell *matCellDef="let order"> {{order.cliente.nome}} </td>
   </ng-container>
 
+    <!-- endereco Column -->
+    <ng-container matColumnDef="endereco">
+      <th mat-header-cell *matHeaderCellDef> Endereço </th>
+      <td mat-cell *matCellDef="let order"> Rua: {{order.rua}}, {{order.numero}} - Bairro: {{order.bairro}} <br>
+        Cidade: {{order.cidade}} - {{order.estado}} </td>
+    </ng-container>
+
+
    <!-- situação Column -->
    <ng-container matColumnDef="situacao">
     <th mat-header-cell *matHeaderCellDef> Situação </th>
@@ -33,7 +41,7 @@
    <ng-container matColumnDef="acoes">
     <th mat-header-cell *matHeaderCellDef> Ações </th>
     <td mat-cell *matCellDef="let order">
-      <button mat-raised-button [routerLink]="['/routePath']" routerLinkActive="router-link-active" >Editar</button>
+      <button mat-raised-button [routerLink]="['/editOrder', order.id]" (click)="editar(order.id)">Editar</button>
       <button mat-raised-button (click)="deletePedido(order.id)"
       >Excluir</button>
     </td>
