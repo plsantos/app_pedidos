@@ -27,21 +27,14 @@ import { RouterModule } from '@angular/router';
 import { ItemOrderComponent } from './item-order/item-order.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { PaginationComponent } from './shared/pagination/pagination.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { SaveOrderComponent } from './save-order/save-order.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
-import {MatPaginatorModule} from '@angular/material/paginator'
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
-
-
-
-
 
 
 
@@ -52,7 +45,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     ItemOrderComponent,
     HeaderComponent,
     FooterComponent,
-    PaginationComponent,
     CustomerListComponent,
     ProductListComponent,
     OrderListComponent,
@@ -89,7 +81,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatToolbarModule,
     ReactiveFormsModule,
     CommonModule,
-    MatPaginatorModule,
     MatSlideToggleModule
   ],
   providers: [],
