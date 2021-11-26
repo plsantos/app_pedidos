@@ -15,7 +15,7 @@
             ng-model="cliente"
           >
             <option *ngFor="let clientes of cliente$" value="{{ clientes.id }}">
-              Nome: {{ clientes.nome }}
+              {{ clientes.nome }}
             </option>
           </select>
         </div>
@@ -82,7 +82,7 @@
             type="text"
             class="form-control"
             [(ngModel)]="pedido.estado"
-            id="uf"
+            id="estado"
             name="estado"
           />
         </div>
