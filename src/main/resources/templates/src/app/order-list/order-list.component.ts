@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pedido } from '../model/pedido';
 import { OrderService } from './../services/order.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-order-list',
@@ -11,7 +10,7 @@ import { Observable } from 'rxjs';
 export class OrderListComponent implements OnInit {
   situacao = ['true', 'false']
   order$: Pedido[] = [];
-  displayedColumns = ['id', 'cliente', 'data', 'situacao', 'acoes'];
+  displayedColumns = ['id', 'cliente', 'data', 'situacao', 'endereco', 'acoes'];
 
   constructor(private orderService: OrderService) {
   }
@@ -31,4 +30,7 @@ export class OrderListComponent implements OnInit {
     this.order$ = this.order$.filter((p) => p.id != id);
   }
 
+  editar(id: any): void {
+    localStorage.setItem("id", id.toString());
+   }
   }

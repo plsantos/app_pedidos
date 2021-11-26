@@ -8,19 +8,20 @@
       <form action="" #f="ngForm" class="formD">
         <div class="form-group">
           <label for="pedido">Cliente</label>
-          <select
+          <input
+            type="text"
             class="form-control"
+            let
+            cliente
+            of
+            cliente
+            [(ngModel)]="pedido.cliente"
             name="cliente"
             id="cliente"
-            ng-model="cliente"
-          >
-            <option *ngFor="let clientes of cliente$" value="{{ clientes.id }}">
-              Nome: {{ clientes.nome }}
-            </option>
-          </select>
+          />
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="endereco">Cep</label>
           <input
             type="text"
@@ -30,7 +31,7 @@
             id="cep"
             name="cep"
           />
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label for="logradouro">Rua</label>
@@ -41,17 +42,17 @@
             name="rua"
             id="rua"
           />
-        </div>
 
-        <div class="form-group">
-          <label for="numero">Número</label>
-          <input
-            type="text"
-            class="form-control"
-            [(ngModel)]="pedido.numero"
-            name="numero"
-            id="numero"
-          />
+          <div class="form-group">
+            <label for="numero">Número</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="pedido.numero"
+              name="numero"
+              id="numero"
+            />
+          </div>
         </div>
 
         <div class="form-group">
@@ -77,12 +78,13 @@
         </div>
 
         <div class="form-group">
-          <label for="uf">Estado</label>
+          <label for="localidade">Estado</label>
           <input
             type="text"
             class="form-control"
             [(ngModel)]="pedido.estado"
             id="estado"
+            name="estado"
           />
         </div>
 
@@ -92,6 +94,7 @@
             type="text"
             class="form-control"
             [(ngModel)]="pedido.data"
+            name="data"
             id="data"
           />
         </div>
@@ -100,63 +103,26 @@
           <label for="pedido">Valor Total</label>
           <input
             type="text"
-            [ngModelOptions]="{ standalone: true }"
             class="form-control"
             [(ngModel)]="pedido.valorTotal"
+            name="valor"
             id="valor"
-            currency="BRL"
-            readonly
           />
         </div>
 
-        <div class="form-group">
-          <label for="pedido">Descontos</label>
-          <p></p>
-          <p>
-            <mat-radio-group>
-              <mat-radio-button (click)="valorDesconto(10)" value="10"
-                >10 %</mat-radio-button
-              >
-              <mat-radio-button (click)="valorDesconto(20)" value="20"
-                >20 %</mat-radio-button
-              >
-              <mat-radio-button (click)="valorDesconto(30)" value="30"
-                >30 %</mat-radio-button
-              >
-            </mat-radio-group>
-          </p>
-        </div>
-
-        <div class="form-group">
-          <label for="pedido">Valor Final com Desconto</label>
-          <input
-            type="text"
-            [ngModelOptions]="{ standalone: true }"
-            class="form-control"
-            [(ngModel)]="pedido.descontos"
-            id="valor"
-            currency="BRL"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="pedido">Situação</label>
-          <input
-            type="text"
-            [ngModelOptions]="{ standalone: true }"
-            class="form-control"
-            [(ngModel)]="pedido.situacao"
-            id="situacao"
-          />
-        </div>
-        <button mat-raised-button (click)="savePedido()">Salvar</button>
-        <button
-          mat-raised-button
-          [routerLink]="['/home']"
-          routerLinkActive="router-link-active"
+        <mat-slide-toggle
+          [(ngModel)]="pedido.situacao"
+          name="sitacao"
+          id="situacao"
+          >Ativado</mat-slide-toggle
         >
-          Cancelar
+
+        <br />
+
+        <button mat-raised-button (click)="atualizar()" class="btn">
+          Salvar
         </button>
+        <button mat-raised-button>Cancelar</button>
       </form>
     </mat-card>
   </mat-card>

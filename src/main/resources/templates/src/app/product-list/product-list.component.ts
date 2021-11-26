@@ -15,18 +15,17 @@ export class ProductListComponent implements OnInit {
   // Observable<Product[]>;
   displayedColumns = ['id', 'descricao', 'valor', 'status', 'acoes'];
 
-
   produtoSelecionado = Produto;
 
   constructor(
     private productService: ProductService,
     private router: Router,
     private service: ProductService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.productService.getProdutos().subscribe((data) => {
-      this.produto$ = data.content;
+      this.produto$ = data;
       console.log(data);
     });
   }
@@ -37,6 +36,6 @@ export class ProductListComponent implements OnInit {
   }
 
   editar(id: any): void {
-    localStorage.setItem("id", id.toString());
+    localStorage.setItem('id', id.toString());
   }
 }

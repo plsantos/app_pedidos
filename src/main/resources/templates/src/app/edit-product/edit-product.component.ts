@@ -21,13 +21,13 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit(): void {
 
-     this.buscaCliente();
+     this.buscaProduto();
 
    console.log(this.produto);
 
    }
 
-   buscaCliente(){
+   buscaProduto(){
     let idLocalStorage = localStorage.getItem("id");
         this.productService.getProduto(idLocalStorage).subscribe(data =>{
           this.produto = data;

@@ -11,9 +11,8 @@ export class Pedido {
     public numero?: number,
     public bairro?: string,
     public cidade?: String,
-    public cep?: String,
     public estado?: String,
+    public cep?: String,
     public descontos?: number
-
   ) {}
 }
