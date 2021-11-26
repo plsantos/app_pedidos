@@ -4,44 +4,40 @@ import { Router } from '@angular/router';
 import { Cliente } from '../model/cliente';
 import { EnderecoService } from './../services/endereco.service';
 
-
-
 @Component({
   selector: 'app-edit-customer',
   templateUrl: './edit-customer.component.html',
-  styleUrls: ['./edit-customer.component.css']
+  styleUrls: ['./edit-customer.component.css'],
 })
 export class EditCustomerComponent implements OnInit {
-
   cliente$: Cliente[] = [];
 
   cliente: Cliente = new Cliente();
 
-  constructor(private customerService: CustomerService, private router: Router) { }
-
+  constructor(
+    private customerService: CustomerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    this.buscaCliente();
 
-     this.buscaCliente();
+    console.log(this.cliente);
+  }
 
-   console.log(this.cliente);
+  buscaCliente() {
+    let idLocalStorage = localStorage.getItem('id');
+    this.customerService.getCliente(idLocalStorage).subscribe((data) => {
+      this.cliente = data;
+    });
+    console.log(this.cliente);
+  }
 
-   }
-
-   buscaCliente(){
-    let idLocalStorage = localStorage.getItem("id");
-        this.customerService.getCliente(idLocalStorage).subscribe(data =>{
-          this.cliente = data;
-         });
-         console.log(this.cliente);
-    }
-
-    atualizar(){
-      this.customerService.editCliente(this.cliente)
-      .subscribe(data =>{
-        this.cliente = data;
-        this.router.navigate(['customerList'])
-        alert("Alterações salvas com sucesso!");
-      })
-    }
+  atualizar() {
+    this.customerService.editCliente(this.cliente).subscribe((data) => {
+      this.cliente = data;
+      this.router.navigate(['customerList']);
+      alert('Alterações salvas com sucesso!');
+    });
+  }
 }

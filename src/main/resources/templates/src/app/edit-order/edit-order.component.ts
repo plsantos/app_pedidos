@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class EditOrderComponent implements OnInit {
   cliente: Cliente[] = [];
 
+  cliente$: Cliente = new Cliente();
   pedido$: Pedido[] = [];
 
   pedido: Pedido = new Pedido();
@@ -21,7 +22,7 @@ export class EditOrderComponent implements OnInit {
     private orderService: OrderService,
     private router: Router,
     private httpClient: HttpClient
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.buscaPedido();
@@ -41,7 +42,7 @@ export class EditOrderComponent implements OnInit {
     this.orderService.editPedidos(this.pedido).subscribe((data) => {
       this.pedido = data;
       this.router.navigate(['orderList']);
-      alert("Atualização salva com sucesso!");
+      alert('Atualização salva com sucesso!');
     });
   }
 

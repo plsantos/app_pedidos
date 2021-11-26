@@ -3,17 +3,15 @@ import { Pedido } from '../model/pedido';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderService {
-
   public pedidoId = new BehaviorSubject<number>(-1);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  Url = 'http://localhost:8080/pedido/';
+  Url = 'http://localhost:8080/pedido';
 
   getPedidos(): Observable<any> {
     return this.http.get<Pedido[]>(this.Url);
@@ -38,8 +36,4 @@ export class OrderService {
   deletePedido(id: number): Observable<any> {
     return this.http.delete<Pedido>(`${this.Url}/${id}`);
   }
-
-
 }
-
-

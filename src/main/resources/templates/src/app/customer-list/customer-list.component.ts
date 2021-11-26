@@ -41,6 +41,5 @@ export class CustomerListComponent implements OnInit {
 
   editar(id: any): void {
     localStorage.setItem('id', id.toString());
-    alert('Alterações salvas com sucesso!');
   }
 }
