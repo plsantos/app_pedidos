@@ -32,7 +32,6 @@ import { SaveOrderComponent } from './save-order/save-order.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
-import {MatPaginatorModule} from '@angular/material/paginator'
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -82,7 +81,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatToolbarModule,
     ReactiveFormsModule,
     CommonModule,
-    MatPaginatorModule,
     MatSlideToggleModule
   ],
   providers: [],
