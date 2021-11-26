@@ -14,5 +14,5 @@ export class Pedido {
     public estado?: String,
     public cep?: String,
     public descontos?: number
-  ) {}
+  ) { }
 }

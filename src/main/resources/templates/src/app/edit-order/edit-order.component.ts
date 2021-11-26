@@ -21,7 +21,7 @@ export class EditOrderComponent implements OnInit {
     private orderService: OrderService,
     private router: Router,
     private httpClient: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.buscaPedido();
@@ -38,7 +38,7 @@ export class EditOrderComponent implements OnInit {
   }
 
   atualizar() {
-    this.orderService.editPedido(this.pedido).subscribe((data) => {
+    this.orderService.editPedidos(this.pedido).subscribe((data) => {
       this.pedido = data;
       this.router.navigate(['orderList']);
       alert("Atualização salva com sucesso!");

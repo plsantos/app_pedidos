@@ -13,29 +13,33 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  Url = 'http://localhost:8080/pedido';
+  Url = 'http://localhost:8080/pedido/';
 
   getPedidos(): Observable<any> {
     return this.http.get<Pedido[]>(this.Url);
   }
 
   getPedido(id: any): Observable<any> {
-    return this.http.get<Pedido>(this.Url+'/'+ id);
+    return this.http.get<Pedido>(this.Url + '/' + id);
   }
 
   savePedido(pedido: Pedido): Observable<any> {
     return this.http.post<Pedido>(this.Url, pedido);
   }
 
-  editPedido(pedido: Pedido): Observable<any> {
-    return this.http.put(this.Url +'/'+ pedido.id, pedido);
+  editPedido(id?: number, pedido?: Pedido): Observable<any> {
+    return this.http.put(this.Url + id, pedido);
+  }
+
+  editPedidos(pedido: Pedido): Observable<any> {
+    return this.http.put(this.Url + '/' + pedido.id, pedido);
   }
 
   deletePedido(id: number): Observable<any> {
     return this.http.delete<Pedido>(`${this.Url}/${id}`);
   }
 
-  
+
 }
 
 
