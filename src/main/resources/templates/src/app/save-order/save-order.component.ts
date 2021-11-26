@@ -6,6 +6,8 @@ import { Pedido } from '../model/pedido';
 import { CustomerService } from '../services/customer.service';
 import { OrderService } from '../services/order.service';
 import { ItemOrderService, CarrinhoItems } from '../services/item-order.service';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { identity } from 'rxjs';
 
 @Component({
   selector: 'app-save-order',
@@ -14,6 +16,19 @@ import { ItemOrderService, CarrinhoItems } from '../services/item-order.service'
 })
 export class SaveOrderComponent implements OnInit {
   cliente$: Cliente[] = [];
+  formPedido: FormGroup = new FormGroup({
+    cliente: new FormControl(''),
+    cep: new FormControl(''),
+    rua: new FormControl(''),
+    numero: new FormControl(''),
+    bairro: new FormControl(''),
+    cidade: new FormControl(''),
+    estado: new FormControl(''),
+    data: new FormControl(''),
+    valor: new FormControl(''),
+    desconto: new FormControl(''),
+    situacao: new FormControl(''),
+  });
   carrinho: CarrinhoItems = { idPedido: 0, listaItensCarrinho: [] };
 
   pedido: Pedido = new Pedido();
@@ -25,8 +40,8 @@ export class SaveOrderComponent implements OnInit {
     private router: Router,
     private httpClient: HttpClient,
     private customerService: CustomerService,
-    private itemOrder: ItemOrderService
-
+    private itemOrder: ItemOrderService,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -47,8 +62,18 @@ export class SaveOrderComponent implements OnInit {
       })
   }
 
-  savePedido() {
-    this.orderService.savePedido(this.pedido).subscribe((data) => {
+  onSubmit() {
+    console.log("Aqui !!!", {
+      ...this.formPedido.value,
+      situacao: this.formPedido.value.situacao == "true" ? true : false,
+      cliente: this.formPedido.value.cliente.id
+    })
+    this.orderService.editPedido(this.carrinho.idPedido, {
+      ...this.formPedido.value,
+      situacao: this.formPedido.value.situacao == "true" ? true : false,
+      cliente: this.formPedido.value.cliente.id
+    }).subscribe((data) => {
+      console.log("ooooooooooooi", data)
       this.router.navigate(['/orderList']);
     });
     console.log(this.pedido);

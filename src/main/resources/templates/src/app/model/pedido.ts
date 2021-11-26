@@ -3,7 +3,7 @@ import { Cliente } from '../model/cliente';
 export class Pedido {
   constructor(
     public id?: number,
-    public cliente?: Cliente,
+    idCliente?: number | undefined,
     public data?: Date,
     public situacao?: boolean,
     public valorTotal?: number,
@@ -15,5 +15,5 @@ export class Pedido {
     public estado?: String,
     public descontos?: number
 
-  ) {}
+  ) { }
 }

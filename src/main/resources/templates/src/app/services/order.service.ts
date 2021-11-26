@@ -13,7 +13,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  Url = 'http://localhost:8080/pedido';
+  Url = 'http://localhost:8080/pedido/';
 
   getPedidos(): Observable<any> {
     return this.http.get<Pedido[]>(this.Url);
@@ -27,7 +27,7 @@ export class OrderService {
     return this.http.post<Pedido>(this.Url, pedido);
   }
 
-  editPedido(id: number, pedido: Pedido): Observable<any> {
+  editPedido(id?: number, pedido?: Pedido): Observable<any> {
     return this.http.put(this.Url + id, pedido);
   }
 
@@ -35,7 +35,7 @@ export class OrderService {
     return this.http.delete<Pedido>(`${this.Url}/${id}`);
   }
 
-  
+
 }
 
 
