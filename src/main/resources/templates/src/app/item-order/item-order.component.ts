@@ -50,10 +50,5 @@ export class ItemOrderComponent implements OnInit {
       this.listaItensPedido = this.listProducts;
     });
   }
-
-  removeAt(i: any) {
-    this.dataSource.splice(i, 1);
-    this.dataSource = JSON.parse(JSON.stringify(this.dataSource));
-    // this line is to refresh view and detect changes for updating table view
-  }
 }
+
