@@ -23,15 +23,14 @@ export class OrderListComponent implements OnInit {
   constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {
+    this.buscarPedido();
+  }
+
+  buscarPedido() {
     this.orderService.getPedidos().subscribe((data) => {
       this.order$ = data;
       console.log(data);
     });
-  }
-
-  deletePedido(id: number): void {
-    this.orderService.deletePedido(id).subscribe();
-    this.order$ = this.order$.filter((p) => p.id != id);
   }
 
   editar(id: any): void {

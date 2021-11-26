@@ -8,8 +8,6 @@ import { CustomerService } from './../services/customer.service';
   styleUrls: ['./customer-list.component.css'],
 })
 export class CustomerListComponent implements OnInit {
-
-
   cliente$: Cliente[] = [];
   displayedColumns = ['id', 'nome', 'tipo', 'documento', 'acoes'];
 
@@ -18,6 +16,10 @@ export class CustomerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.buscarCliente();
+  }
+
+  buscarCliente() {
     this.customerService.getClientes().subscribe((data) => {
       this.cliente$ = data;
       console.log(data);
@@ -25,11 +27,19 @@ export class CustomerListComponent implements OnInit {
   }
 
   deleteCliente(id: number): void {
-    this.customerService.deleteCliente(id).subscribe();
-    this.cliente$ = this.cliente$.filter((p) => p.id != id);
+    this.customerService.deleteCliente(id).subscribe({
+      next: (data) => {
+        this.buscarCliente();
+      },
+      error: (e) => {
+        alert(
+          'Este cliente não pode ser deletado, pois está associado a algum pedido!'
+        );
+      },
+    });
   }
 
   editar(id: any): void {
-    localStorage.setItem("id", id.toString());
-   }
+    localStorage.setItem('id', id.toString());
+  }
 }

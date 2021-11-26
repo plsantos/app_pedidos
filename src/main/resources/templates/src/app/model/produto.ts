@@ -3,6 +3,6 @@ export class Produto {
     public id?: number,
     public descricao?: String,
     public valor?: number,
-    public status?: String
+    public status?: boolean
   ) {}
 }

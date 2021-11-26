@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../model/produto';
 import { ProductService } from './../services/product.service';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,15 +23,26 @@ export class ProductListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.buscarProduto();
+  }
+
+  buscarProduto() {
     this.productService.getProdutos().subscribe((data) => {
       this.produto$ = data;
       console.log(data);
     });
   }
-
   deleteProduto(id: number): void {
-    this.productService.deleteProduto(id).subscribe();
-    this.produto$ = this.produto$.filter((p) => p.id != id);
+    this.productService.deleteProduto(id).subscribe({
+      next: (data) => {
+        this.buscarProduto();
+      },
+      error: (e) => {
+        alert(
+          'Este produto não pode ser deletado, pois está associado a algum pedido!'
+        );
+      },
+    });
   }
 
   editar(id: any): void {

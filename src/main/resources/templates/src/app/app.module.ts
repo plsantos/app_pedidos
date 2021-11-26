@@ -7,11 +7,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatRadioModule} from '@angular/material/radio';
-import { FormsModule} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +20,6 @@ import { HomeComponent } from './home/home.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { EnderecoComponent } from './endereco/endereco.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
 import { RouterModule } from '@angular/router';
@@ -34,9 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -49,14 +46,13 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     ProductListComponent,
     OrderListComponent,
     PedidoComponent,
-    EnderecoComponent,
     ItemOrderComponent,
     CustomerFormComponent,
     CadastroProdutoComponent,
     EditCustomerComponent,
     SaveOrderComponent,
     EditProductComponent,
-    EditOrderComponent
+    EditOrderComponent,
   ],
 
   imports: [
@@ -81,10 +77,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatToolbarModule,
     ReactiveFormsModule,
     CommonModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}
