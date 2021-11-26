@@ -1,20 +1,23 @@
 package com.app_pedidos.model.services;
-import com.app_pedidos.model.dto.ClienteDTO;
-import com.app_pedidos.model.entity.Cliente;
-import com.app_pedidos.model.repositories.ClienteRepository;
-import com.app_pedidos.model.services.exceptions.DatabaseException;
-import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.app_pedidos.model.dto.ClienteDTO;
+import com.app_pedidos.model.entity.Cliente;
+import com.app_pedidos.model.repositories.ClienteRepository;
+import com.app_pedidos.model.services.exceptions.ConstraintViolationExceptionEx;
+import com.app_pedidos.model.services.exceptions.DatabaseException;
+import com.app_pedidos.model.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ClienteService {
@@ -78,6 +81,8 @@ public class ClienteService {
 			
 		}catch(EntityNotFoundException e) {
 			throw new  ResourceNotFoundException("Id não encontrado "+id);
+		}catch(ConstraintViolationException  e) {
+			throw new ConstraintViolationExceptionEx("CPF já existente");
 		}
 	}
 

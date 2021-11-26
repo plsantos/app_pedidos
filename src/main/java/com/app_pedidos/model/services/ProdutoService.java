@@ -27,15 +27,6 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository repository;
 
-//    public void inativar(Long id) {
-//        Produto produto = repository.getById(id);
-//        for (Pedido pedido : repository.findAll()){
-//            if(produto.getId() != pedido.getItensPedido().getProduto().getId())
-//                produto.setStatus(false);
-//        }
-//        repository.save(produto);
-//    }
-
 	public Page<Produto> listAll(Pageable pageable){
 		return repository.findAll(pageable);
 	}
