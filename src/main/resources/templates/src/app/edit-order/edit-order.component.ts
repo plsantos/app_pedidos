@@ -41,6 +41,7 @@ export class EditOrderComponent implements OnInit {
     this.orderService.editPedido(this.pedido).subscribe((data) => {
       this.pedido = data;
       this.router.navigate(['orderList']);
+      alert("Atualização salva com sucesso!");
     });
   }
 

@@ -40,6 +40,7 @@ export class EditProductComponent implements OnInit {
       .subscribe(data =>{
         this.produto = data;
         this.router.navigate(['productList'])
+        alert("Atualização salva com sucesso!");
       })
     }
 }
