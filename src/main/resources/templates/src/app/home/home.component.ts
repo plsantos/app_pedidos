@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProdutos().subscribe((data) => {
-      this.produto$ = data.slice(0, 3);
+      this.produto$ = data.slice(0, 9);
       console.log('Produtos ===>', data);
     });
   }

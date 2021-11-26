@@ -11,14 +11,13 @@ import { EnderecoService } from '../services/endereco.service';
   templateUrl: './endereco.component.html',
   styleUrls: ['./endereco.component.css'],
 })
-
 export class EnderecoComponent implements OnInit {
   endereco: Endereco = new Endereco();
   constructor(
     private enderecoService: EnderecoService,
     private router: Router,
     private cepService: CepService,
-    private httpClient: HttpClient,
+    private httpClient: HttpClient
   ) {}
 
   ngOnInit(): void {}
@@ -57,6 +56,7 @@ export class EnderecoComponent implements OnInit {
       numero: '',
       bairro: dados.bairro,
       cidade: dados.localidade,
+      estado: dados.uf,
     });
   }
 }

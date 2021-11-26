@@ -6,7 +6,6 @@
 
     <mat-card>
       <form action="" #f="ngForm" class="formD">
-
         <div class="form-group">
           <label for="endereco">Cep</label>
           <input
@@ -26,7 +25,8 @@
             class="form-control"
             [(ngModel)]="endereco.rua"
             name="rua"
-            id="rua"/>
+            id="rua"
+          />
 
           <div class="form-group">
             <label for="numero">Número</label>
@@ -59,6 +59,17 @@
             [(ngModel)]="endereco.cidade"
             id="cidade"
             name="cidade"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="uf">Cidade</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="endereco.estado"
+            id="estado"
+            name="estado"
           />
         </div>
 
