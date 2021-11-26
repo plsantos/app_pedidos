@@ -31,6 +31,10 @@ export class OrderService {
     return this.http.put(this.Url + id, pedido);
   }
 
+  editPedidos(pedido: Pedido): Observable<any> {
+    return this.http.put(this.Url + '/' + pedido.id, pedido);
+  }
+
   deletePedido(id: number): Observable<any> {
     return this.http.delete<Pedido>(`${this.Url}/${id}`);
   }
