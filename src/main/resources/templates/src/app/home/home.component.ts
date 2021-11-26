@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   inserirCarrinho(product: Produto): void {
     this.itemOrderService.addCarrinho(product);
+    alert('Item adicionado ao carrinho');
   }
 
   getTotalPaginas(): Observable<any> {
