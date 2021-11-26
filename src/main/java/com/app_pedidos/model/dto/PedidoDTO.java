@@ -36,6 +36,7 @@ public class PedidoDTO implements Serializable {
         this.situacao = pedido.isSituacao();
         this.rua = pedido.getRua();
         this.numero = pedido.getNumero();
+        this.bairro = pedido.getBairro();
         this.cidade = pedido.getCidade();
         this.bairro = pedido.getBairro();
         this.estado = pedido.getEstado();

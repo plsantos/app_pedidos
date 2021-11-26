@@ -3,10 +3,9 @@
     <mat-toolbar>
       <span class="title-endereco">Cadastro de Endereço</span>
     </mat-toolbar>
-    
+
     <mat-card>
       <form action="" #f="ngForm" class="formD">
-
         <div class="form-group">
           <label for="endereco">Cep</label>
           <input
@@ -60,6 +59,17 @@
             [(ngModel)]="endereco.cidade"
             id="cidade"
             name="cidade"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="uf">Cidade</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="endereco.estado"
+            id="estado"
+            name="estado"
           />
         </div>
 

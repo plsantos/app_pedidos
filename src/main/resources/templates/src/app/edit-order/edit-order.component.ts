@@ -1,30 +1,47 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from './../services/order.service';
 import { Router } from '@angular/router';
-
-import { Endereco } from '../model/endereco';
-import { CepService } from '../services/cep.service';
-import { EnderecoService } from '../services/endereco.service';
+import { Pedido } from '../model/pedido';
+import { Cliente } from '../model/cliente';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-endereco',
-  templateUrl: './endereco.component.html',
-  styleUrls: ['./endereco.component.css'],
+  selector: 'app-edit-order',
+  templateUrl: './edit-order.component.html',
+  styleUrls: ['./edit-order.component.css'],
 })
-export class EnderecoComponent implements OnInit {
-  endereco: Endereco = new Endereco();
+export class EditOrderComponent implements OnInit {
+  cliente: Cliente[] = [];
+
+  pedido$: Pedido[] = [];
+
+  pedido: Pedido = new Pedido();
+
   constructor(
-    private enderecoService: EnderecoService,
+    private orderService: OrderService,
     private router: Router,
-    private cepService: CepService,
     private httpClient: HttpClient
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.buscaPedido();
 
-  saveEndereco() {
-    this.enderecoService.saveEndereco(this.endereco).subscribe((data) => {
-      this.router.navigate(['/customerForm']);
+    console.log(this.pedido);
+  }
+
+  buscaPedido() {
+    let idLocalStorage = localStorage.getItem('id');
+    this.orderService.getPedido(idLocalStorage).subscribe((data) => {
+      this.pedido = data;
+      console.log('buscaPedido()', this.pedido);
+    });
+  }
+
+  atualizar() {
+    this.orderService.editPedido(this.pedido).subscribe((data) => {
+      this.pedido = data;
+      this.router.navigate(['orderList']);
+      alert("Atualização salva com sucesso!");
     });
   }
 

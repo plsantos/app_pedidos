@@ -26,6 +26,7 @@ export class CadastroProdutoComponent implements OnInit {
   saveProduto() {
     this.productService.saveProduto(this.produto).subscribe((data) => {
       this.router.navigate(['/productList']);
+      alert("Produto salvo com sucesso!");
     });
   }
   

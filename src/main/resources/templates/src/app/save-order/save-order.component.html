@@ -10,7 +10,7 @@
           <label for="pedido">Cliente</label>
           <select class="form-control" name="cliente" id="cliente" ng-model="cliente" formControlName="cliente">
             <option *ngFor="let clientes of cliente$" value="{{ clientes.id }}">
-              Nome: {{ clientes.nome }}
+              {{ clientes.nome }}
             </option>
           </select>
         </div>
@@ -65,9 +65,9 @@
           <p></p>
           <p>
             <mat-radio-group>
-              <mat-radio-button (click)=valorDesconto(10) value="10">10 %</mat-radio-button>
-              <mat-radio-button (click)=valorDesconto(20) value="20">20 %</mat-radio-button>
-              <mat-radio-button (click)=valorDesconto(30) value="30">30 %</mat-radio-button>
+              <mat-radio-button (click)="valorDesconto(10)" value="10">10 %</mat-radio-button>
+              <mat-radio-button (click)="valorDesconto(20)" value="20">20 %</mat-radio-button>
+              <mat-radio-button (click)="valorDesconto(30)" value="30">30 %</mat-radio-button>
             </mat-radio-group>
           </p>
         </div>

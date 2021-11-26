@@ -19,8 +19,8 @@ export class OrderService {
     return this.http.get<Pedido[]>(this.Url);
   }
 
-  getPedido(id: number): Observable<any> {
-    return this.http.get<Pedido>(this.Url + id);
+  getPedido(id: any): Observable<any> {
+    return this.http.get<Pedido>(this.Url + '/' + id);
   }
 
   savePedido(pedido: Pedido): Observable<any> {

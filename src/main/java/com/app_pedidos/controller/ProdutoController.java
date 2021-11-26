@@ -38,16 +38,16 @@ public class ProdutoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<Produto>> findAll(Pageable pageable) {
-        return ResponseEntity.ok(service.findAll(pageable));
+    public ResponseEntity<List<ProdutoDTO>> findAll() {
+        List<ProdutoDTO> list = service.findAll();
+        return ResponseEntity.ok().body(list);
+
     }
 
-//    @GetMapping("/totaldepaginas")
-//    public int retornaTotalpaginas(Pageable pageable) {
-//        Pageable pageable = PageRequest.of(0, 3);
-//        Page<Produto> produtosLista = service.findAll(pageable);
-//        return produtosLista.getTotalPages();
-//    }
+    @GetMapping(value = "/pageable")
+    public ResponseEntity<Page<Produto>> list(Pageable pageable) {
+        return ResponseEntity.ok(service.listAll(pageable));
+    }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<ProdutoDTO> findById(@PathVariable Long id) {

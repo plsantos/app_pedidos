@@ -27,9 +27,11 @@ export class CustomerListComponent implements OnInit {
   deleteCliente(id: number): void {
     this.customerService.deleteCliente(id).subscribe();
     this.cliente$ = this.cliente$.filter((p) => p.id != id);
+    alert("Cliente excluído");
   }
 
   editar(id: any): void {
     localStorage.setItem("id", id.toString());
+    alert("Alterações salvas com sucesso!");
    }
 }

@@ -1,10 +1,10 @@
-mat-toolbar{
+mat-toolbar {
   width: 100%;
-  background-color:#70587C;
-  color:white;
+  background-color: #70587c;
+  color: white;
 }
 
-.title-customer-form{
+.title-customer-form {
   margin-left: 500px;
 }
 
@@ -13,27 +13,27 @@ mat-toolbar{
   margin-left: 300px;
 }
 
-.mat-raised-button{
-  background-color: #C8B8DB;
+.mat-raised-button {
+  background-color: #c8b8db;
   margin: 10px;
   padding: 1px;
-  }
+}
 
+/* formatação campos input */
+.form-group {
+  width: 50%;
+  float: left;
+  color: #c0c0c0;
+}
 
-  /* formatação campos input */
-  .form-group {
-    width: 50%;
-    float: left;
-    color: #c0c0c0;
-  }
+.form-group input {
+  width: 50%;
+}
 
-  .form-group input {
+.form-group select {
+  width: 50%;
+}
 
-    width: 50%;
-  }
-
-  .form-group select {
-
-    width: 50%;
-  }
-
+.mat-slide-toggle-content{
+  color: #70587c;
+}
