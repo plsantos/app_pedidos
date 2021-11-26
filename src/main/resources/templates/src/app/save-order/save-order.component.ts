@@ -5,7 +5,10 @@ import { Cliente } from '../model/cliente';
 import { Pedido } from '../model/pedido';
 import { CustomerService } from '../services/customer.service';
 import { OrderService } from '../services/order.service';
-import { ItemOrderService, CarrinhoItems } from '../services/item-order.service';
+import {
+  ItemOrderService,
+  CarrinhoItems,
+} from '../services/item-order.service';
 
 @Component({
   selector: 'app-save-order',
@@ -26,30 +29,29 @@ export class SaveOrderComponent implements OnInit {
     private httpClient: HttpClient,
     private customerService: CustomerService,
     private itemOrder: ItemOrderService
-
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.customerService.getClientes()
-      .subscribe(data => {
-        this.cliente$ = data;
-        console.log(data);
-      })
+    this.customerService.getClientes().subscribe((data) => {
+      this.cliente$ = data;
+      console.log(data);
+    });
     console.log(this.cliente$);
 
-    this.itemOrder.getProducts()
-      .subscribe((data: CarrinhoItems) => {
-        this.carrinho = data;
-        this.pedido.valorTotal = data?.listaItensCarrinho?.map((item) => item.valor).
-          reduce((acc, valor) => (acc || 0) + (valor || 0), 0)
+    this.itemOrder.getProducts().subscribe((data: CarrinhoItems) => {
+      this.carrinho = data;
+      this.pedido.valorTotal = data?.listaItensCarrinho
+        ?.map((item) => item.valor)
+        .reduce((acc, valor) => (acc || 0) + (valor || 0), 0);
 
-        console.log('aqui', this.pedido)
-      })
+      console.log('aqui', this.pedido);
+    });
   }
 
   savePedido() {
     this.orderService.savePedido(this.pedido).subscribe((data) => {
       this.router.navigate(['/orderList']);
+      alert('Pedido Salvo com sucesso!!');
     });
     console.log(this.pedido);
   }
@@ -87,7 +89,8 @@ export class SaveOrderComponent implements OnInit {
   }
 
   valorDesconto(value: any) {
-    this.pedido.descontos = (this.pedido.valorTotal || 0) - ((this.pedido.valorTotal || 0) * value / 100);
+    this.pedido.descontos =
+      (this.pedido.valorTotal || 0) -
+      ((this.pedido.valorTotal || 0) * value) / 100;
   }
-
 }
