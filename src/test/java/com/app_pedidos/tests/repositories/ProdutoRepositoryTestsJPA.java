@@ -1,4 +1,4 @@
-package com.app_pedidos.tests.controller;
+package com.app_pedidos.tests.repositories;
 
 import java.util.Optional;
 
@@ -14,7 +14,7 @@ import com.app_pedidos.model.repositories.ProdutoRepository;
 import com.app_pedidos.tests.factory.ProdutoFactory;
 
 @DataJpaTest // executa o teste carregando somente os componentes do JPA, para exlcuir para deveria se ro contyroller
-public class ProdutoControllerTestsJPA {
+public class ProdutoRepositoryTestsJPA {
 
 	@Autowired
 	private ProdutoRepository repository;

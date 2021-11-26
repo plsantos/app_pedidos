@@ -41,6 +41,7 @@ export class EditCustomerComponent implements OnInit {
       .subscribe(data =>{
         this.cliente = data;
         this.router.navigate(['customerList'])
+        alert("Alterações salvas com sucesso!");
       })
     }
 }

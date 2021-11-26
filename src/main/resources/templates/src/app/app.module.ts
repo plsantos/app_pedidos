@@ -18,7 +18,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { OrderListComponent } from './order-list/order-list.component';
-import { PedidoComponent } from './pedido/pedido.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
@@ -45,7 +44,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     CustomerListComponent,
     ProductListComponent,
     OrderListComponent,
-    PedidoComponent,
     ItemOrderComponent,
     CustomerFormComponent,
     CadastroProdutoComponent,

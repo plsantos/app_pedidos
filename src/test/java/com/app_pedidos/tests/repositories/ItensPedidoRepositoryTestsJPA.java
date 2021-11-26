@@ -1,4 +1,4 @@
-package com.app_pedidos.tests.controller;
+package com.app_pedidos.tests.repositories;
 
 import com.app_pedidos.model.entity.ItensPedido;
 import com.app_pedidos.model.repositories.ItensPedidoRepository;
@@ -13,7 +13,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import java.util.Optional;
 
 @DataJpaTest
-public class ItensPedidoControllerTestsJPA {
+public class ItensPedidoRepositoryTestsJPA {
 
     @Autowired
     private ItensPedidoRepository repository;

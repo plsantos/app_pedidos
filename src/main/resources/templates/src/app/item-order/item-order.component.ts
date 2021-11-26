@@ -4,6 +4,7 @@ import {
   ItemOrderService,
   CarrinhoItems,
 } from '../services/item-order.service';
+import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-item-order',
@@ -14,6 +15,8 @@ export class ItemOrderComponent implements OnInit {
   listaItensPedido: Carrinho[] = [];
   listProducts: Carrinho[] = [];
   displayedColumns = ['descricao', 'valor', 'status', 'valor-total', 'acoes'];
+  dataSource: any;
+
   constructor(private itemOrder: ItemOrderService) {}
 
   ngOnInit() {
@@ -46,12 +49,5 @@ export class ItemOrderComponent implements OnInit {
 
       this.listaItensPedido = this.listProducts;
     });
-  }
-
-  deleteTicket(rowid: number) {
-    if (rowid > -1) {
-      this.listaItensPedido.splice(rowid, 1);
-      this.listaItensPedido = [...this.listaItensPedido]; // new ref!
-    }
   }
 }
