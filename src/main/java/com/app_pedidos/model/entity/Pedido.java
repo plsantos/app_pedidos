@@ -16,10 +16,22 @@ import java.time.LocalDate;
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     LocalDate data = LocalDate.now();
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    private boolean situacao;
+    private boolean situacao = true;
+    private String rua;
+    private String numero;
+    private String bairro;
+    private String cidade;
+    @JoinColumn(nullable = true)
+    private String estado;
+    private String cep;
+    private double valorTotal;
+	   
+    
+    
+
 }

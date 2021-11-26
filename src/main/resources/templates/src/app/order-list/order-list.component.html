@@ -1,0 +1,53 @@
+<mat-card>
+
+  <mat-toolbar>
+    <span class='title-order-list'>Lista de Pedidos</span>
+  </mat-toolbar>
+<table mat-table [dataSource]="order$" class="mat-elevation-z8">
+
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID</th>
+    <td mat-cell *matCellDef="let order"> {{order.id}} </td>
+  </ng-container>
+
+  <!-- data pedido Column -->
+  <ng-container matColumnDef="data">
+    <th mat-header-cell *matHeaderCellDef> Data Pedido </th>
+    <td mat-cell *matCellDef="let order"> {{order.data}} </td>
+  </ng-container>
+
+  <!-- cliente Column -->
+  <ng-container matColumnDef="cliente">
+    <th mat-header-cell *matHeaderCellDef> Cliente </th>
+    <td mat-cell *matCellDef="let order"> {{order.cliente.nome}} </td>
+  </ng-container>
+
+    <!-- endereco Column -->
+    <ng-container matColumnDef="endereco">
+      <th mat-header-cell *matHeaderCellDef> Endereço </th>
+      <td mat-cell *matCellDef="let order"> Rua: {{order.rua}}, {{order.numero}} - Bairro: {{order.bairro}} <br>
+        Cidade: {{order.cidade}} - {{order.estado}} </td>
+    </ng-container>
+
+
+   <!-- situação Column -->
+   <ng-container matColumnDef="situacao">
+    <th mat-header-cell *matHeaderCellDef> Situação </th>
+    <td mat-cell *matCellDef="let order"> {{order.situacao?'Concluído':'Não Concluído'}} </td>
+  </ng-container>
+
+   <!-- acoes Column -->
+   <ng-container matColumnDef="acoes">
+    <th mat-header-cell *matHeaderCellDef> Ações </th>
+    <td mat-cell *matCellDef="let order">
+      <button mat-raised-button [routerLink]="['/editOrder', order.id]" (click)="editar(order.id)">Editar</button>
+      <button mat-raised-button (click)="deletePedido(order.id)"
+      >Excluir</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</mat-card>

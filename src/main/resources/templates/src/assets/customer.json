@@ -1,0 +1,7 @@
+[
+  { "id": "2", "nome": "André", "tipo": "PF", "documento": "027384848-09", "endereco":"Rua das Couves, 25 - Botafogo - Salvador - Cep:222837-387"},
+  { "id": "3", "nome": "Mara", "tipo": "PJ","documento": "08.723.318/0001-02", "endereco":"Rua das Folhas, 5 - Laranjeiras - São Paulo - Cep:200007-387"},
+  { "id": "4", "nome": "Paulo", "tipo": "PJ","documento": "16.385.165/0001-69", "endereco":"Estrada Nova, 331 - Flamengo - Ceará - Cep:211837-000" },
+  { "id": "10", "nome": "Tenório", "tipo": "PF", "documento": "514201340-94", "endereco":"Avenida Castro neves, 112 - Guanabara - Florianópolis - Cep:003837-090"}
+
+]

@@ -1,0 +1,51 @@
+#carrosel{
+    margin-top: 50px;
+}
+
+#texto-sobre{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align:center;
+}
+
+#missao{
+    margin-top: 10px;
+    border-radius: 1rem;
+}
+
+#valores{
+    margin-top: 10px;
+    border-radius: 1rem;
+}
+
+#missao:hover{
+    padding: 10px;
+    background-color: #C8B8D8;
+    text-decoration: #ffffff;
+}
+
+#valores:hover{
+    padding: 10px;
+    background-color: #C8B8D8;
+}
+
+.carousel-item{transition: transform 2s ease, opacity .5s ease-out}
+
+#catalogo{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #70587C;
+}
+#catalogo-texto{
+    margin-top: 20px;
+    color: #ffff;
+}
+.img-thumbnail{
+    align-self: center;
+}
+.card-text,.card-body{
+    text-align: center;
+}
+.btn{
+    background-color: #c8b8db;
+}

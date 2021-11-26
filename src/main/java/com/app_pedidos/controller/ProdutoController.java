@@ -1,41 +1,70 @@
 package com.app_pedidos.controller;
 
-import com.app_pedidos.model.dto.ProdutoDTO;
-import com.app_pedidos.model.entity.Produto;
-import com.app_pedidos.model.repositories.ProdutoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
+import java.net.URI;
 import java.util.List;
+
+import com.app_pedidos.model.entity.Produto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import com.app_pedidos.model.dto.ProdutoDTO;
+import com.app_pedidos.model.services.ProdutoService;
+
 
 @RestController
 @RequestMapping("/produto")
 public class ProdutoController {
     @Autowired
-    private ProdutoRepository repository;
+    private ProdutoService service;
 
-    @GetMapping
-    public List<ProdutoDTO> findAll(){
-        List<Produto> produtosLista = repository.findAll();
-        return ProdutoDTO.converter(produtosLista);
-    }
 
     @PostMapping
-    public void save(@RequestBody Produto produto){
-        repository.save(produto);
+    public ResponseEntity<ProdutoDTO> insert(@RequestBody ProdutoDTO dto) {
+        dto = service.insert(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(dto.getId()).toUri(); //inserindo e repondendo no cabeçalho de resposta
+        return ResponseEntity.created(uri).body(dto);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id){
-        repository.deleteById(id);
+    @GetMapping
+    public ResponseEntity<List<ProdutoDTO>> findAll() {
+        List<ProdutoDTO> list = service.findAll();
+        return ResponseEntity.ok().body(list);
+
     }
 
-    @PutMapping("/{id}")
-    public void update(@PathVariable Integer id, @RequestBody Produto produto){
-        Produto produtoPesquisado = repository.getOne(id);
-        if (produtoPesquisado != null){
-            produtoPesquisado.setDescricao(produto.getDescricao());
-            repository.save(produtoPesquisado);
-        }
+    @GetMapping(value = "/pageable")
+    public ResponseEntity<Page<Produto>> list(Pageable pageable) {
+        return ResponseEntity.ok(service.listAll(pageable));
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<ProdutoDTO> findById(@PathVariable Long id) {
+        ProdutoDTO dto = service.findById(id);
+
+        return ResponseEntity.ok().body(dto);//resposta 200 ou seja foi com sucesso
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ProdutoDTO> update(@PathVariable Long id, @RequestBody ProdutoDTO dto) {
+        dto = service.update(id, dto);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
