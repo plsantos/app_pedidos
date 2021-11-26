@@ -122,7 +122,13 @@
         <button mat-raised-button (click)="atualizar()" class="btn">
           Salvar
         </button>
-        <button mat-raised-button>Cancelar</button>
+        <button
+          mat-raised-button
+          [routerLink]="['/home']"
+          routerLinkActive="router-link-active"
+        >
+          Cancelar
+        </button>
       </form>
     </mat-card>
   </mat-card>

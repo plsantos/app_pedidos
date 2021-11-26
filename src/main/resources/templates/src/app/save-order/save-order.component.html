@@ -15,7 +15,7 @@
             ng-model="cliente"
           >
             <option *ngFor="let clientes of cliente$" value="{{ clientes.id }}">
-              Nome: {{ clientes.nome }}
+              {{ clientes.nome }}
             </option>
           </select>
         </div>
