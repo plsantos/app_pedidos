@@ -42,7 +42,7 @@
     <ng-container matColumnDef="situacao">
       <th mat-header-cell *matHeaderCellDef>Situação</th>
       <td mat-cell *matCellDef="let order">
-        {{ order.situacao ? "Concluído" : "Não Concluído" }}
+        {{ order.situacao ? "Não Concluído" : "Concluído" }}
       </td>
     </ng-container>
 
@@ -51,6 +51,7 @@
       <th mat-header-cell *matHeaderCellDef>Ações</th>
       <td mat-cell *matCellDef="let order">
         <button
+          *ngIf="order.situacao == true"
           mat-raised-button
           [routerLink]="['/editOrder', order.id]"
           (click)="editar(order.id)"
