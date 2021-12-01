@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Produto } from '../model/produto';
 import { ProductService } from '../services/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-product',
@@ -14,7 +15,11 @@ export class EditProductComponent implements OnInit {
 
   produto: Produto = new Produto();
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   status = ['True', 'False'];
 
@@ -36,7 +41,7 @@ export class EditProductComponent implements OnInit {
     this.productService.editProduto(this.produto).subscribe((data) => {
       this.produto = data;
       this.router.navigate(['productList']);
-      alert('Produto atualizado com sucesso!!');
+      this.toastr.success('Produto atualizado com sucesso!!');
     });
   }
 }

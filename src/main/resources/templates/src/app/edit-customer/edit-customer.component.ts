@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from './../services/customer.service';
 import { Router } from '@angular/router';
 import { Cliente } from '../model/cliente';
-import { EnderecoService } from './../services/endereco.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-customer',
@@ -16,7 +16,8 @@ export class EditCustomerComponent implements OnInit {
 
   constructor(
     private customerService: CustomerService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class EditCustomerComponent implements OnInit {
     this.customerService.editCliente(this.cliente).subscribe((data) => {
       this.cliente = data;
       this.router.navigate(['customerList']);
-      alert('Alterações salvas com sucesso!');
+      this.toastr.success('Cliente atualizado com sucesso!!');
     });
   }
 }
