@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Pedido } from '../model/pedido';
 import { Cliente } from '../model/cliente';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-order',
@@ -20,7 +21,8 @@ export class EditOrderComponent implements OnInit {
   constructor(
     private orderService: OrderService,
     private router: Router,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class EditOrderComponent implements OnInit {
     this.orderService.editPedido(this.pedido).subscribe((data) => {
       this.pedido = data;
       this.router.navigate(['orderList']);
+      this.toastr.success('Pedido atualizado com sucesso!!');
     });
   }
 
@@ -58,7 +61,7 @@ export class EditOrderComponent implements OnInit {
           .subscribe((dados) => this.populaForm(dados, formGroup));
       } else {
         //cep é inválido.
-        alert(
+        this.toastr.error(
           'Formato de CEP inválido!\nPor favor digite um cep com 9 dígitos numéricos.'
         );
       }

@@ -33,6 +33,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ReactiveFormsModule,
     CommonModule,
     MatSlideToggleModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
