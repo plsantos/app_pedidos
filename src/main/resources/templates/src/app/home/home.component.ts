@@ -5,6 +5,7 @@ import { Produto } from '../model/produto';
 import { ItemOrderService } from './../services/item-order.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
     private productService: ProductService,
     private itemOrderService: ItemOrderService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   inserirCarrinho(product: Produto): void {
     this.itemOrderService.addCarrinho(product);
-    alert('Item adicionado ao carrinho');
+    this.toastr.success('Item adicionado ao carrinho');
   }
 
   getTotalPaginas(): Observable<any> {

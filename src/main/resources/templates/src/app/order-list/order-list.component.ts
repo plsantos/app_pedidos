@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pedido } from '../model/pedido';
 import { OrderService } from './../services/order.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-order-list',
@@ -20,7 +21,10 @@ export class OrderListComponent implements OnInit {
     'acoes',
   ];
 
-  constructor(private orderService: OrderService) {}
+  constructor(
+    private orderService: OrderService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.buscarPedido();

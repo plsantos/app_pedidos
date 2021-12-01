@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../model/cliente';
 import { CustomerService } from './../services/customer.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer-list',
@@ -11,9 +12,10 @@ export class CustomerListComponent implements OnInit {
   cliente$: Cliente[] = [];
   displayedColumns = ['id', 'nome', 'tipo', 'documento', 'acoes'];
 
-  constructor(private customerService: CustomerService) {
-    //this.customer$ = this.customerService.findAll();
-  }
+  constructor(
+    private customerService: CustomerService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.buscarCliente();
@@ -30,9 +32,10 @@ export class CustomerListComponent implements OnInit {
     this.customerService.deleteCliente(id).subscribe({
       next: (data) => {
         this.buscarCliente();
+        this.toastr.success('Cliente deletado com sucesso!');
       },
       error: (e) => {
-        alert(
+        this.toastr.error(
           'Este cliente não pode ser deletado, pois está associado a algum pedido!'
         );
       },

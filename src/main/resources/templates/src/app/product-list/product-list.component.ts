@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Produto } from '../model/produto';
 import { ProductService } from './../services/product.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -19,7 +20,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private router: Router,
-    private service: ProductService
+    private service: ProductService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -36,9 +38,10 @@ export class ProductListComponent implements OnInit {
     this.productService.deleteProduto(id).subscribe({
       next: (data) => {
         this.buscarProduto();
+        this.toastr.success('Produto deletado com sucesso!');
       },
       error: (e) => {
-        alert(
+        this.toastr.error(
           'Este produto não pode ser deletado, pois está associado a algum pedido!'
         );
       },
